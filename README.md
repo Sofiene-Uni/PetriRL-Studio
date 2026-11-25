@@ -41,8 +41,7 @@ tests/      engine and API tests
 ## Credit and citation
 
 Developed by **Sofiene Lassoued** during his PhD at **South Westphalia University of Applied Sciences
-(Fachhochschule Südwestfalen, FH SWF)**. You are welcome to use, modify and share it; please keep this credit
-and cite the PetriRL paper when the app or its results appear in scientific work:
+(Fachhochschule Südwestfalen, FH SWF)**.
 
 ```bibtex
 @article{lassoued2024petrirl,
