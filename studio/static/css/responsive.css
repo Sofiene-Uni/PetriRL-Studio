@@ -1,0 +1,23 @@
+/* Small screens and reduced motion (loaded last) */
+@media (max-width: 1100px) {
+  .hero, .setup-grid, .train-grid { grid-template-columns: 1fr; }
+  .player-body { grid-template-columns: 1fr; }
+  .inspector { border-left: 0; border-top: 1px solid var(--graphite-3); max-height: 360px; }
+  .net-stage { height: 480px; }
+}
+@media (max-width: 720px) {
+  main { padding: 18px 14px 80px; }
+  .topbar { padding: 0 14px; }
+  .brand span { display: none; }
+  .doors, .env-cards { grid-template-columns: 1fr; }
+  .env-chip { display: none; }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .kpi { border-left: 0; border-top: 1px solid var(--line-2); }
+  .dash-stats { grid-template-columns: 1fr 1fr; }
+  .run-head { grid-template-columns: 1fr; }
+  .transport { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

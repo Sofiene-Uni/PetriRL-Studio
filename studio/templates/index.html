@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{# Single page app: the views are rendered by static/js/views/*, routed in static/js/main.js #}
+{% block scripts %}
+<script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

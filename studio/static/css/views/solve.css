@@ -1,0 +1,22 @@
+/* Solve: setup grid, run bar, results */
+
+.runbar {
+  position: sticky; bottom: 16px; z-index: 20; margin-top: 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: var(--ink); color: #fff; border-radius: 14px; padding: 12px 14px 12px 22px;
+  box-shadow: 0 18px 40px -18px rgba(30,34,41,.6);
+}
+.runbar .summary { color: #C9D0DA; }
+.runbar .summary b { color: #fff; font-weight: 600; }
+.runbar .opts { display: flex; align-items: center; gap: 16px; }
+.runbar .switch { color: #C9D0DA; font-size: 13px; }
+.runbar .switch input { background: var(--graphite-3); }
+.runbar .switch input:checked { background: var(--blue); }
+.results { margin-top: 22px; }
+.setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.setup-col { min-width: 0; }
+.label-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.label-row .field-label { margin-bottom: 0; }
+.label-row .seg button { padding: 3px 10px; font-size: 12px; }
+.upload-env { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 12.5px; color: var(--ink-3); flex-wrap: wrap; }
+.env-select { height: 28px; padding: 0 8px; border-radius: 6px; border: 1px solid var(--line); background: #fff; font-size: 12.5px; color: var(--ink); }
