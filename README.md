@@ -15,7 +15,7 @@ reinforcement learning agents that schedule job shops on a colored timed Petri n
 - **Environments**: dispatching (one action releases one job, optional wait) and hyper-heuristic (one action picks one
   of 14 dispatching rules for the next k decisions).
 
-![Replay with the policy network, confidence and decisions](assets/replay-policy.gif)
+![Replay with the policy network, confidence and decisions](assets/replay-overview.gif)
 
 ## Quick start
 
