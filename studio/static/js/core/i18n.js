@@ -1,16 +1,12 @@
 // Two languages. The English text is the key: t("Solve an instance") returns the German translation from
 // studio/i18n/de/*.json (one file per page) or the English text when there is none.
-// Variables: t("Solve {n} selected", { n: 3 }). The language is saved in the browser; switching reloads the page.
-const KEY = "petrirl.lang";
+// Variables: t("Solve {n} selected", { n: 3 }). The language is part of the address (/de/...); nothing is stored.
 export const LANGS = [["en", "EN"], ["de", "DE"]];
 let dict = {};
 
 export function lang() {
-  try {
-    const saved = localStorage.getItem(KEY);
-    if (saved === "en" || saved === "de") return saved;
-  } catch { /* private mode */ }
-  return (navigator.language || "en").toLowerCase().startsWith("de") ? "de" : "en";
+  const fromUrl = document.documentElement.dataset.lang;   // set by the server from the address: / or /de/
+  return fromUrl === "de" ? "de" : "en";
 }
 
 export async function loadLanguage() {
@@ -26,8 +22,10 @@ export function t(text, vars) {
 }
 
 export function setLang(code) {
-  try { localStorage.setItem(KEY, code); } catch { /* private mode */ }
-  location.reload();
+  // every page has an address per language: /about <-> /de/about, /#/solve <-> /de/#/solve
+  const page = document.documentElement.dataset.page || "home";
+  const prefix = code === "en" ? "" : `/${code}`;
+  location.href = `${prefix}/${page === "home" ? "" : page}${location.hash}`;
 }
 
 // server-rendered parts (top bar, footer): <a data-t>Solve</a> gets its translation

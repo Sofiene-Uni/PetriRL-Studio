@@ -11,7 +11,7 @@ const WAIT = { get on() { return t("wait always"); }, get gt() { return t("wait 
 
 export function instancePicker(selected, onChange) {
   const item = (i) => ({
-    id: i.id, label: i.name, badge: `${i.n_jobs}×${i.n_machines}`, removable: i.source !== "benchmark",
+    id: i.id, label: i.name, badge: `${i.n_jobs}×${i.n_machines}`, removable: !state.public && i.source !== "benchmark",
     meta: (i.matches ? `same as ${i.matches.split(":")[1]}, ` : "") + refText(i.reference),
     search: `${i.family_name || ""} ${i.original_name || ""}`,
   });
@@ -45,7 +45,7 @@ function sizes(list) {
 
 // instances(): the instances selected elsewhere, to tag each agent with whether it fits their size.
 // RL agents are those of the environment chosen at the top of the app; rules and metaheuristics work in any.
-export const anySize = (a) => a.kind === "rule" || a.kind === "meta" || a.kind === "solution";
+export const anySize = (a) => a.kind === "rule" || a.kind === "meta";
 const SOURCE = { stock: "stock", trained: "trained here", uploaded: "uploaded" };   // translated where shown
 
 export function agentPicker(selected, onChange, instances) {
@@ -53,7 +53,7 @@ export function agentPicker(selected, onChange, instances) {
     if (a.kind === "solution") {
       const insts = instances(), n = insts.filter((i) => i.known_solution).length;
       if (!insts.length) return { tag: t("stored ones") };
-      return n === insts.length ? { tag: n > 1 ? t("stored for all {n}", { n }) : t("stored"), tagKind: "green" }
+      return n === insts.length ? { tag: t("stored"), tagKind: "green" }
         : n ? { tag: t("stored for {n} of {total}", { n, total: insts.length }), tagKind: "amber" } : { tag: t("none stored"), tagKind: "red", muted: true };
     }
     if (anySize(a)) return { tag: t("any size") };
@@ -70,7 +70,7 @@ export function agentPicker(selected, onChange, instances) {
     a.trained_on?.length ? t("on {list}", { list: a.trained_on.join(", ") }) : null].filter(Boolean).join(", ");
   const item = (a) => ({
     id: a.id, label: t(a.name), meta: anySize(a) ? t(a.description) : meta(a), badge: anySize(a) ? null : `${a.n_jobs}×${a.n_machines}`,
-    removable: a.source === "trained" || a.source === "uploaded", ...fit(a),
+    removable: !state.public && (a.source === "trained" || a.source === "uploaded"), ...fit(a),
   });
   const groups = () => {
     const env = envOf(state.env);
@@ -79,7 +79,7 @@ export function agentPicker(selected, onChange, instances) {
       { title: t("RL agents"), meta: t("PPO agents for the {env} environment", { env: t(env.title) }), items: rl.map(item) },
       { title: t("Dispatching rules"), meta: t("one rule decides every step"), items: state.agents.filter((a) => a.kind === "rule").map(item) },
       { title: t("Metaheuristics"), meta: t("search a job priority, then dispatch with it"), items: state.agents.filter((a) => a.kind === "meta").map(item) },
-      { title: t("Known solutions"), meta: t("replay stored best known solutions (Benchmarks page)"), items: state.agents.filter((a) => a.kind === "solution").map(item) },
+      { title: t("Stored solutions"), meta: t("replay a solution shipped with the app"), items: state.agents.filter((a) => a.kind === "solution").map(item) },
     ];
   };
   return multiSelect({

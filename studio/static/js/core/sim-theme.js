@@ -1,4 +1,5 @@
-// Light / dark theme of the app and of the simulation (Petri net, Gantt, policy view). Saved in the browser.
+// Light / dark theme of the app and of the simulation (Petri net, Gantt, policy view). Starts from the device setting;
+// a switch holds until the page is reloaded (nothing is stored).
 // CSS: base.css :root[data-theme="dark"] for the app, .sim / .sim.theme-light in css/views/run.css for the replays.
 import { h } from "./dom.js";
 import { t } from "./i18n.js";
@@ -21,16 +22,13 @@ export const SIM_THEMES = {
 };
 
 // One theme for the whole app: <html data-theme> drives the CSS variables, simthemechange tells the SVG views.
-const KEY = "petrirl.theme";
-
 export function simThemeName() {
-  try { return localStorage.getItem(KEY) === "dark" ? "dark" : "light"; } catch { return "light"; }
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }
 
 export const simPalette = () => SIM_THEMES[simThemeName()];
 
 export function setSimTheme(name) {
-  try { localStorage.setItem(KEY, name); } catch { /* private mode */ }
   document.documentElement.dataset.theme = name;
   document.dispatchEvent(new CustomEvent("simthemechange", { detail: name }));
 }

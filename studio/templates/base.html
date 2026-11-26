@@ -1,20 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ lang or 'en' }}"{% if page %} data-page="{{ page }}" data-lang="{{ lang }}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}PetriRL Studio{% endblock %}</title>
-  <script>try { document.documentElement.dataset.theme = localStorage.getItem("petrirl.theme") === "dark" ? "dark" : "light"; } catch (e) {}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  {% for sheet in ["base", "layout", "components", "views/home", "views/benchmarks", "views/solve", "views/run", "views/train", "responsive"] %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/' ~ sheet ~ '.css') }}">
+  <title>{{ title or "PetriRL Studio" }}</title>
+  {% if description %}
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  {% for code, url in alternates.items() %}<link rel="alternate" hreflang="{{ code }}" href="{{ url }}">
+  {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ alternates['en'] }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PetriRL">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ config.SITE_URL }}{{ url_for('static', filename='og.png') }}">
+  <meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_US' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PetriRL Studio",
+    "applicationCategory": "BusinessApplication", "operatingSystem": "Web browser", "url": "{{ config.SITE_URL }}/",
+    "description": {{ description|tojson }}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+    "author": {"@type": "Person", "name": "Sofiene Lassoued", "url": "https://sofiene.lassoued.org"}}</script>
+  {% endif %}
+  <script>document.documentElement.dataset.theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";</script>
+  {% for sheet in ["fonts", "base", "layout", "components", "views/home", "views/benchmarks", "views/solve", "views/run", "views/train", "responsive"] %}
+  <link rel="stylesheet" href="{{ asset('css/' ~ sheet ~ '.css') }}">
   {% endfor %}
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='9' cy='16' r='7' fill='none' stroke='%231E2229' stroke-width='3'/><rect x='19' y='6' width='4' height='20' rx='1' fill='%232F5BEA'/><circle cx='9' cy='16' r='2.5' fill='%23F2A93B'/></svg>">
   {% block head %}{% endblock %}
 </head>
-<body>
+<body{% if public %} data-public="1"{% endif %}>
   {% include "partials/topbar.html" %}
 
   <main id="view" tabindex="-1">{% block content %}{% endblock %}</main>

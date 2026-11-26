@@ -1,0 +1,28 @@
+{# Datenschutz und Anbieter. Name, Anschrift und E-Mail kommen aus den Servereinstellungen (PETRIRL_OPERATOR_*). #}
+<h1>Datenschutz</h1>
+
+<h2>Anbieter und Verantwortlicher</h2>
+<p>{{ config.OPERATOR_NAME }}<br>
+  {{ config.OPERATOR_ADDRESS or "Anschrift folgt" }}<br>
+  E-Mail: {% if config.OPERATOR_EMAIL %}<a href="mailto:{{ config.OPERATOR_EMAIL }}">{{ config.OPERATOR_EMAIL }}</a>{% else %}folgt{% endif %}</p>
+
+<h2>Was gespeichert wird</h2>
+<p>Nichts über Sie. Es gibt keine Cookies, kein Tracking und keine Konten, und in Ihrem Browser wird nichts gespeichert.
+  Der Besuchszähler speichert nur eine Gesamtzahl.</p>
+
+<h2>Aufruf der Website</h2>
+<p>Ihr Browser sendet beim Aufruf technisch notwendige Daten, darunter Ihre IP-Adresse. Sie werden nur verwendet,
+  um die Seite auszuliefern, und nicht gespeichert (Art. 6 Abs. 1 lit. f DSGVO). Der Server steht in Deutschland;
+  der Datenverkehr läuft über einen gemieteten Server der netcup GmbH, Karlsruhe (Auftragsverarbeitung).</p>
+
+<h2>Hochgeladene Daten</h2>
+<p>Instanzen, Ergebnisse und trainierte Agenten werden nur für die Berechnung verwendet und nach spätestens
+  24 Stunden gelöscht. Bis dahin sind sie für andere Besucher sichtbar. Bitte laden Sie keine personenbezogenen
+  Daten hoch.</p>
+
+<h2>Ihre Rechte</h2>
+<p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch (Art. 15 bis 21 DSGVO)
+  sowie auf Beschwerde bei einer Aufsichtsbehörde, zum Beispiel der Landesbeauftragten für Datenschutz und
+  Informationsfreiheit Nordrhein-Westfalen.</p>
+
+<p class="muted">Stand: November 2026</p>

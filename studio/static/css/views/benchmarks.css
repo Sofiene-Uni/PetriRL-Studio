@@ -24,3 +24,4 @@ tr.group-row td { background: var(--row-band); font-size: 13px; padding: 7px 14p
 tr.group-row .ms-bulk { margin-left: 10px; }
 .best-link { color: inherit; text-decoration: none; white-space: nowrap; }
 .best-link:hover b { color: var(--blue); }
+.bk-input { width: 110px; padding: 4px 8px; text-align: right; }

@@ -113,7 +113,7 @@ export class PolicyView {
       }
     });
     for (const [bar, w] of bars) {
-      if (anim) bar.animate([{ width: 0 }, { width: w }], { duration: 380, delay: edgeSets.length * 110, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" });
+      if (anim) bar.animate([{ width: "0px" }, { width: `${w}px` }], { duration: 380, delay: edgeSets.length * 110, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" });
       bar.setAttribute("width", w);
     }
   }

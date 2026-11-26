@@ -3,7 +3,8 @@ Copyright 2026 Sofiene Lassoued and South Westphalia University of Applied Scien
 (Fachhochschule Suedwestfalen, FH SWF)
 
 Developed by Sofiene Lassoued during his PhD at FH SWF, as part of the PetriRL framework
-(https://github.com/Sofiene-Uni/PetriRL-Framework).
+(https://github.com/Sofiene-Uni/PetriRL-Framework). The engine (Petri net, simulator, environments)
+is adapted from the author's own PetriRL code.
 
 License: PolyForm Noncommercial 1.0.0 (see LICENSE). Free for noncommercial use; keep this
 notice (credit to the author and FH SWF) in copies and derived work, and cite the PetriRL
@@ -14,10 +15,38 @@ paper when the software or results obtained with it appear in scientific work:
   Journal of Manufacturing Systems 74 (2024) 690-702.
   https://doi.org/10.1016/j.jmsy.2024.04.028
 
-For commercial use, the solution is for sale or open to cooperation: https://sofiene.lassoued.org
+For more information: https://sofiene.lassoued.org
 
 ------------------------------------------------------------------------------
-Third-party content
+Third-party software (installed with pip, not copied into this repository)
+
+All allow commercial use. Their license notices are included in the installed packages.
+
+  Flask, Werkzeug, Jinja2, MarkupSafe, itsdangerous, click   BSD-3-Clause
+  blinker                                                    MIT
+  NumPy                                                      BSD-3-Clause (bundled parts: 0BSD, MIT, Zlib, CC0-1.0)
+  PyTorch (CPU build)                                        BSD-3-Clause
+    filelock, setuptools (MIT); sympy, mpmath, networkx, fsspec (BSD); typing-extensions (PSF-2.0)
+  Gymnasium, Farama-Notifications                            MIT
+  cloudpickle                                                BSD-3-Clause
+  Stable-Baselines3, sb3-contrib                             MIT
+  gunicorn (Docker only)                                     MIT
+  pytest (tests only)                                        MIT
+
+Install the CPU build of PyTorch (https://download.pytorch.org/whl/cpu), as the Dockerfile does.
+The default Linux build of PyTorch also installs NVIDIA CUDA libraries under NVIDIA's proprietary
+license; this app does not need them.
+
+Docker base image: python:3.12-slim (Python: PSF-2.0; Debian packages under their own free licenses,
+with sources available from Debian).
+
+Fonts: Instrument Sans (Copyright 2022 The Instrument Sans Project Authors) and JetBrains Mono
+(Copyright 2020 The JetBrains Mono Project Authors), SIL Open Font License 1.1, commercial use allowed.
+Served by the app from studio/static/fonts (Latin subset from Fontsource); the license texts are
+studio/static/fonts/OFL-*.txt. No font or other file is loaded from an external server.
+
+------------------------------------------------------------------------------
+Data
 
 stock/benchmarks/  Job shop benchmark instances (Fisher and Thompson 1963, Lawrence 1984,
   Adams, Balas and Zawack 1988, Applegate and Cook 1991, Storer, Wu and Vaccari 1992,
@@ -26,8 +55,8 @@ stock/benchmarks/  Job shop benchmark instances (Fisher and Thompson 1963, Lawre
   https://github.com/thomasWeise/jsspInstancesAndResults (GPL-3.0, see
   stock/benchmarks/LICENSE-GPL-3.0.txt).
 
-Fonts (Instrument Sans, JetBrains Mono) are loaded from Google Fonts (SIL Open Font License).
+stock/solutions/jssp_ta01.json  The best known solution of ta01 from optimizizer.com (O. Shylo,
+  https://optimizizer.com/TA.php). That site states no license: remove this file, or get written
+  permission, before any commercial use. Every replay of it cites the source.
 
-Best known solutions of the Taillard instances are not distributed with this software: the app downloads them on
-request from optimizizer.com (maintained by Oleg Shylo, https://optimizizer.com/TA.php), checks them by replaying
-them on the Petri net, stores them in the data folder and cites the page with every replay.
+Stock agents (stock/agents) and the home page demo were trained and recorded by the author.

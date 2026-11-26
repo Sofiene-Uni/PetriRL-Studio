@@ -52,7 +52,7 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True, params=Non
         agent = agents.get(agent_id)
     if solution is None and not agents.compatible(agent, inst_rec):
         if agent["kind"] == "solution":
-            raise ValueError(f"no best known solution is stored for '{inst_rec['name']}'")
+            raise ValueError(f"no solution is stored for '{inst_rec['name']}'")
         raise ValueError(f"agent '{agent['name']}' was trained for {agent['n_jobs']}x{agent['n_machines']}, "
                          f"instance '{inst_rec['name']}' is {inst_rec['n_jobs']}x{inst_rec['n_machines']}")
     inst = instances.load(instance_id)
@@ -100,14 +100,14 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True, params=Non
     rng = make_rng(seed)
     t0, done, terminated = time.perf_counter(), False, False
     meta_choose = None
-    if agent["kind"] == "solution":       # replay a known or uploaded solution
+    if agent["kind"] == "solution":       # replay an uploaded or a stored solution
         jobs = [[(m, p) for m, _, p in job] for job in inst.job_sequences]
         if solution is not None:
             kind, data = parse(solution["text"], jobs, inst.n_machines)
         else:
             stored = known_solutions.get(instance_id)
             kind, data = "machines", stored["orders"]
-            agent = {**agent, "citation": stored.get("citation"), "url": stored.get("url"), "source": stored.get("source")}
+            agent = {**agent, "citation": stored.get("citation"), "url": stored.get("url")}
         meta_choose = (turn_choice(sequence_from_machine_orders(data, jobs), jobs) if kind == "machines"
                        else firing_choice(data))
         agent["format"] = "machine orders" if kind == "machines" else "firing sequence"
@@ -197,6 +197,17 @@ def _read_index():
         return [json.loads(line) for line in f if line.strip()]
 
 
+def drop_missing():
+    """Rewrites the index without runs whose file was deleted."""
+    path = _index_path()
+    if not os.path.exists(path):
+        return
+    folder = storage.path(FOLDER)
+    kept = [s for s in _read_index() if os.path.exists(os.path.join(folder, f"{storage.slug(s['id'])}.json"))]
+    with open(path, "w") as f:
+        f.writelines(json.dumps(s, separators=(",", ":")) + "\n" for s in kept)
+
+
 def get(rid):
     f = storage.path(FOLDER, f"{storage.slug(rid)}.json")
     if not os.path.exists(f):
@@ -209,7 +220,7 @@ def list_recent(limit=100):
 
 
 def best_by_instance():
-    """instance id -> the finished run with the smallest makespan (replays of known solutions do not count)."""
+    """instance id -> the finished run with the smallest makespan (replays of stored or uploaded solutions do not count)."""
     best = {}
     for s in _read_index():
         iid = s["instance"]["id"]

@@ -1,5 +1,5 @@
 """JSON API under /api. Each resource is its own blueprint, registered below."""
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify
 
 from engine.core import STANDBY_MODES
 from engine.envs import ENVS
@@ -41,5 +41,5 @@ def visit_counts():
 
 @api_bp.post("/visits")
 def count_visit():
-    """Called once per browser session with the browser's own random id."""
-    return jsonify(visitors.visit(request.get_json(force=True).get("id", "")))
+    """Called when a visitor arrives from outside the site."""
+    return jsonify(visitors.visit())

@@ -1,8 +1,6 @@
-"""Visitor counter, kept in DATA_DIR (in Docker: the studio-data volume, so it survives image rebuilds).
+"""Visit counter, kept in DATA_DIR (in Docker: the host data folder, so it survives image rebuilds).
 
-visits: one per browser session; visitors: distinct browsers. A browser sends a random id it keeps itself;
-only a hash of it is stored (no IP address, no cookie set by the server)."""
-import hashlib
+Only a number is stored: no IP address, no id, no cookie and nothing kept in the browser."""
 import os
 import threading
 
@@ -14,22 +12,17 @@ _lock = threading.Lock()
 
 def _load():
     file = storage.path(FILE)
-    return storage.read_json(file) if os.path.exists(file) else {"visits": 0, "ids": []}
+    return storage.read_json(file) if os.path.exists(file) else {"visits": 0}
 
 
 def counts():
     with _lock:
-        d = _load()
-    return {"visits": d["visits"], "visitors": len(d["ids"])}
+        return {"visits": _load()["visits"]}
 
 
-def visit(browser_id):
-    """Counts one visit; a new browser id also counts as a new visitor."""
-    key = hashlib.sha256(str(browser_id)[:64].encode()).hexdigest()[:16]
+def visit():
+    """Counts one visit."""
     with _lock:
-        d = _load()
-        d["visits"] += 1
-        if key not in d["ids"]:
-            d["ids"].append(key)
+        d = {"visits": _load()["visits"] + 1}
         storage.write_json(storage.path(FILE), d)
-    return {"visits": d["visits"], "visitors": len(d["ids"])}
+    return d

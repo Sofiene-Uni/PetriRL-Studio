@@ -23,20 +23,20 @@ Built for small and medium-sized manufacturers.
   - Hyper-heuristic: one action picks one of 14 dispatching rules for the next k decisions.
 - **Plan**: interactive Gantt chart with job routes and critical path, export as CSV, PNG or SVG.
 - **Replay** every run on the Petri net, with enabled and masked actions, the agent's probabilities and confidence.
-- **Solutions**: upload your own (machine orders or a firing sequence) or replay the best known Taillard solutions
-  from [optimizizer.com](https://optimizizer.com/TA.php) (Oleg Shylo). Each one is fetched once and stored;
-  `python tools/fetch_known_solutions.py` ships all of them with the app.
-- **Benchmarks** page: every family with its proven lower bound and best known solution.
+- **Solutions**: upload your own (machine orders or a firing sequence) and replay it; every run exports both formats.
+- **Benchmarks**: every family with its lower bound, best known solution and status; you can enter your own best
+  known value per instance. ta01 has a stored solution to replay (from optimizizer.com, cited).
 - **English and German** (EN | DE), light and dark theme. Technology, About and Contact are plain HTML templates,
   see [MAINTAINING.md](MAINTAINING.md).
 
-![Replay with the policy network, confidence and decisions](assets/replay-policy.gif)
+![Replay with the policy network, confidence and decisions](docs/images/replay-policy.gif)
 
 ## Quick start
 
 ```bash
 git clone https://github.com/Sofiene-Uni/PetriRL-Studio.git
 cd PetriRL-Studio
+pip install torch --index-url https://download.pytorch.org/whl/cpu   # CPU build, without NVIDIA's CUDA libraries
 pip install -r requirements.txt
 python run.py          # http://localhost:5000
 ```
@@ -58,9 +58,18 @@ data/
   instances/    uploaded and generated instances
   agents/       trained and uploaded agents (.zip + .json)
   runs/         solved runs (plans, replays) + index.jsonl
-  solutions/    best known solutions, fetched once
+  reference_overrides.json  best known values you entered
   visitors.json visit count
 ```
+
+**Public demo** (`PETRIRL_PUBLIC=1`): no agent uploads, nothing can be changed or deleted by visitors, and what
+visitors leave (instances, runs, trained agents) is deleted at every start and after 24 hours. Nothing is stored in
+the browser. The privacy page (`/privacy`, `/de/privacy`) shows the operator from `PETRIRL_OPERATOR_NAME`,
+`PETRIRL_OPERATOR_ADDRESS` and `PETRIRL_OPERATOR_EMAIL`, set on the server so the address stays out of the repo.
+
+**From a NAS share** (`deploy/`): `petrirl-deploy` copies the app from the share to the server and rebuilds the
+container; `petrirl-deploy.service` runs it at every boot. Settings (paths, port, secret key, operator) are in
+`/etc/default/petrirl-studio`.
 
 The container uses one CPU core. Solving and training wait in one line: one job computes at a time and the others
 see their place ("Sorry, the server is busy. You are 2nd in line."). Change this in `docker-compose.yml`
@@ -72,8 +81,8 @@ to run Docker.
 ```
 engine/     Petri net, simulator, gym environments, rules, metaheuristics, imitation (no web dependency)
 studio/     Flask app: blueprints (pages, /api), services, templates, i18n (German texts), static (JS, CSS)
-stock/      benchmark instances, pretrained demo agents, shipped solutions
-tools/      stock agent training, benchmark import, solution download, front-end checks
+stock/      benchmark instances, pretrained demo agents, stored solution (ta01)
+tools/      stock agent training, home demo export, front-end checks
 tests/      engine and API tests
 ```
 
@@ -88,8 +97,13 @@ tests/      engine and API tests
 
 ## License and citation
 
-Free for noncommercial use under the [PolyForm Noncommercial License 1.0.0](LICENSE). For commercial use, the
-solution is for sale or open to cooperation: [sofiene.lassoued.org](https://sofiene.lassoued.org).
+Free for noncommercial use (research, teaching, study, personal projects) under the
+[PolyForm Noncommercial License 1.0.0](LICENSE). Any other use needs written permission:
+[sofiene.lassoued.org](https://sofiene.lassoued.org). Third-party software, data and their licenses are listed in
+[NOTICE](NOTICE).
+
+Contributions are welcome. By opening a pull request you agree that the authors may also license your contribution
+under other terms.
 
 Please cite the PetriRL paper when the app or its results appear in scientific work:
 

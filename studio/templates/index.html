@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {# Single page app: the views are rendered by static/js/views/*, routed in static/js/main.js #}
+{# The content pages come with their text in the HTML (for search engines); the app then renders its views. #}
+{% block content %}
+{% if page == "home" %}<section class="hero ssr" data-ssr="home"><div class="hero-text">{% include content %}</div></section>
+{% elif page %}<div class="content-page" data-ssr="{{ page }}">{% include content %}</div>{% endif %}
+{% endblock %}
+
 {% block scripts %}
-<script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script type="module" src="{{ asset('js/main.js') }}"></script>
 {% endblock %}

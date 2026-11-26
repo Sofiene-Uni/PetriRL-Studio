@@ -4,13 +4,18 @@ services:
     image: petrirl-studio
     container_name: petrirl-studio
     ports:
-      - "5000:5000"
+      - "${PETRIRL_PORT:-5000}:5000"   # host port: set PETRIRL_PORT to change it
     volumes:
       # a folder of the server: instances, agents, runs, solutions, visitor count. It survives every rebuild and
       # keeps the container small. Default ./data (the same folder run.py uses); set PETRIRL_DATA_PATH to move it.
       - ${PETRIRL_DATA_PATH:-./data}:/data
     environment:
-      SECRET_KEY: change-me
+      SECRET_KEY: ${PETRIRL_SECRET_KEY:-change-me}
+      PETRIRL_PUBLIC: ${PETRIRL_PUBLIC:-0}  # 1 = public demo: no agent uploads, no deleting or changing
+      PETRIRL_SITE_URL: ${PETRIRL_SITE_URL:-https://petrirl.de}          # canonical links and sitemap
+      PETRIRL_OPERATOR_NAME: ${PETRIRL_OPERATOR_NAME:-Sofiene Lassoued}   # privacy page: who runs the site
+      PETRIRL_OPERATOR_ADDRESS: ${PETRIRL_OPERATOR_ADDRESS:-}
+      PETRIRL_OPERATOR_EMAIL: ${PETRIRL_OPERATOR_EMAIL:-}
       PETRIRL_COMPUTE_SLOTS: 1        # jobs (solve or train) computing at the same time
       PETRIRL_QUEUE_MAX: 20           # jobs allowed to wait in line, more are refused
       OMP_NUM_THREADS: 1              # PyTorch and NumPy use one thread

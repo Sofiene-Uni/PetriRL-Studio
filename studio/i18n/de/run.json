@@ -47,9 +47,7 @@
   "Episode truncated before the end": "Episode vor dem Ende abgebrochen",
   "Greedy actions": "Gierige Aktionen",
   "Sampled actions": "Gezogene Aktionen",
-  "Solution file": "Lösungsdatei",
   "Plan CSV": "Plan CSV",
-  "One row per machine: the job order (as on optimizizer.com)": "Eine Zeile je Maschine: die Auftragsreihenfolge (wie auf optimizizer.com)",
   "Machine orders": "Maschinenreihenfolgen",
   "The jobs in release order, w = the agent waited": "Die Aufträge in Freigabereihenfolge, w = der Agent hat gewartet",
   "Firing sequence": "Schaltfolge",
@@ -89,5 +87,7 @@
   "This episode was truncated: the agent kept choosing actions that did not progress.": "Diese Episode wurde abgebrochen: Der Agent wählte immer wieder Aktionen ohne Fortschritt.",
   "Masked {n} of {total}": "Gesperrt: {n} von {total}",
   "Wait action when useful, used {n} times": "Warteaktion wenn sinnvoll, {n}-mal genutzt",
-  "Wait action always, used {n} times": "Warteaktion immer, {n}-mal genutzt"
+  "Wait action always, used {n} times": "Warteaktion immer, {n}-mal genutzt",
+  "One row per machine: the job order": "Eine Zeile je Maschine: die Auftragsreihenfolge",
+  "Source": "Quelle"
 }

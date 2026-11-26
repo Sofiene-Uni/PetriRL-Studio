@@ -2,6 +2,7 @@
 from flask import Blueprint, jsonify, request, send_file
 
 from studio.services import agent_library as agents
+from studio.services.public_mode import refuse
 
 agents_bp = Blueprint("agents", __name__, url_prefix="/agents")
 
@@ -13,6 +14,7 @@ def list_agents():
 
 @agents_bp.post("")
 def upload_agent():
+    refuse("Uploading agents")
     f = request.files.get("file")
     if f is None or not f.filename.endswith(".zip"):
         raise ValueError("upload the agent as the .zip file saved by stable-baselines3")
@@ -22,12 +24,14 @@ def upload_agent():
 @agents_bp.patch("/<aid>")
 def update_agent(aid):
     """Body: {"name": ..., "standby": "on" | "gt"} (both optional)."""
+    refuse("Changing agents")
     d = request.get_json(force=True)
     return jsonify(agents.update(aid, name=d.get("name"), standby=d.get("standby")))
 
 
 @agents_bp.delete("/<aid>")
 def delete_agent(aid):
+    refuse("Deleting agents")
     agents.delete(aid)
     return jsonify(ok=True)
 

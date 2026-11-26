@@ -30,7 +30,6 @@
   "(other sizes are skipped)": "(andere Größen werden übersprungen)",
   "Solve {n} runs": "{n} Läufe lösen",
   "Agents compared": "Agenten im Vergleich",
-  "Gap = (makespan − reference) / reference, with the optimum or best known solution as reference": "Abstand = (Zykluszeit − Referenz) / Referenz, mit dem Optimum oder der besten bekannten Lösung als Referenz",
   "Results": "Ergebnisse",
   "The best makespan per instance is marked. Open a run to see its plan and replay it.": "Die beste Zykluszeit je Instanz ist markiert. Öffnen Sie einen Lauf, um den Plan zu sehen und abzuspielen.",
   "{n} pair(s) skipped: agent and instance sizes differ.": "{n} Paar(e) übersprungen: Größe von Agent und Instanz unterscheiden sich.",
@@ -44,12 +43,14 @@
   "Replay on the Petri net": "Auf dem Petri-Netz abspielen",
   "Replay a solution": "Eine Lösung abspielen",
   "Name (optional)": "Name (optional)",
-  "Machine orders (one row per machine, as on optimizizer.com) are replayed with the wait action and give their semi-active schedule. A firing sequence is the release order of the jobs; w marks a wait. Jobs numbered from 0 or from 1. Every run can be exported in both formats.": "Maschinenreihenfolgen (eine Zeile je Maschine, wie auf optimizizer.com) werden mit der Warteaktion abgespielt und ergeben ihren semiaktiven Plan. Eine Schaltfolge ist die Freigabereihenfolge der Aufträge; w steht für Warten. Aufträge ab 0 oder ab 1 nummeriert. Jeder Lauf lässt sich in beiden Formaten exportieren.",
   "Load a file": "Datei laden",
   "Choose instances and agents. Each run returns a plan you can explore and an episode you can replay on the Petri net.": "Instanzen und Agenten wählen. Jeder Lauf liefert einen Plan zum Erkunden und eine Episode zum Abspielen auf dem Petri-Netz.",
   "Off: the agent samples its actions": "Aus: der Agent zieht seine Aktionen zufällig",
   "Reading the agent…": "Agent wird gelesen…",
   "Paste or load a solution first": "Zuerst eine Lösung einfügen oder laden",
   "from a solver, a paper or another run": "aus einem Solver, einem Paper oder einem anderen Lauf",
-  "{n} of {total}": "{n} von {total}"
+  "{n} of {total}": "{n} von {total}",
+  "Machine orders (one row per machine) are replayed with the wait action and give their semi-active schedule. A firing sequence is the release order of the jobs; w marks a wait. Jobs numbered from 0 or from 1. Every run can be exported in both formats.": "Maschinenreihenfolgen (eine Zeile je Maschine) werden mit der Warteaktion abgespielt und ergeben ihren semiaktiven Plan. Eine Schaltfolge ist die Freigabereihenfolge der Aufträge; w steht für Warten. Aufträge ab 0 oder ab 1 nummeriert. Jeder Lauf lässt sich in beiden Formaten exportieren.",
+  "Gap = (makespan − reference) / reference, with your best known value or the computed lower bound as reference": "Abstand = (Zykluszeit − Referenz) / Referenz, mit Ihrem bekannten Bestwert oder der berechneten unteren Schranke als Referenz",
+  "Solution": "Lösung"
 }

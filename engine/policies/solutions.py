@@ -3,7 +3,7 @@
 Two formats are read (job numbers from 0 or from 1, detected; header lines without numbers only are skipped):
 
 - machine orders: one row per machine (machine 1 first), the jobs in the order the machine processes them,
-  as on optimizizer.com. Replayed with the wait action: a job is released when it is its turn on its machine,
+  Replayed with the wait action: a job is released when it is its turn on its machine,
   so the net builds the semi-active schedule of these orders.
 - firing sequence: the jobs in the order their next operation is released (one number per operation, rows or
   one line), optionally with "w" where the agent waited, as exported from a run. Replayed as is: each entry is

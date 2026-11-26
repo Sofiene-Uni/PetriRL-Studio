@@ -61,7 +61,7 @@ export async function solveView(root) {
       h("div", { class: "setup-col" },
         h("span", { class: "field-label" }, t("Agents and methods")),
         agents.el,
-        agentDrop,
+        state.public ? null : agentDrop,
         metaBox,
         h("p", { class: "formats" }, t("A trained agent only solves instances of the size it was trained on. Rules and metaheuristics solve any size. No agent for your size? "), h("a", { href: "#/train" }, t("Train one")), "."))));
 
@@ -106,7 +106,7 @@ export async function solveView(root) {
     results.replaceChildren(...[
       agentsInBatch > 1 ? h("section", { class: "panel", style: { marginBottom: "16px" } },
         h("div", { class: "panel-head" }, h("div", {}, h("h2", {}, t("Agents compared")),
-          h("p", {}, t("Gap = (makespan − reference) / reference, with the optimum or best known solution as reference")))),
+          h("p", {}, t("Gap = (makespan − reference) / reference, with your best known value or the computed lower bound as reference")))),
         agentSummary(res.results)) : null,
       h("section", { class: "panel" },
       h("div", { class: "panel-head" }, h("div", {}, h("h2", {}, t("Results")), h("p", {}, t("The best makespan per instance is marked. Open a run to see its plan and replay it.")))),
@@ -189,7 +189,7 @@ export async function solveView(root) {
       h("label", { class: "field" }, h("span", {}, t("Instance")), solInst),
       h("label", { class: "field" }, h("span", {}, t("Name (optional)")), solName),
       h("label", { class: "field wide" }, h("span", {}, t("Solution")), solText,
-        h("small", {}, t("Machine orders (one row per machine, as on optimizizer.com) are replayed with the wait action and give their semi-active schedule. A firing sequence is the release order of the jobs; w marks a wait. Jobs numbered from 0 or from 1. Every run can be exported in both formats."))),
+        h("small", {}, t("Machine orders (one row per machine) are replayed with the wait action and give their semi-active schedule. A firing sequence is the release order of the jobs; w marks a wait. Jobs numbered from 0 or from 1. Every run can be exported in both formats."))),
       h("div", { class: "sol-actions" }, h("button", { class: "btn", onclick: () => solFile.click() }, t("Load a file")), solFile, solGo)));
 
   root.replaceChildren(

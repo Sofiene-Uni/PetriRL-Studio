@@ -28,7 +28,7 @@ def zip_file(aid):
     return storage.path(FOLDER, f"{storage.slug(aid)}.zip")
 
 
-BUILT_IN = ("rule", "meta", "solution")   # kinds without a model; they cannot be changed or deleted
+BUILT_IN = ("rule", "meta", "solution")   # kinds without a model (solution = a stored or uploaded solution replayed)
 
 
 def rule_agents():
@@ -38,10 +38,9 @@ def rule_agents():
               "description": m["description"],
               "params": [{"key": k, "label": p[0], "default": p[1], "min": p[2], "max": p[3], "step": p[4],
                           "type": "bool" if isinstance(p[1], bool) else "number"} for k, p in m["params"].items()]} for key, m in METAHEURISTICS.items()]
-    known = [{"id": "solution:known", "name": "Best known solution", "kind": "solution", "source": "solution",
-              "env": DEFAULT_ENV, "description": "replays the stored best known solution of the instance "
-                                                  "(Taillard: optimizizer.com, O. Shylo)"}]
-    return rules + metas + known
+    stored = [{"id": "solution:known", "name": "Stored solution", "kind": "solution", "source": "solution",
+               "env": DEFAULT_ENV, "description": "replays the solution shipped with the app for this instance"}]
+    return rules + metas + stored
 
 
 def seed_stock():
@@ -51,7 +50,10 @@ def seed_stock():
     for fname in os.listdir(folder):
         if fname.endswith(".json"):
             aid = fname[:-5]
-            if not os.path.exists(_meta_file(aid)):
+            new = storage.read_json(os.path.join(folder, fname))
+            old = storage.read_json(_meta_file(aid)) if os.path.exists(_meta_file(aid)) else None
+            # copy new stock agents, and refresh a stock agent when a newer version ships (another "created")
+            if old is None or old.get("created") != new.get("created") or not os.path.exists(zip_file(aid)):
                 shutil.copy(os.path.join(folder, fname), _meta_file(aid))
                 shutil.copy(os.path.join(folder, aid + ".zip"), zip_file(aid))
 
@@ -74,7 +76,7 @@ def get(aid):
 
 def compatible(agent, inst_rec):
     """Same problem type as the agent's net; rules and metaheuristics solve any size, a learned agent only its own,
-    a known solution only the instance it belongs to."""
+    a stored solution only the instance it belongs to."""
     env = get_env_class(agent.get("env", DEFAULT_ENV))
     if inst_rec.get("problem_type", "jssp") not in env.problem_types:
         return False

@@ -5,7 +5,7 @@ import { h } from "../core/dom.js";
 import { contentPage, t } from "../core/i18n.js";
 import { ensureLibrary, envOf, setEnv, state } from "../core/state.js";
 
-const DEMO_URL = "/static/demo/home-run.json";   // regenerate with tools/export_home_demo.py
+const DEMO_URL = new URL("../../demo/home-run.json", import.meta.url);   // regenerate with tools/export_home_demo.py
 
 export function homeView(root) {
   const stage = h("div", { class: "showcase-slot" });

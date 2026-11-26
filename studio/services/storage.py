@@ -12,7 +12,7 @@ _lock = threading.Lock()
 
 
 # everything the app writes lives in DATA_DIR (in Docker: a folder of the server, so it survives a rebuild)
-DATA_FOLDERS = ("instances", "agents", "runs", "solutions")      # + visitors.json
+DATA_FOLDERS = ("instances", "agents", "runs")      # + visitors.json, references.json
 
 
 def init(data_dir, stock_dir):

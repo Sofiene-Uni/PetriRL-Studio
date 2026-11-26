@@ -11,6 +11,13 @@ studio/templates/pages/de/<page>.html
 
 No build step. Reload the browser.
 
+## Search engines
+
+Titles and descriptions of the content pages are in `studio/seo.py`. The content pages have real addresses
+(`/`, `/technology`, `/about`, `/contact`, `/privacy`, and `/de/...`) and are served with their text, so Google can read them;
+`/sitemap.xml` and `/robots.txt` are generated. The share image is `studio/static/og.png` (1200×630).
+To give a new page its own address, add it to `PAGES` and `META` in `studio/seo.py`.
+
 ## Add a new page
 
 1. Create `studio/templates/pages/en/<name>.html` and `studio/templates/pages/de/<name>.html`.
@@ -60,12 +67,7 @@ python -m pytest -q
 python tools/check_js_imports.py
 ```
 
-## Best known solutions (Taillard, optimizizer.com)
+## Benchmarks and stored solutions
 
-A solution is downloaded only once. To ship all of them with the app (so nobody has to fetch them), run once:
-
-```
-python tools/fetch_known_solutions.py      # stores them in stock/solutions
-```
-
-The app reads `stock/solutions` (shipped) and `DATA_DIR/solutions` for the ones fetched later.
+Instances and bounds are in `stock/benchmarks/` (`catalog.json` lists families in display order). Stored solutions
+are in `stock/solutions/` (one JSON per instance, with its source); delete a file to remove it from the app.

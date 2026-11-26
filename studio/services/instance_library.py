@@ -49,7 +49,7 @@ def reference(rec):
 
 
 def set_reference(iid, value):
-    """Your own best known value (e.g. a newer result from the literature); None removes it."""
+    """Your own best known value (e.g. from a paper you cite); None removes it."""
     rec = get(iid)
     overrides = _overrides()
     if value is None:
@@ -58,7 +58,7 @@ def set_reference(iid, value):
         value = int(value)
         lower = public(rec)["reference"]["lower_bound"]
         if value < lower:
-            raise ValueError(f"{value} is below the proven lower bound {lower}: that schedule cannot exist")
+            raise ValueError(f"{value} is below the lower bound {lower}: that schedule cannot exist")
         overrides[iid] = value
     storage.write_json(storage.path(OVERRIDES), overrides)
     return public(get(iid))

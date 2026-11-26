@@ -36,7 +36,7 @@ def get_run(rid):
 
 @runs_bp.get("/runs/<rid>/solution.txt")
 def solution_txt(rid):
-    """The run as a solution file: ?format=machines (machine orders, as on optimizizer.com) or firing (with waits)."""
+    """The run as a solution file: ?format=machines (machine orders) or firing (with waits)."""
     from engine.policies.solutions import export
     rec = runner.get(rid)
     machines, firing = export(rec["schedule"], rec["decisions"], rec["instance"]["n_machines"])

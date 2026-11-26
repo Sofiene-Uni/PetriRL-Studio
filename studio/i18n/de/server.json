@@ -40,9 +40,9 @@
   "shortest waiting time since the job's last operation finished": "kürzeste Wartezeit seit Ende des letzten Arbeitsgangs",
   "longest waiting time since the job's last operation finished": "längste Wartezeit seit Ende des letzten Arbeitsgangs",
   "uniform random choice among the enabled jobs": "gleichverteilte Zufallswahl unter den möglichen Aufträgen",
-  "Best known solution": "Beste bekannte Lösung",
   "Uploaded solution": "Hochgeladene Lösung",
-  "replays the stored best known solution of the instance (Taillard: optimizizer.com, O. Shylo)": "spielt die gespeicherte beste bekannte Lösung der Instanz ab (Taillard: optimizizer.com, O. Shylo)",
   "Job shop": "Werkstattfertigung (Job Shop)",
-  "n jobs, m machines, each job visits the machines in its own fixed order; minimize the makespan.": "n Aufträge, m Maschinen, jeder Auftrag durchläuft die Maschinen in seiner eigenen festen Reihenfolge; die Zykluszeit wird minimiert."
+  "n jobs, m machines, each job visits the machines in its own fixed order; minimize the makespan.": "n Aufträge, m Maschinen, jeder Auftrag durchläuft die Maschinen in seiner eigenen festen Reihenfolge; die Zykluszeit wird minimiert.",
+  "Stored solution": "Gespeicherte Lösung",
+  "replays the solution shipped with the app for this instance": "spielt die mit der App gelieferte Lösung dieser Instanz ab"
 }

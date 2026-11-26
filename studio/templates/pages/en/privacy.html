@@ -1,0 +1,27 @@
+{# Privacy and site operator. Name, address and email come from the server settings (PETRIRL_OPERATOR_*). #}
+<h1>Privacy</h1>
+
+<h2>Operator and controller</h2>
+<p>{{ config.OPERATOR_NAME }}<br>
+  {{ config.OPERATOR_ADDRESS or "Address to follow" }}<br>
+  Email: {% if config.OPERATOR_EMAIL %}<a href="mailto:{{ config.OPERATOR_EMAIL }}">{{ config.OPERATOR_EMAIL }}</a>{% else %}to follow{% endif %}</p>
+
+<h2>What is stored</h2>
+<p>Nothing about you. There are no cookies, no tracking and no accounts, and nothing is stored in your browser.
+  The visit counter stores one total number only.</p>
+
+<h2>Visiting the site</h2>
+<p>Your browser sends technically necessary data, including your IP address. It is used only to deliver the page and
+  is not stored (Art. 6(1)(f) GDPR). The server is in Germany; traffic passes through a rented server of netcup GmbH,
+  Karlsruhe (data processing agreement).</p>
+
+<h2>Uploaded data</h2>
+<p>Instances, results and trained agents are used only for the computation and deleted within 24 hours. Until then
+  other visitors can see them. Please do not upload personal data.</p>
+
+<h2>Your rights</h2>
+<p>You have the right to access, correction, deletion, restriction and objection (Art. 15 to 21 GDPR), and to complain
+  to a data protection authority, for example the State Commissioner for Data Protection and Freedom of Information of
+  North Rhine-Westphalia. The German version of this notice is the binding one.</p>
+
+<p class="muted">Last updated: November 2026</p>

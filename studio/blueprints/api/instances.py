@@ -1,8 +1,9 @@
 """/api/instances: library, drag-and-drop upload, random instances, download."""
-from flask import Blueprint, Response, jsonify, request
+from flask import Blueprint, Response, current_app, jsonify, request
 
 from engine.instances import InstanceError
 from studio.services import instance_library as instances
+from studio.services.public_mode import is_public, refuse
 
 instances_bp = Blueprint("instances", __name__, url_prefix="/instances")
 
@@ -17,7 +18,13 @@ def list_instances():
 def upload_instances():
     """Several files at once; each file is parsed on its own and errors are reported per file."""
     added, errors = [], []
-    for f in request.files.getlist("files"):
+    files = request.files.getlist("files")
+    if is_public():
+        if len(files) > 10:
+            raise ValueError("upload at most 10 files at a time")
+        if sum(i["source"] == "upload" for i in instances.list_all()) >= current_app.config["PUBLIC_MAX_UPLOADS"]:
+            raise PermissionError("the demo holds enough uploaded instances; please try again later")
+    for f in files:
         try:
             added.append(instances.add_text(f.filename, f.read().decode("utf-8", errors="replace")))
         except (InstanceError, ValueError) as e:
@@ -40,7 +47,8 @@ def get_instance(iid):
 
 @instances_bp.patch("/<iid>")
 def set_reference(iid):
-    """Body: {"best_known": value} to use your own best known value (null to go back to the literature)."""
+    """Body: {"best_known": value} to use your own best known value (null removes it)."""
+    refuse("Changing best known values")
     return jsonify(instances.set_reference(iid, request.get_json(force=True).get("best_known")))
 
 
@@ -53,5 +61,6 @@ def download_instance(iid):
 
 @instances_bp.delete("/<iid>")
 def delete_instance(iid):
+    refuse("Deleting instances")
     instances.delete(iid)
     return jsonify(ok=True)

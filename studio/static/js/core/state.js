@@ -1,18 +1,17 @@
 // State shared by the views: the libraries and what the user selected (kept while navigating).
 import { api } from "./api.js";
 
-const saved = (() => { try { return localStorage.getItem("petrirl.env"); } catch { return null; } })();
-
 export const state = {
   instances: [],
   agents: [],
   envs: [],                      // environments from /api/envs
-  env: saved || "basic",         // the environment chosen on the home page (Train and Solve follow it)
+  env: "basic",                  // the environment chosen on the home page (Train and Solve follow it)
   pickedInstances: new Set(),
   pickedAgents: new Set(),
   metaParams: {},            // settings per metaheuristic id, kept while the app is open
   trainInstances: new Set(),
   lastResults: null,
+  public: document.body.dataset.public === "1",   // public demo: no agent upload, nothing deleted or changed
 };
 
 export async function refreshLibrary() {
@@ -30,7 +29,6 @@ export const ensureLibrary = () => (firstLoad ??= refreshLibrary());
 
 export function setEnv(name) {
   state.env = name;
-  try { localStorage.setItem("petrirl.env", name); } catch { /* private mode */ }
   document.dispatchEvent(new CustomEvent("envchange"));
 }
 

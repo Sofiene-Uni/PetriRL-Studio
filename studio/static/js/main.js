@@ -23,6 +23,7 @@ const ROUTES = {
   technology: contentView("technology"),  // templates/pages/<lang>/technology.html
   about: contentView("about"),        // templates/pages/<lang>/about.html
   contact: contentView("contact"),    // templates/pages/<lang>/contact.html
+  privacy: contentView("privacy"),    // templates/pages/<lang>/privacy.html (linked in the footer)
 };
 
 const view = document.getElementById("view");
@@ -31,10 +32,13 @@ let cleanup = null;
 async function route() {
   cleanup?.();
   cleanup = null;
-  const [, page = "", arg] = (location.hash || "#/").split("/");
+  const fromPath = document.documentElement.dataset.page;          // /technology, /de/about, ... (no hash yet)
+  const start = fromPath && fromPath !== "home" ? `#/${fromPath}` : "#/";
+  const [, page = "", arg] = (location.hash || start).split("/");
   const render = ROUTES[page] || ROUTES[""];
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === page));
-  view.replaceChildren(h("div", { class: "loading" }, t("Loading…")));
+  // a page that came with its text in the HTML stays visible until its view is ready
+  if (!view.querySelector(`[data-ssr="${page || "home"}"]`)) view.replaceChildren(h("div", { class: "loading" }, t("Loading…")));
   try {
     const library = ensureLibrary().then(renderEnvChip);
     if (render !== homeView) await library;       // the home page draws its replay first and fills in the rest
@@ -56,17 +60,15 @@ function renderEnvChip() {
 }
 document.addEventListener("envchange", renderEnvChip);
 
-// visitor counter (shown on the About page): one visit per browser session, the browser keeps its own random id
+// visit counter (in the footer): only a number is stored
 // one visit per browser session, then the count is shown under the copyright in the footer
 async function countVisit() {
   try {
-    let id = localStorage.getItem("petrirl.visitor");
-    if (!id) { id = crypto.randomUUID?.() || String(Math.random()).slice(2); localStorage.setItem("petrirl.visitor", id); }
-    const first = !sessionStorage.getItem("petrirl.visited");
-    sessionStorage.setItem("petrirl.visited", "1");
-    const c = first ? await api("/api/visits", { json: { id } }) : await api("/api/visits");
+    // a visit = arriving from outside the site; moving between our own pages is not counted, nothing is stored in the browser
+    const arrived = !document.referrer.startsWith(location.origin);
+    const c = arrived ? await api("/api/visits", { json: {} }) : await api("/api/visits");
     const el = document.getElementById("foot-visits");
-    if (el) el.textContent = t("{visits} visits from {visitors} visitors", { visits: c.visits.toLocaleString(), visitors: c.visitors.toLocaleString() });
+    if (el) el.textContent = t("{visits} visits", { visits: c.visits.toLocaleString() });
   } catch { /* the counter is optional */ }
 }
 
