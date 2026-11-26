@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+data/
+*.tmp
+
+# your own server deployment (stays local)
+deploy/

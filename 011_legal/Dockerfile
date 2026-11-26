@@ -17,7 +17,7 @@ RUN pip install torch --index-url https://download.pytorch.org/whl/cpu \
 COPY . .
 
 # the app's data is NOT in the image: docker-compose mounts a folder of the server at /data
-# files copied from a NAS share may be readable only by their owner: make the app readable for the "studio" user
+# copied files may be readable only by their owner: make the app readable for the "studio" user
 RUN useradd --create-home --uid 1000 studio && chmod -R a+rX /app && chmod +x docker-entrypoint.sh
 EXPOSE 5000
 ENTRYPOINT ["./docker-entrypoint.sh"]

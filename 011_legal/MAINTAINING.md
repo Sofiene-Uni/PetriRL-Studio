@@ -71,3 +71,9 @@ python tools/check_js_imports.py
 
 Instances and bounds are in `stock/benchmarks/` (`catalog.json` lists families in display order). Stored solutions
 are in `stock/solutions/` (one JSON per instance, with its source); delete a file to remove it from the app.
+
+## Public hosting
+
+`PETRIRL_PUBLIC=1` turns on the public demo: no agent uploads, nothing can be changed or deleted, and visitor files
+(instances, runs, trained agents) are deleted at every start and after 24 hours. The privacy page shows the operator
+from `PETRIRL_OPERATOR_NAME`, `PETRIRL_OPERATOR_ADDRESS` and `PETRIRL_OPERATOR_EMAIL`, set on the server.
