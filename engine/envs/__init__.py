@@ -4,8 +4,9 @@ Env class (usually a BasicEnv subclass) with `name`, `title`, `description`, `pr
 add it to ENVS and the app can train and run agents on it."""
 from engine.envs.basic import BasicEnv
 from engine.envs.hyper import HyperHeuristicEnv
+from engine.envs.or_informed import OrInformedEnv
 
-ENVS = {cls.name: cls for cls in (BasicEnv, HyperHeuristicEnv)}
+ENVS = {cls.name: cls for cls in (BasicEnv, OrInformedEnv, HyperHeuristicEnv)}
 DEFAULT_ENV = BasicEnv.name
 
 
@@ -19,4 +20,4 @@ def make_env(instance, name=DEFAULT_ENV, **kwargs):
     return get_env_class(name)(instance, **kwargs)
 
 
-__all__ = ["ENVS", "DEFAULT_ENV", "BasicEnv", "HyperHeuristicEnv", "get_env_class", "make_env"]
+__all__ = ["ENVS", "DEFAULT_ENV", "BasicEnv", "HyperHeuristicEnv", "OrInformedEnv", "get_env_class", "make_env"]

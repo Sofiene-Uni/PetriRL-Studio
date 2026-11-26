@@ -9,7 +9,8 @@ instances_bp = Blueprint("instances", __name__, url_prefix="/instances")
 
 @instances_bp.get("")
 def list_instances():
-    return jsonify(instances.list_all())
+    from studio.services import known_solutions as known
+    return jsonify([{**i, "known_solution": known.has(i["id"])} for i in instances.list_all()])
 
 
 @instances_bp.post("")

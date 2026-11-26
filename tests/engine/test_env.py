@@ -38,3 +38,4 @@ def test_observation_size(ft06):
     env = make_env(ft06)
     assert env.observation_space.shape[0] == BasicEnv.obs_dim(6, 6)
     assert BasicEnv.size_from_spaces(BasicEnv.obs_dim(15, 10), 15) == (15, 10, False)
+

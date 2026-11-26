@@ -3,6 +3,7 @@
   --bg: #E9ECEF;
   --paper: #FBFCFD;
   --ink: #1E2229;
+  --royal: #2F4FC9;              /* royal blue for highlighted words */
   --ink-2: #4A525E;
   --ink-3: #7C8592;
   --line: #D3D9E0;
@@ -24,6 +25,43 @@
   --font: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --shadow: 0 1px 0 rgba(30, 34, 41, .04), 0 8px 24px -12px rgba(30, 34, 41, .18);
+  --surface: #fff;               /* inputs, menus, cards */
+  --hover: var(--hover);
+  --row-band: var(--row-band);
+  --on-ink: #fff;                /* text on an var(--ink) background */
+  --green-ink: #11744C;
+  --amber-ink: #8A5A0B;
+  --red-ink: #A0302A;
+  --topbar-bg: rgba(233, 236, 239, .86);
+  color-scheme: light;
+}
+
+/* dark theme of the whole app (switch in the top bar, saved in the browser) */
+:root[data-theme="dark"] {
+  --bg: #14171C;
+  --paper: #1B1F25;
+  --ink: #E6EAF0;
+  --royal: #8FA6F5;
+  --ink-2: #BDC4CE;
+  --ink-3: #8A94A1;
+  --line: #2E343D;
+  --line-2: #262B33;
+  --blue: #4C74F0;
+  --blue-ink: #A9BCFF;
+  --blue-soft: #1F2A4A;
+  --amber-soft: #3A2D14;
+  --green-soft: #15332A;
+  --red-soft: #3D1F1D;
+  --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 8px 24px -12px rgba(0, 0, 0, .6);
+  --surface: #22272E;
+  --hover: #262C34;
+  --row-band: #20252C;
+  --on-ink: #14171C;
+  --green-ink: #6FD3A8;
+  --amber-ink: #F2C46D;
+  --red-ink: #F19A92;
+  --topbar-bg: rgba(20, 23, 28, .86);
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }

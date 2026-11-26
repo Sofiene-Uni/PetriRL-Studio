@@ -3,11 +3,12 @@ import { jobColor } from "../core/colors.js";
 import { s } from "../core/dom.js";
 import { simPalette } from "../core/sim-theme.js";
 import { hideTip, showTip, ttRows } from "../core/ui.js";
+import { t } from "../core/i18n.js";
 
-const ROW_LABELS = {
-  0: "Job return", 1: "Route by job", 2: "Job queues", 3: "Agent choice", 4: "Dispatch",
-  5: "Route by machine", 6: "Machine queues", 7: "Start", 8: "Processing", 9: "Finish", 10: "Done",
-};
+const ROW_LABELS = () => ({
+  0: t("Job return"), 1: t("Route by job"), 2: t("Job queues"), 3: t("Agent choice"), 4: t("Dispatch"),
+  5: t("Route by machine"), 6: t("Machine queues"), 7: t("Start"), 8: t("Processing"), 9: t("Finish"), 10: t("Done"),
+});
 const ROLE_ROW = {
   job_sorting: 0, job_sort: 1, job: 2, job_idle: 2, job_select: 3, standby: 3, machine_sorting: 4, machine_sort: 5,
   machine_buffer: 6, machine_idle: 8, machine_start: 7, machine_processing: 8, machine_finish: 9, delivery: 10,
@@ -322,10 +323,16 @@ export class PetriPlayer {
     this.rowGap = this.compact ? 30 : 62;
     const W = cols * gap;
     this.netW = W;
-    const xj = (i) => this.labelW + (i + 0.5) * (W / nj);
-    const xm = (i) => this.labelW + (i + 0.5) * (W / nm);
-    const cx = this.labelW + W / 2;
-    this.gutterX = this.labelW + W + 34;
+    // the wait action gets its own column left of the jobs, set apart by a dashed divider
+    const hasStandby = this.run.net.nodes.some((n) => n.role === "standby");
+    const waitW = hasStandby ? (this.compact ? 46 : 70) : 0;
+    const x0 = this.labelW + waitW;
+    this.waitX = this.labelW + waitW * 0.42;
+    this.waitDivX = x0 - waitW * 0.08;
+    const xj = (i) => x0 + (i + 0.5) * (W / nj);
+    const xm = (i) => x0 + (i + 0.5) * (W / nm);
+    const cx = x0 + W / 2;
+    this.gutterX = x0 + W + 34;
     const y = (r) => 34 + r * this.rowGap;
     this.yRow = y;
     const pos = new Map();
@@ -337,7 +344,7 @@ export class PetriPlayer {
         case "job_sort": case "job_idle": x = xj(n.idx) + 24; break;
         case "job": case "job_select": x = xj(n.idx); break;
         case "machine_idle": x = xm(n.idx) + 34; break;      // next to its machine (processing place)
-        case "standby": x = this.labelW + W + 6; break;
+        case "standby": x = this.waitX; break;
         default: x = xm(n.idx);
       }
       pos.set(n.id, { x, y: y(r) });
@@ -391,7 +398,7 @@ export class PetriPlayer {
 
     if (!this.compact) {
       const lab = s("g");
-      for (const [r, text] of Object.entries(ROW_LABELS)) {
+      for (const [r, text] of Object.entries(ROW_LABELS())) {
         lab.append(s("text", { x: 14, y: this.yRow(+r) + 4, "font-size": 12, fill: this.C.label }, text));
       }
       svg.append(lab);
@@ -461,12 +468,18 @@ export class PetriPlayer {
     svg.append(nodesG);
     svg.append(s("g", {}, this.crossLayer));
 
+    if (this.standbyId) {            // divider and label that set the wait action apart from the jobs
+      const yw = this.pos.get(this.standbyId).y, d = this.rowGap * 0.75;
+      svg.insertBefore(s("line", { x1: this.waitDivX, x2: this.waitDivX, y1: yw - d, y2: yw + d, stroke: this.C.label,
+        "stroke-width": 1, "stroke-dasharray": "3 3", opacity: 0.6 }), nodesG);
+      svg.append(s("text", { x: this.waitX, y: yw + (this.compact ? 15 : 20), "text-anchor": "middle",
+        "font-size": this.compact ? 9.5 : 11, "font-weight": 600, fill: this.C.label }, "wait"));
+    }
     if (!this.compact) {
       const cols = s("g");
       for (const n of this.run.net.nodes) {
         const { x, y } = this.pos.get(n.id);
         if (n.role === "job") cols.append(s("text", { x, y: y - 22, "text-anchor": "middle", "font-size": 11, "font-weight": 600, fill: jobColor(n.color) }, `J${n.color}`));
-        if (n.role === "standby") cols.append(s("text", { x, y: y + 20, "text-anchor": "middle", "font-size": 11, fill: this.C.label }, "wait"));
         if (n.role === "delivery") cols.append(s("text", { x, y: y + 31, "text-anchor": "middle", "font-size": 11, fill: this.C.label }, `M${n.color ?? n.idx + 1}`));
       }
       svg.append(cols);
@@ -621,11 +634,11 @@ export class PetriPlayer {
 
   describe(n) {
     const names = {
-      job_sorting: "Job return (sorting place)", job_sort: "Route token back to its job", job: "Job queue",
-      job_idle: "Job is free (flag)", job_select: "Agent action: release the next operation", machine_sorting: "Dispatch (sorting place)",
-      machine_sort: "Route to the machine queue", machine_buffer: "Machine queue", machine_idle: "Machine idle (flag)",
-      machine_start: "Start operation", machine_processing: "Processing", machine_finish: "Finish (timed)",
-      delivery: "Finished operations", standby: "Agent action: wait until the next operation finishes",
+      job_sorting: t("Job return (sorting place)"), job_sort: t("Route token back to its job"), job: t("Job queue"),
+      job_idle: t("Job is free (flag)"), job_select: t("Agent action: release the next operation"), machine_sorting: t("Dispatch (sorting place)"),
+      machine_sort: t("Route to the machine queue"), machine_buffer: t("Machine queue"), machine_idle: t("Machine idle (flag)"),
+      machine_start: t("Start operation"), machine_processing: t("Processing"), machine_finish: t("Finish (timed)"),
+      delivery: t("Finished operations"), standby: t("Agent action: wait until the next operation finishes"),
     };
     const who = n.role.startsWith("job") && n.color ? ` · J${n.color}` : n.role.startsWith("machine") || n.role === "delivery"
       ? (n.role === "machine_sorting" ? "" : ` · M${n.color ?? n.idx + 1}`) : "";
@@ -642,8 +655,8 @@ export class PetriPlayer {
         if (toks.length > 6) html += `<div style="color:#98A2AF">+${toks.length - 6} more</div>`;
       }
     } else if (n.type === "c") {
-      html += `<div style="color:#98A2AF">${this.enabled?.has(n.id) ? "enabled at this decision"
-        : this.masked?.has(n.id) ? "masked: the guard function does not enable it now" : "no decision pending"}</div>`;
+      html += `<div style="color:#98A2AF">${this.enabled?.has(n.id) ? t("enabled at this decision")
+        : this.masked?.has(n.id) ? "masked: the guard function does not enable it now" : t("no decision pending")}</div>`;
     }
     return html;
   }

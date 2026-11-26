@@ -1,6 +1,7 @@
-// Light / dark theme of the simulation (Petri net replay, policy view, home replay). Saved in the browser.
-// The CSS side (panel, inspector, transport) is the .sim / .sim.theme-light variables in css/views/run.css.
+// Light / dark theme of the app and of the simulation (Petri net, Gantt, policy view). Saved in the browser.
+// CSS: base.css :root[data-theme="dark"] for the app, .sim / .sim.theme-light in css/views/run.css for the replays.
 import { h } from "./dom.js";
+import { t } from "./i18n.js";
 
 export const SIM_THEMES = {
   dark: {
@@ -19,16 +20,18 @@ export const SIM_THEMES = {
   },
 };
 
-const KEY = "petrirl.simTheme";
+// One theme for the whole app: <html data-theme> drives the CSS variables, simthemechange tells the SVG views.
+const KEY = "petrirl.theme";
 
 export function simThemeName() {
-  try { return localStorage.getItem(KEY) === "light" ? "light" : "dark"; } catch { return "dark"; }
+  try { return localStorage.getItem(KEY) === "dark" ? "dark" : "light"; } catch { return "light"; }
 }
 
 export const simPalette = () => SIM_THEMES[simThemeName()];
 
 export function setSimTheme(name) {
   try { localStorage.setItem(KEY, name); } catch { /* private mode */ }
+  document.documentElement.dataset.theme = name;
   document.dispatchEvent(new CustomEvent("simthemechange", { detail: name }));
 }
 
@@ -41,12 +44,12 @@ export function followSimTheme(el, onChange) {
   return () => document.removeEventListener("simthemechange", apply);
 }
 
+// the switch in the top bar
 export function themeSwitch() {
-  const box = h("div", { class: "theme-switch", role: "group", "aria-label": "Simulation theme" });
-  const render = () => box.replaceChildren(...[["dark", "Dark"], ["light", "Light"]].map(([k, label]) =>
+  const box = h("div", { class: "theme-switch", role: "group", "aria-label": "Theme" });
+  const render = () => box.replaceChildren(...[["light", t("Light")], ["dark", t("Dark")]].map(([k, label]) =>
     h("button", { type: "button", class: simThemeName() === k ? "on" : "", "aria-pressed": simThemeName() === k,
       onclick: () => { setSimTheme(k); render(); } }, label)));
   render();
-  document.addEventListener("simthemechange", render);
   return box;
 }

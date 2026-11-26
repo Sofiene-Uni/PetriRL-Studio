@@ -10,11 +10,21 @@
       </svg>
       <span>PetriRL <b>Studio</b></span>
     </a>
-    <a class="env-chip" id="env-chip" href="#/" title="Environment for training and solving (change it on the home page)"></a>
-    <nav class="modes" aria-label="Mode">
-      <a href="#/benchmarks" data-nav="benchmarks">Benchmarks</a>
-      <a href="#/solve" data-nav="solve">Solve</a>
-      <a href="#/train" data-nav="train">Train</a>
-      <a href="#/history" data-nav="history">History</a>
+    {# left: about the project; right: the app. Link texts are translated by data-t (studio/i18n/<lang>/layout.json) #}
+    <nav class="nav-links nav-info" aria-label="About the project">
+      <div id="lang-slot"></div>
+      <a href="#/technology" data-nav="technology" data-t>Technology</a>
+      <a href="#/about" data-nav="about" data-t>About</a>
+      <a href="#/contact" data-nav="contact" data-t>Contact</a>
     </nav>
+    <div class="top-right">
+      <a class="env-chip" id="env-chip" href="#/"></a>
+      <nav class="nav-links nav-app" aria-label="App">
+        <a href="#/solve" data-nav="solve" data-t>Solve</a>
+        <a href="#/train" data-nav="train" data-t>Train</a>
+        <a href="#/history" data-nav="history" data-t>History</a>
+        <a href="#/benchmarks" data-nav="benchmarks" data-t>Benchmarks</a>
+      </nav>
+      <div id="theme-slot"></div>
+    </div>
   </header>

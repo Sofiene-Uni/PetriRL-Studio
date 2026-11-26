@@ -2,17 +2,19 @@
 import { jobColor } from "../core/colors.js";
 import { s } from "../core/dom.js";
 import { niceStep } from "../core/format.js";
+import { simThemeName } from "../core/sim-theme.js";
 import { hideTip, showTip, ttRows } from "../core/ui.js";
+import { t } from "../core/i18n.js";
 
 export class Gantt {
-  constructor(container, { schedule, nJobs, nMachines, makespan, reference = null, dark = false, compact = false, onSeek = null }) {
+  constructor(container, { schedule, nJobs, nMachines, makespan, reference = null, compact = false, onSeek = null }) {
     this.el = container;
     this.ops = schedule.map((o, i) => ({ ...o, i }));
     this.nJobs = nJobs;
     this.nMachines = nMachines;
     this.makespan = makespan;
     this.reference = reference;         // { value, label } drawn as a dashed line, e.g. "Opt 55"
-    this.dark = dark;
+    this.dark = simThemeName() === "dark";       // follows the app theme
     this.compact = compact;
     this.onSeek = onSeek;
     this.mode = "machine";
@@ -21,15 +23,17 @@ export class Gantt {
     this.clock = null;                  // null: the whole plan is shown as done
     this.view = [0, makespan];
     this.critical = criticalPath(this.ops, makespan);
-    this.svg = s("svg", { role: "img", "aria-label": "Gantt chart of the schedule" });
+    this.svg = s("svg", { role: "img", "aria-label": t("Gantt chart of the schedule") });
     this.el.append(this.svg);
     this.bindEvents();
     this.ro = new ResizeObserver(() => this.layout());
     this.ro.observe(this.el);
     this.layout();
+    this.onTheme = () => { this.dark = simThemeName() === "dark"; this.layout(); };
+    document.addEventListener("simthemechange", this.onTheme);
   }
 
-  destroy() { this.ro.disconnect(); this.svg.remove(); }
+  destroy() { this.ro.disconnect(); this.svg.remove(); document.removeEventListener("simthemechange", this.onTheme); }
 
   get theme() {
     return this.dark
@@ -260,8 +264,8 @@ export class Gantt {
       const bar = e.target.closest?.(".bar");
       if (!bar) return hideTip();
       const o = this.ops[+bar.dataset.i];
-      showTip(`<b>Job ${o.job}</b> · operation ${o.rank}<br>${ttRows([["Machine", `M${o.machine}`], ["Start", o.start],
-        ["End", o.end], ["Duration", o.p]])}${this.critical.has(o.i) ? '<div style="margin-top:4px;color:#F2A93B">On the critical path</div>' : ""}`,
+      showTip(`<b>${t("Job")} ${o.job}</b> · ${t("operation")} ${o.rank}<br>${ttRows([[t("Machine"), `M${o.machine}`], [t("Start"), o.start],
+        [t("End"), o.end], [t("Duration"), o.p]])}${this.critical.has(o.i) ? `<div style="margin-top:4px;color:#F2A93B">${t("On the critical path")}</div>` : ""}`,
         e.clientX, e.clientY);
     });
     svg.addEventListener("pointerleave", hideTip);

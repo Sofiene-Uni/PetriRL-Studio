@@ -12,7 +12,10 @@ class Config:
 
     TRAIN_MAX_STEPS = 20_000_000
     TRAIN_MAX_ENVS = 8
-    DEMO_INSTANCE = "jssp:ft06"                                                      # replay on the home page
+
+    # heavy work (solving, training) waits in one line: COMPUTE_SLOTS jobs at a time, QUEUE_MAX waiting at most
+    COMPUTE_SLOTS = int(os.environ.get("PETRIRL_COMPUTE_SLOTS", 1))
+    QUEUE_MAX = int(os.environ.get("PETRIRL_QUEUE_MAX", 20))
 
 
 class DevelopmentConfig(Config):

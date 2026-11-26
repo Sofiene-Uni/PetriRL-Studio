@@ -3,6 +3,7 @@ from flask import jsonify, request
 from werkzeug.exceptions import HTTPException
 
 from engine.instances import InstanceError
+from studio.services.compute_queue import QueueFull
 
 
 def _is_api():
@@ -22,6 +23,7 @@ def register_error_handlers(app):
     app.register_error_handler(InstanceError, json_error(400))
     app.register_error_handler(ValueError, json_error(400))
     app.register_error_handler(PermissionError, json_error(403))
+    app.register_error_handler(QueueFull, json_error(503))
 
     @app.errorhandler(HTTPException)
     def http_error(e):

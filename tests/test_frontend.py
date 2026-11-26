@@ -7,3 +7,6 @@ def test_every_js_module_imports_what_it_uses():
     script = Path(__file__).resolve().parents[1] / "tools" / "check_js_imports.py"
     r = subprocess.run([sys.executable, str(script)], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout
+def test_version_in_footer(client):
+    from studio import __version__
+    assert f"v{__version__}".encode() in client.get("/").data

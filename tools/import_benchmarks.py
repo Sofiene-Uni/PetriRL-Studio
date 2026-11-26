@@ -13,15 +13,15 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "stock", "benchmarks")
 
-FAMILIES = [  # id, name, year, reference, prefix
-    ("ft", "Fisher and Thompson", 1963, "Fisher H, Thompson GL (1963). Probabilistic learning combinations of local job-shop scheduling rules. In Industrial Scheduling, 225-251.", "ft"),
+FAMILIES = [  # most used first; id, name, year, reference, prefix
+    ("ta", "Taillard", 1993, "Taillard E (1993). Benchmarks for basic scheduling problems. European Journal of Operational Research 64(2), 278-285.", "ta"),
+    ("dmu", "Demirkol, Mehta and Uzsoy", 1998, "Demirkol E, Mehta S, Uzsoy R (1998). Benchmarks for shop scheduling problems. European Journal of Operational Research 109(1), 137-141.", "dmu"),
     ("la", "Lawrence", 1984, "Lawrence SR (1984). Resource constrained project scheduling: an experimental investigation of heuristic scheduling techniques (Supplement). Carnegie-Mellon University.", "la"),
+    ("ft", "Fisher and Thompson", 1963, "Fisher H, Thompson GL (1963). Probabilistic learning combinations of local job-shop scheduling rules. In Industrial Scheduling, 225-251.", "ft"),
     ("abz", "Adams, Balas and Zawack", 1988, "Adams J, Balas E, Zawack D (1988). The shifting bottleneck procedure for job shop scheduling. Management Science 34(3), 391-401.", "abz"),
     ("orb", "Applegate and Cook", 1991, "Applegate D, Cook W (1991). A computational study of the job-shop scheduling problem. ORSA Journal on Computing 3(2), 149-156.", "orb"),
     ("swv", "Storer, Wu and Vaccari", 1992, "Storer RH, Wu SD, Vaccari R (1992). New search spaces for sequencing problems with application to job shop scheduling. Management Science 38(10), 1495-1509.", "swv"),
     ("yn", "Yamada and Nakano", 1992, "Yamada T, Nakano R (1992). A genetic algorithm applicable to large-scale job-shop instances. PPSN II, 281-290.", "yn"),
-    ("ta", "Taillard", 1993, "Taillard E (1993). Benchmarks for basic scheduling problems. European Journal of Operational Research 64(2), 278-285.", "ta"),
-    ("dmu", "Demirkol, Mehta and Uzsoy", 1998, "Demirkol E, Mehta S, Uzsoy R (1998). Benchmarks for shop scheduling problems. European Journal of Operational Research 109(1), 137-141.", "dmu"),
 ]
 
 

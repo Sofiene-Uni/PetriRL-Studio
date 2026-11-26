@@ -20,7 +20,7 @@ table.bench tr.on td { background: var(--blue-soft); }
 table.bench tr.on .tick { background: var(--blue); border-color: var(--blue); }
 table.bench tr.on .tick::after { content: ""; width: 9px; height: 5px; border: 2px solid #fff; border-top: 0; border-right: 0; transform: rotate(-45deg) translate(1px, -1px); }
 table.bench td:first-child { width: 36px; }
-tr.group-row td { background: #F4F6F8; font-size: 13px; padding: 7px 14px; }
+tr.group-row td { background: var(--row-band); font-size: 13px; padding: 7px 14px; }
 tr.group-row .ms-bulk { margin-left: 10px; }
 .best-link { color: inherit; text-decoration: none; white-space: nowrap; }
 .best-link:hover b { color: var(--blue); }

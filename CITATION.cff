@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+message: "If you use PetriRL Studio, please cite the PetriRL paper below and mention this software."
+title: "PetriRL Studio: discrete optimization with reinforcement learning, heuristics and metaheuristics on colored timed Petri nets"
+type: software
+authors:
+  - family-names: Lassoued
+    given-names: Sofiene
+    affiliation: "Laboratory for Automation Technology and Learning Systems, South Westphalia University of Applied Sciences (FH SWF)"
+repository-code: "https://github.com/Sofiene-Uni/PetriRL-Studio"
+contact:
+  - family-names: Lassoued
+    given-names: Sofiene
+    website: "https://sofiene.lassoued.org"
+url: "https://github.com/Sofiene-Uni/PetriRL-Framework"
+license: PolyForm-Noncommercial-1.0.0
+version: 0.7.0
+date-released: 2026-11-26
+keywords:
+  - reinforcement learning
+  - Petri nets
+  - digital twin
+  - job shop scheduling
+  - dispatching rules
+  - metaheuristics
+  - imitation learning
+  - action masking
+  - hyper-heuristics
+preferred-citation:
+  type: article
+  title: "Introducing PetriRL: An innovative framework for JSSP resolution integrating Petri nets and event-based reinforcement learning"
+  authors:
+    - family-names: Lassoued
+      given-names: Sofiene
+    - family-names: Schwung
+      given-names: Andreas
+  journal: "Journal of Manufacturing Systems"
+  volume: 74
+  start: 690
+  end: 702
+  year: 2024
+  doi: "10.1016/j.jmsy.2024.04.028"
+references:
+  - type: article
+    title: "Flexible Manufacturing Systems intralogistics: Dynamic optimization of AGVs and tool sharing using Colored-Timed Petri Nets and actor-critic RL with actions masking"
+    authors:
+      - family-names: Lassoued
+        given-names: Sofiene
+      - family-names: Baheti
+        given-names: Laxmikant Shrikant
+      - family-names: "Weiß-Borkowski"
+        given-names: Nathalie
+      - family-names: Lier
+        given-names: Stefan
+      - family-names: Schwung
+        given-names: Andreas
+    journal: "Journal of Manufacturing Systems"
+    volume: 82
+    start: 405
+    end: 419
+    year: 2025
+    doi: "10.1016/j.jmsy.2025.06.017"

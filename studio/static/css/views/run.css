@@ -17,7 +17,7 @@
 .gantt-legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 20px 16px; }
 .jobkey {
   display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 9px 0 6px; border-radius: 999px;
-  border: 1px solid var(--line); background: #fff; font-size: 12px; cursor: pointer; color: var(--ink-2);
+  border: 1px solid var(--line); background: var(--surface); font-size: 12px; cursor: pointer; color: var(--ink-2);
 }
 .jobkey i { width: 10px; height: 10px; border-radius: 50%; }
 .jobkey.on { border-color: var(--ink); color: var(--ink); font-weight: 600; }
@@ -36,9 +36,6 @@
   --sim-accent: #B8720B; --sim-shadow: rgba(30, 34, 41, .18);
 }
 .sim.theme-light .player-body, .sim.theme-light .transport { border-color: var(--sim-line); }
-.theme-switch { display: inline-flex; border: 1px solid var(--sim-line); border-radius: 8px; padding: 2px; gap: 2px; }
-.theme-switch button { border: 0; background: transparent; color: var(--sim-muted); padding: 4px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; }
-.theme-switch button.on { background: var(--sim-bg-2); color: var(--sim-strong); box-shadow: inset 0 0 0 1px var(--sim-line); }
 .player-tools { display: flex; gap: 10px; align-items: center; }
 .player { margin-top: 20px; background: var(--sim-bg); border-radius: 18px; color: var(--sim-text); overflow: hidden; box-shadow: 0 30px 60px -36px var(--sim-shadow); border: 1px solid var(--sim-line); transition: background .3s, color .3s; }
 .player-top { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; gap: 16px; flex-wrap: wrap; }
@@ -81,7 +78,7 @@
 .scrub { position: relative; height: 34px; cursor: pointer; }
 .scrub .track { position: absolute; left: 0; right: 0; top: 15px; height: 4px; border-radius: 99px; background: var(--sim-line); }
 .scrub .fill { position: absolute; left: 0; top: 15px; height: 4px; border-radius: 99px; background: var(--amber); }
-.scrub .knob { position: absolute; top: 9px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: #fff; border: 1px solid var(--sim-dash); box-shadow: 0 0 0 4px rgba(242,169,59,.35); }
+.scrub .knob { position: absolute; top: 9px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: var(--surface); border: 1px solid var(--sim-dash); box-shadow: 0 0 0 4px rgba(242,169,59,.35); }
 .scrub .ticks { position: absolute; left: 0; right: 0; top: 24px; height: 8px; }
 .scrub .ticks i { position: absolute; width: 1px; height: 5px; background: var(--sim-dash); }
 .speed { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--sim-muted); }
@@ -119,3 +116,5 @@
 .htag.first { color: var(--sim-accent); }
 .macro-line { font-size: 12.5px; color: var(--sim-muted); margin: -4px 0 4px; }
 .macro-line b { color: var(--sim-accent); font-weight: 600; }
+.cite-note { margin-top: 8px; font-size: 13px; color: var(--ink-3); max-width: 90ch; }
+.cite-note a { color: var(--blue-ink); }

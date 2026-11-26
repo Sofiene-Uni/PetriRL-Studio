@@ -1,0 +1,122 @@
+{# Technology page: one article per paper / repository, newest topics last. Plain HTML: edit freely.
+   German version: ../de/technology.html. To add a paper: copy one <article> block. #}
+<h1>Technology</h1>
+<p class="lead">PetriRL Studio rests on a line of research on reinforcement learning for discrete event systems,
+  developed at South Westphalia University of Applied Sciences. Each paper has its own open repository; this page
+  explains what each one adds.</p>
+
+<nav class="tech-toc">
+  <a href="#t-petrirl">PetriRL</a><a href="#t-fms">Intralogistics</a><a href="#t-hh">Hyper-heuristics</a>
+  <a href="#t-djssp">Dynamic job shops</a><a href="#t-mask">Action masking</a><a href="#t-studio">PetriRL Studio</a>
+</nav>
+
+<article class="tech-post" id="t-petrirl">
+  <p class="tech-meta">Journal of Manufacturing Systems 74, 2024 <span class="tag green">published</span></p>
+  <h2>PetriRL: Petri nets and event-based reinforcement learning</h2>
+  <p>The foundation. A job shop is modeled as a colored timed Petri net: tokens are operations, their color says
+    which job and machine they belong to, timed transitions process them. The net is the environment the agent
+    acts in, a light digital twin of the shop.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li><b>Guard functions as action masks.</b> The net already knows which transitions may fire. Infeasible
+      actions are masked before the agent chooses, so it never learns from impossible moves.</li>
+    <li><b>Event-based decisions.</b> Between decisions the net fires its automatic and timed transitions and the
+      clock jumps to the next event. The agent is called only when a choice exists.</li>
+    <li><b>Explainable by construction.</b> Every action is a transition firing that can be replayed as token flow.</li>
+  </ul>
+  <h3>Result</h3>
+  <p>A masked PPO agent schedules Taillard instances on the net and is compared with dispatching rules and
+    learning-based methods. The same model is the starting point of all following work.</p>
+  <p class="tech-links"><a href="https://doi.org/10.1016/j.jmsy.2024.04.028" target="_blank" rel="noopener">Paper</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL-Framework" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-fms">
+  <p class="tech-meta">Journal of Manufacturing Systems 82, 2025 <span class="tag green">published</span></p>
+  <h2>Intralogistics: AGVs and tool sharing in flexible manufacturing</h2>
+  <p>Real shops move parts and tools. This work adds automated guided vehicles that carry jobs between machines
+    and tool transporters that share tools, all in the same colored timed Petri net.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li>Job, AGV and tool decisions share one net; guard functions keep the larger action space tractable.</li>
+    <li>An actor-critic agent with a model-based lookahead on the net decides where AGVs should wait for their
+      next transport.</li>
+  </ul>
+  <h3>Result</h3>
+  <p>Evaluated on small public FMS benchmarks and on a new large-scale benchmark derived from Taillard's instances.</p>
+  <p class="tech-links"><a href="https://doi.org/10.1016/j.jmsy.2025.06.017" target="_blank" rel="noopener">Paper</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL_Intralogistics" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-hh">
+  <p class="tech-meta">Preprint, submitted to Knowledge-Based Systems <span class="tag amber">under review</span></p>
+  <h2>Hyper-heuristics: the agent chooses the rule</h2>
+  <p>Instead of picking a job, the agent picks one of 14 dispatching rules (shortest processing time, most work
+    remaining, ...). Each decision stays readable: at any moment you know which rule is in charge and why its job
+    was chosen.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li><b>Prefiltering.</b> The net's guard functions remove infeasible actions before the rules see them.</li>
+    <li><b>Commitment.</b> A chosen rule stays active for k decisions. This temporal abstraction shortens the
+      horizon and stabilizes training; with a fixed k the problem stays a Markov decision process, which allows a
+      convergence argument through Mirror Learning.</li>
+  </ul>
+  <h3>Result</h3>
+  <p>On the Taillard groups from 15×15 to 100×20 the hyper-heuristic matches or beats the best single rule on every
+    instance and reaches the lowest average makespan (2856) among the compared learning-based methods.
+    A commitment of 5 decisions works best on average.</p>
+  <p class="tech-links"><a href="https://arxiv.org/abs/2601.11189" target="_blank" rel="noopener">Preprint</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL_Hyperheuristic" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-djssp">
+  <p class="tech-meta">Preprint, arXiv 2026 <span class="tag amber">in revision</span></p>
+  <h2>Dynamic job shops: random arrivals and machine failures</h2>
+  <p>Plans break when orders arrive late or machines fail. Here jobs arrive following a Gamma distribution and
+    machines fail following a Weibull distribution while the agent schedules.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li>A failure disables the machine's start transition; jobs waiting for that machine are masked indirectly.</li>
+    <li>Two ways to handle the mask are compared: overriding the probability of invalid actions, and pushing it
+      down with an extra gradient during training.</li>
+  </ul>
+  <h3>Result</h3>
+  <p>The learned policy keeps scheduling through disruptions without retraining and gives lower makespans than
+    classical dispatching rules on the dynamic benchmarks.</p>
+  <p class="tech-links"><a href="https://arxiv.org/abs/2601.09293" target="_blank" rel="noopener">Preprint</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL_DJSSP" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-mask">
+  <p class="tech-meta">In preparation, 2027 <span class="tag">upcoming</span></p>
+  <h2>Revisiting action masking</h2>
+  <p>In a job shop often only a few of all actions are valid at a time. This work studies whether the usual hard
+    mask is the best choice in such highly constrained systems, and compares it with gradient-based masking for
+    faster and more robust training.</p>
+  <p class="tech-links"><a href="https://github.com/Sofiene-Uni/PetriRL-Masking" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-more">
+  <p class="tech-meta">CoDIT 2026 <span class="tag green">presented</span></p>
+  <h2>Conference work</h2>
+  <ul>
+    <li>Just-in-time aware scheduling with PetriRL.</li>
+    <li>Fuzzy multi-objective optimization (with Diyar Altinses).</li>
+  </ul>
+</article>
+
+<article class="tech-post" id="t-studio">
+  <p class="tech-meta">Free for noncommercial use, 2026 <span class="tag blue">this app</span></p>
+  <h2>PetriRL Studio</h2>
+  <p>Everything above in one place, without writing code.</p>
+  <ul>
+    <li><b>Solve</b> your instances or 242 classic benchmarks with 15 dispatching rules, three metaheuristics
+      (genetic algorithm, simulated annealing, tabu search, all able to use the wait action) or trained agents,
+      and compare them by their gap to the optimum.</li>
+    <li><b>Train</b> agents in the dispatching or hyper-heuristic environment, or OR-informed: tabu search solves
+      the training instances, the agent clones its decisions, then PPO fine-tunes.</li>
+    <li><b>Replay</b> any plan on the Petri net with the agent's probabilities, or replay a known solution
+      (machine orders or a firing sequence).</li>
+  </ul>
+  <p class="tech-links"><a href="https://github.com/Sofiene-Uni/PetriRL-Studio" target="_blank" rel="noopener">Code</a></p>
+</article>

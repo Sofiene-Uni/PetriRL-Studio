@@ -1,6 +1,7 @@
 // Training progress ring and learning curve (canvas).
 import { h } from "../core/dom.js";
 import { niceStep } from "../core/format.js";
+import { t } from "../core/i18n.js";
 
 export function ringSVG() {
   const el = h("div", { html: `<svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="#E3E7EC" stroke-width="10"/>
@@ -31,7 +32,7 @@ export function drawChart(canvas, episodes, st) {
   if (!episodes.length && !st.evals.length) {
     ctx.fillStyle = "#7C8592";
     ctx.textAlign = "center";
-    ctx.fillText("The first episodes appear after a few seconds", W / 2, H / 2);
+    ctx.fillText(t("The first episodes appear after a few seconds"), W / 2, H / 2);
     return;
   }
   const sorted = [...ys].sort((a, b) => a - b);

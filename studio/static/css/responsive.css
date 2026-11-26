@@ -1,6 +1,8 @@
 /* Small screens and reduced motion (loaded last) */
 @media (max-width: 1100px) {
+  .env-chip { display: none; }
   .hero, .setup-grid, .train-grid { grid-template-columns: 1fr; }
+  .hero { grid-template-areas: "text" "doors" "env" "stage"; }
   .player-body { grid-template-columns: 1fr; }
   .inspector { border-left: 0; border-top: 1px solid var(--graphite-3); max-height: 360px; }
   .net-stage { height: 480px; }
@@ -9,8 +11,12 @@
   main { padding: 18px 14px 80px; }
   .topbar { padding: 0 14px; }
   .brand span { display: none; }
-  .doors, .env-cards { grid-template-columns: 1fr; }
+  .doors { grid-template-columns: 1fr; }
   .env-chip { display: none; }
+  .nav-links { gap: 12px; }
+  .nav-info { margin-left: 10px; }
+  .nav-links a { font-size: 13.5px; }
+  .nav-info #lang-slot { padding-right: 10px; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
   .kpi { border-left: 0; border-top: 1px solid var(--line-2); }
   .dash-stats { grid-template-columns: 1fr 1fr; }

@@ -1,2762 +1,2762 @@
 {
- "source": "Weise T (2020). jsspInstancesAndResults: results, data, and instances of the job shop scheduling problem. https://github.com/thomasWeise/jsspInstancesAndResults. Bounds as compiled in 2020.",
- "problem_types": {
-  "jssp": {
-   "name": "Job shop",
-   "description": "n jobs, m machines, each job visits the machines in its own fixed order; minimize the makespan.",
-   "families": [
-    {
-     "id": "ft",
-     "name": "Fisher and Thompson",
-     "year": 1963,
-     "reference": "Fisher H, Thompson GL (1963). Probabilistic learning combinations of local job-shop scheduling rules. In Industrial Scheduling, 225-251.",
-     "instances": [
-      {
-       "name": "ft06",
-       "n_jobs": 6,
-       "n_machines": 6,
-       "lower_bound": 55,
-       "best_known": 55,
-       "optimal": true,
-       "lower_bound_ref": "FTM1971AIEAFTMSP",
-       "best_known_ref": "CP1989AAFSTJSP"
-      },
-      {
-       "name": "ft10",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 930,
-       "best_known": 930,
-       "optimal": true,
-       "lower_bound_ref": "CP1989AAFSTJSP",
-       "best_known_ref": "CP1989AAFSTJSP"
-      },
-      {
-       "name": "ft20",
-       "n_jobs": 20,
-       "n_machines": 5,
-       "lower_bound": 1165,
-       "best_known": 1165,
-       "optimal": true,
-       "lower_bound_ref": "MF1975OSWRTADDTMML",
-       "best_known_ref": "CP1989AAFSTJSP"
-      }
-     ]
-    },
-    {
-     "id": "la",
-     "name": "Lawrence",
-     "year": 1984,
-     "reference": "Lawrence SR (1984). Resource constrained project scheduling: an experimental investigation of heuristic scheduling techniques (Supplement). Carnegie-Mellon University.",
-     "instances": [
-      {
-       "name": "la01",
-       "n_jobs": 10,
-       "n_machines": 5,
-       "lower_bound": 666,
-       "best_known": 666,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la02",
-       "n_jobs": 10,
-       "n_machines": 5,
-       "lower_bound": 655,
-       "best_known": 655,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la03",
-       "n_jobs": 10,
-       "n_machines": 5,
-       "lower_bound": 597,
-       "best_known": 597,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la04",
-       "n_jobs": 10,
-       "n_machines": 5,
-       "lower_bound": 590,
-       "best_known": 590,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la05",
-       "n_jobs": 10,
-       "n_machines": 5,
-       "lower_bound": 593,
-       "best_known": 593,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la06",
-       "n_jobs": 15,
-       "n_machines": 5,
-       "lower_bound": 926,
-       "best_known": 926,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la07",
-       "n_jobs": 15,
-       "n_machines": 5,
-       "lower_bound": 890,
-       "best_known": 890,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la08",
-       "n_jobs": 15,
-       "n_machines": 5,
-       "lower_bound": 863,
-       "best_known": 863,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la09",
-       "n_jobs": 15,
-       "n_machines": 5,
-       "lower_bound": 951,
-       "best_known": 951,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la10",
-       "n_jobs": 15,
-       "n_machines": 5,
-       "lower_bound": 958,
-       "best_known": 958,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la11",
-       "n_jobs": 20,
-       "n_machines": 5,
-       "lower_bound": 1222,
-       "best_known": 1222,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la12",
-       "n_jobs": 20,
-       "n_machines": 5,
-       "lower_bound": 1039,
-       "best_known": 1039,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la13",
-       "n_jobs": 20,
-       "n_machines": 5,
-       "lower_bound": 1150,
-       "best_known": 1150,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la14",
-       "n_jobs": 20,
-       "n_machines": 5,
-       "lower_bound": 1292,
-       "best_known": 1292,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la15",
-       "n_jobs": 20,
-       "n_machines": 5,
-       "lower_bound": 1207,
-       "best_known": 1207,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la16",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 945,
-       "best_known": 945,
-       "optimal": true,
-       "lower_bound_ref": "CP1990APUOJPSFSTJSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la17",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 784,
-       "best_known": 784,
-       "optimal": true,
-       "lower_bound_ref": "CP1990APUOJPSFSTJSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la18",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 848,
-       "best_known": 848,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la19",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 842,
-       "best_known": 842,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la20",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 902,
-       "best_known": 902,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la21",
-       "n_jobs": 15,
-       "n_machines": 10,
-       "lower_bound": 1046,
-       "best_known": 1046,
-       "optimal": true,
-       "lower_bound_ref": "VAL1996JSSBLS",
-       "best_known_ref": "YN1997GAFJSSP"
-      },
-      {
-       "name": "la22",
-       "n_jobs": 15,
-       "n_machines": 10,
-       "lower_bound": 927,
-       "best_known": 927,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la23",
-       "n_jobs": 15,
-       "n_machines": 10,
-       "lower_bound": 1032,
-       "best_known": 1032,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la24",
-       "n_jobs": 15,
-       "n_machines": 10,
-       "lower_bound": 935,
-       "best_known": 935,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la25",
-       "n_jobs": 15,
-       "n_machines": 10,
-       "lower_bound": 977,
-       "best_known": 977,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la26",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1218,
-       "best_known": 1218,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la27",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1235,
-       "best_known": 1235,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "YN1997GAFJSSP"
-      },
-      {
-       "name": "la28",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1216,
-       "best_known": 1216,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la29",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1152,
-       "best_known": 1152,
-       "optimal": true,
-       "lower_bound_ref": "M1996ATOATCOSFTJSSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "la30",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1355,
-       "best_known": 1355,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la31",
-       "n_jobs": 30,
-       "n_machines": 10,
-       "lower_bound": 1784,
-       "best_known": 1784,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la32",
-       "n_jobs": 30,
-       "n_machines": 10,
-       "lower_bound": 1850,
-       "best_known": 1850,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la33",
-       "n_jobs": 30,
-       "n_machines": 10,
-       "lower_bound": 1719,
-       "best_known": 1719,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la34",
-       "n_jobs": 30,
-       "n_machines": 10,
-       "lower_bound": 1721,
-       "best_known": 1721,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la35",
-       "n_jobs": 30,
-       "n_machines": 10,
-       "lower_bound": 1888,
-       "best_known": 1888,
-       "optimal": true,
-       "lower_bound_ref": "ABZ1988TSBPFJSS",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la36",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1268,
-       "best_known": 1268,
-       "optimal": true,
-       "lower_bound_ref": "CP1990APUOJPSFSTJSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la37",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1397,
-       "best_known": 1397,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la38",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1196,
-       "best_known": 1196,
-       "optimal": true,
-       "lower_bound_ref": "VAL1996JSSBLS",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "la39",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1233,
-       "best_known": 1233,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "la40",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1222,
-       "best_known": 1222,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      }
-     ]
-    },
-    {
-     "id": "abz",
-     "name": "Adams, Balas and Zawack",
-     "year": 1988,
-     "reference": "Adams J, Balas E, Zawack D (1988). The shifting bottleneck procedure for job shop scheduling. Management Science 34(3), 391-401.",
-     "instances": [
-      {
-       "name": "abz5",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 1234,
-       "best_known": 1234,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "abz6",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 943,
-       "best_known": 943,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "abz7",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 656,
-       "best_known": 656,
-       "optimal": true,
-       "lower_bound_ref": "M1996ATOATCOSFTJSSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "abz8",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 648,
-       "best_known": 665,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "abz9",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 678,
-       "best_known": 678,
-       "optimal": true,
-       "lower_bound_ref": "KNFH2010SOJSSPBSE",
-       "best_known_ref": "ZSRQ2008SNROTSAATTJSSP"
-      }
-     ]
-    },
-    {
-     "id": "orb",
-     "name": "Applegate and Cook",
-     "year": 1991,
-     "reference": "Applegate D, Cook W (1991). A computational study of the job-shop scheduling problem. ORSA Journal on Computing 3(2), 149-156.",
-     "instances": [
-      {
-       "name": "orb01",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 1059,
-       "best_known": 1059,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "orb02",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 888,
-       "best_known": 888,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "orb03",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 1005,
-       "best_known": 1005,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "orb04",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 1005,
-       "best_known": 1005,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "orb05",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 887,
-       "best_known": 887,
-       "optimal": true,
-       "lower_bound_ref": "AC1991ACSOTJSSP",
-       "best_known_ref": "AC1991ACSOTJSSP"
-      },
-      {
-       "name": "orb06",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 1010,
-       "best_known": 1010,
-       "optimal": true,
-       "lower_bound_ref": "JM1999DJSSPPAF",
-       "best_known_ref": "BV1998GLSWSBFJSS"
-      },
-      {
-       "name": "orb07",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 397,
-       "best_known": 397,
-       "optimal": true,
-       "lower_bound_ref": "JM1999DJSSPPAF",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "orb08",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 899,
-       "best_known": 899,
-       "optimal": true,
-       "lower_bound_ref": "JM1999DJSSPPAF",
-       "best_known_ref": "BV1998GLSWSBFJSS"
-      },
-      {
-       "name": "orb09",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 934,
-       "best_known": 934,
-       "optimal": true,
-       "lower_bound_ref": "JM1999DJSSPPAF",
-       "best_known_ref": "BV1998GLSWSBFJSS"
-      },
-      {
-       "name": "orb10",
-       "n_jobs": 10,
-       "n_machines": 10,
-       "lower_bound": 944,
-       "best_known": 944,
-       "optimal": true,
-       "lower_bound_ref": "JM1999DJSSPPAF",
-       "best_known_ref": "BV1998GLSWSBFJSS"
-      }
-     ]
-    },
-    {
-     "id": "swv",
-     "name": "Storer, Wu and Vaccari",
-     "year": 1992,
-     "reference": "Storer RH, Wu SD, Vaccari R (1992). New search spaces for sequencing problems with application to job shop scheduling. Management Science 38(10), 1495-1509.",
-     "instances": [
-      {
-       "name": "swv01",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1407,
-       "best_known": 1407,
-       "optimal": true,
-       "lower_bound_ref": "M1996ATOATCOSFTJSSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv02",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1475,
-       "best_known": 1475,
-       "optimal": true,
-       "lower_bound_ref": "M1996ATOATCOSFTJSSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv03",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1398,
-       "best_known": 1398,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv04",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1464,
-       "best_known": 1464,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "swv05",
-       "n_jobs": 20,
-       "n_machines": 10,
-       "lower_bound": 1424,
-       "best_known": 1424,
-       "optimal": true,
-       "lower_bound_ref": "M1996ATOATCOSFTJSSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv06",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1630,
-       "best_known": 1671,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "swv07",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1513,
-       "best_known": 1594,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "swv08",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1671,
-       "best_known": 1752,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "swv09",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1633,
-       "best_known": 1655,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "swv10",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1663,
-       "best_known": 1743,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "swv11",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2983,
-       "best_known": 2983,
-       "optimal": true,
-       "lower_bound_ref": "V1996ATJEBOL",
-       "best_known_ref": "NS2005AATSAFTJSP"
-      },
-      {
-       "name": "swv12",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2972,
-       "best_known": 2977,
-       "optimal": false,
-       "lower_bound_ref": "V1996ATJEBOL",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP"
-      },
-      {
-       "name": "swv13",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 3104,
-       "best_known": 3104,
-       "optimal": true,
-       "lower_bound_ref": "V1996ATJEBOL",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv14",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2968,
-       "best_known": 2968,
-       "optimal": true,
-       "lower_bound_ref": "BV1994GLSWSBFJSS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv15",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2885,
-       "best_known": 2885,
-       "optimal": true,
-       "lower_bound_ref": "V1996ATJEBOL",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP"
-      },
-      {
-       "name": "swv16",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2924,
-       "best_known": 2924,
-       "optimal": true,
-       "lower_bound_ref": "SWV1992NSSFSPWATJSS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv17",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2794,
-       "best_known": 2794,
-       "optimal": true,
-       "lower_bound_ref": "SWV1992NSSFSPWATJSS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv18",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2852,
-       "best_known": 2852,
-       "optimal": true,
-       "lower_bound_ref": "SWV1992NSSFSPWATJSS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv19",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2843,
-       "best_known": 2843,
-       "optimal": true,
-       "lower_bound_ref": "SWV1992NSSFSPWATJSS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "swv20",
-       "n_jobs": 50,
-       "n_machines": 10,
-       "lower_bound": 2823,
-       "best_known": 2823,
-       "optimal": true,
-       "lower_bound_ref": "SWV1992NSSFSPWATJSS",
-       "best_known_ref": "H2002PJSSP"
-      }
-     ]
-    },
-    {
-     "id": "yn",
-     "name": "Yamada and Nakano",
-     "year": 1992,
-     "reference": "Yamada T, Nakano R (1992). A genetic algorithm applicable to large-scale job-shop instances. PPSN II, 281-290.",
-     "instances": [
-      {
-       "name": "yn1",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 884,
-       "best_known": 884,
-       "optimal": true,
-       "lower_bound_ref": "KNFH2010SOJSSPBSE",
-       "best_known_ref": "ZSRQ2008SNROTSAATTJSSP"
-      },
-      {
-       "name": "yn2",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 870,
-       "best_known": 904,
-       "optimal": false,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "yn3",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 859,
-       "best_known": 892,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "NS2005AATSAFTJSP"
-      },
-      {
-       "name": "yn4",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 929,
-       "best_known": 968,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      }
-     ]
-    },
-    {
-     "id": "ta",
-     "name": "Taillard",
-     "year": 1993,
-     "reference": "Taillard E (1993). Benchmarks for basic scheduling problems. European Journal of Operational Research 64(2), 278-285.",
-     "instances": [
-      {
-       "name": "ta01",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1231,
-       "best_known": 1231,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta02",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1244,
-       "best_known": 1244,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta03",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1218,
-       "best_known": 1218,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta04",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1175,
-       "best_known": 1175,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta05",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1224,
-       "best_known": 1224,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta06",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1238,
-       "best_known": 1238,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta07",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1227,
-       "best_known": 1227,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta08",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1217,
-       "best_known": 1217,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta09",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1274,
-       "best_known": 1274,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta10",
-       "n_jobs": 15,
-       "n_machines": 15,
-       "lower_bound": 1241,
-       "best_known": 1241,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta11",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1357,
-       "best_known": 1357,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "BFW2011CCPALSFJSS"
-      },
-      {
-       "name": "ta12",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1367,
-       "best_known": 1367,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta13",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1342,
-       "best_known": 1342,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta14",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1345,
-       "best_known": 1345,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta15",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1339,
-       "best_known": 1339,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV"
-      },
-      {
-       "name": "ta16",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1360,
-       "best_known": 1360,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta17",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1462,
-       "best_known": 1462,
-       "optimal": true,
-       "lower_bound_ref": "S200RLOETP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta18",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1377,
-       "best_known": 1396,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta19",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1332,
-       "best_known": 1332,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV"
-      },
-      {
-       "name": "ta20",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 1348,
-       "best_known": 1348,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV"
-      },
-      {
-       "name": "ta21",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1642,
-       "best_known": 1642,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "BFW2011CCPALSFJSS"
-      },
-      {
-       "name": "ta22",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1561,
-       "best_known": 1600,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta23",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1518,
-       "best_known": 1557,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta24",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1644,
-       "best_known": 1644,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "ta25",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1558,
-       "best_known": 1595,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "NS2005AATSAFTJSP"
-      },
-      {
-       "name": "ta26",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1591,
-       "best_known": 1643,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "ta27",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1652,
-       "best_known": 1680,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta28",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1603,
-       "best_known": 1603,
-       "optimal": true,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV"
-      },
-      {
-       "name": "ta29",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1573,
-       "best_known": 1625,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta30",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 1519,
-       "best_known": 1584,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta31",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1764,
-       "best_known": 1764,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta32",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1774,
-       "best_known": 1784,
-       "optimal": false,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "S2019JSSPH"
-      },
-      {
-       "name": "ta33",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1788,
-       "best_known": 1791,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV"
-      },
-      {
-       "name": "ta34",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1828,
-       "best_known": 1829,
-       "optimal": false,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta35",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 2007,
-       "best_known": 2007,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta36",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1819,
-       "best_known": 1819,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta37",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1771,
-       "best_known": 1771,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "ta38",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1673,
-       "best_known": 1673,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta39",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1795,
-       "best_known": 1795,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta40",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 1651,
-       "best_known": 1669,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "ta41",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1906,
-       "best_known": 2005,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "ta42",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1884,
-       "best_known": 1937,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "ta43",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1809,
-       "best_known": 1846,
-       "optimal": false,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP"
-      },
-      {
-       "name": "ta44",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1948,
-       "best_known": 1979,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "ta45",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1997,
-       "best_known": 2000,
-       "optimal": false,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta46",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1957,
-       "best_known": 2004,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
-      },
-      {
-       "name": "ta47",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1807,
-       "best_known": 1889,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "ta48",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1912,
-       "best_known": 1937,
-       "optimal": false,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS"
-      },
-      {
-       "name": "ta49",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1931,
-       "best_known": 1961,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "ta50",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 1833,
-       "best_known": 1923,
-       "optimal": false,
-       "lower_bound_ref": "VLS2015FDSFCBS",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
-      },
-      {
-       "name": "ta51",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2760,
-       "best_known": 2760,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta52",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2756,
-       "best_known": 2756,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta53",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2717,
-       "best_known": 2717,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta54",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2839,
-       "best_known": 2839,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta55",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2679,
-       "best_known": 2679,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta56",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2781,
-       "best_known": 2781,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta57",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2943,
-       "best_known": 2943,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta58",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2885,
-       "best_known": 2885,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta59",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2655,
-       "best_known": 2655,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta60",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 2723,
-       "best_known": 2723,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta61",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2868,
-       "best_known": 2868,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta62",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2869,
-       "best_known": 2869,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "C2003PCOR2FTTETLOETP"
-      },
-      {
-       "name": "ta63",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2755,
-       "best_known": 2755,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta64",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2702,
-       "best_known": 2702,
-       "optimal": true,
-       "lower_bound_ref": "BV1994GLSWSBFJSS",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta65",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2725,
-       "best_known": 2725,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta66",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2845,
-       "best_known": 2845,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta67",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2825,
-       "best_known": 2825,
-       "optimal": true,
-       "lower_bound_ref": "V1995RLOETP",
-       "best_known_ref": "H2002PJSSP"
-      },
-      {
-       "name": "ta68",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2784,
-       "best_known": 2784,
-       "optimal": true,
-       "lower_bound_ref": "BV1994GLSWSBFJSS",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta69",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 3071,
-       "best_known": 3071,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta70",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 2995,
-       "best_known": 2995,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      },
-      {
-       "name": "ta71",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5464,
-       "best_known": 5464,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta72",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5181,
-       "best_known": 5181,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta73",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5568,
-       "best_known": 5568,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta74",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5339,
-       "best_known": 5339,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta75",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5392,
-       "best_known": 5392,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta76",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5342,
-       "best_known": 5342,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta77",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5436,
-       "best_known": 5436,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta78",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5394,
-       "best_known": 5394,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta79",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5358,
-       "best_known": 5358,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "PM2000ATSMGBSBFTJSSP"
-      },
-      {
-       "name": "ta80",
-       "n_jobs": 100,
-       "n_machines": 20,
-       "lower_bound": 5183,
-       "best_known": 5183,
-       "optimal": true,
-       "lower_bound_ref": "T199BFBSP",
-       "best_known_ref": "NS1996AFTSAFTJSP"
-      }
-     ]
-    },
-    {
-     "id": "dmu",
-     "name": "Demirkol, Mehta and Uzsoy",
-     "year": 1998,
-     "reference": "Demirkol E, Mehta S, Uzsoy R (1998). Benchmarks for shop scheduling problems. European Journal of Operational Research 109(1), 137-141.",
-     "instances": [
-      {
-       "name": "dmu01",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 2501,
-       "best_known": 2563,
-       "optimal": false,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_20_15_4"
-      },
-      {
-       "name": "dmu02",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 2651,
-       "best_known": 2706,
-       "optimal": false,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_20_15_10"
-      },
-      {
-       "name": "dmu03",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 2731,
-       "best_known": 2731,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_20_15_5"
-      },
-      {
-       "name": "dmu04",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 2601,
-       "best_known": 2669,
-       "optimal": false,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_20_15_8"
-      },
-      {
-       "name": "dmu05",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 2749,
-       "best_known": 2749,
-       "optimal": true,
-       "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_20_15_1"
-      },
-      {
-       "name": "dmu06",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3042,
-       "best_known": 3244,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV",
-       "original_name": "rcmax_20_20_6"
-      },
-      {
-       "name": "dmu07",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 2828,
-       "best_known": 3046,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV",
-       "original_name": "rcmax_20_20_4"
-      },
-      {
-       "name": "dmu08",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3051,
-       "best_known": 3188,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV",
-       "original_name": "rcmax_20_20_7"
-      },
-      {
-       "name": "dmu09",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 2956,
-       "best_known": 3092,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_20_20_8"
-      },
-      {
-       "name": "dmu10",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 2858,
-       "best_known": 2984,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PSV2010SJSSPUTPOBABV",
-       "original_name": "rcmax_20_20_5"
-      },
-      {
-       "name": "dmu11",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 3395,
-       "best_known": 3430,
-       "optimal": false,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "rcmax_30_15_9"
-      },
-      {
-       "name": "dmu12",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 3481,
-       "best_known": 3492,
-       "optimal": false,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "rcmax_30_15_10"
-      },
-      {
-       "name": "dmu13",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 3681,
-       "best_known": 3681,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "rcmax_30_15_5"
-      },
-      {
-       "name": "dmu14",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 3394,
-       "best_known": 3394,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_30_15_4"
-      },
-      {
-       "name": "dmu15",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 3343,
-       "best_known": 3343,
-       "optimal": true,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_30_15_1"
-      },
-      {
-       "name": "dmu16",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 3734,
-       "best_known": 3751,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "rcmax_30_20_7"
-      },
-      {
-       "name": "dmu17",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 3709,
-       "best_known": 3814,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "rcmax_30_20_10"
-      },
-      {
-       "name": "dmu18",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 3844,
-       "best_known": 3844,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "rcmax_30_20_9"
-      },
-      {
-       "name": "dmu19",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 3672,
-       "best_known": 3765,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "rcmax_30_20_8"
-      },
-      {
-       "name": "dmu20",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 3604,
-       "best_known": 3710,
-       "optimal": false,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "rcmax_30_20_2"
-      },
-      {
-       "name": "dmu21",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 4380,
-       "best_known": 4380,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_15_5"
-      },
-      {
-       "name": "dmu22",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 4725,
-       "best_known": 4725,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_15_9"
-      },
-      {
-       "name": "dmu23",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 4668,
-       "best_known": 4668,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_15_10"
-      },
-      {
-       "name": "dmu24",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 4648,
-       "best_known": 4648,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_15_8"
-      },
-      {
-       "name": "dmu25",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 4164,
-       "best_known": 4164,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_15_2"
-      },
-      {
-       "name": "dmu26",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 4647,
-       "best_known": 4647,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "rcmax_40_20_1"
-      },
-      {
-       "name": "dmu27",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 4848,
-       "best_known": 4848,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_20_3"
-      },
-      {
-       "name": "dmu28",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 4692,
-       "best_known": 4692,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_20_6"
-      },
-      {
-       "name": "dmu29",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 4691,
-       "best_known": 4691,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_20_2"
-      },
-      {
-       "name": "dmu30",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 4732,
-       "best_known": 4732,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_40_20_7"
-      },
-      {
-       "name": "dmu31",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 5640,
-       "best_known": 5640,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_15_3"
-      },
-      {
-       "name": "dmu32",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 5927,
-       "best_known": 5927,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_15_1"
-      },
-      {
-       "name": "dmu33",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 5728,
-       "best_known": 5728,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_15_2"
-      },
-      {
-       "name": "dmu34",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 5385,
-       "best_known": 5385,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_15_4"
-      },
-      {
-       "name": "dmu35",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 5635,
-       "best_known": 5635,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_15_5"
-      },
-      {
-       "name": "dmu36",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 5621,
-       "best_known": 5621,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_20_2"
-      },
-      {
-       "name": "dmu37",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 5851,
-       "best_known": 5851,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_20_7"
-      },
-      {
-       "name": "dmu38",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 5713,
-       "best_known": 5713,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_20_6"
-      },
-      {
-       "name": "dmu39",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 5747,
-       "best_known": 5747,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_20_9"
-      },
-      {
-       "name": "dmu40",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 5577,
-       "best_known": 5577,
-       "optimal": true,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "H2002PJSSP",
-       "original_name": "rcmax_50_20_3"
-      },
-      {
-       "name": "dmu41",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 3007,
-       "best_known": 3248,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_20_15_10"
-      },
-      {
-       "name": "dmu42",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 3224,
-       "best_known": 3390,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_20_15_5"
-      },
-      {
-       "name": "dmu43",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 3292,
-       "best_known": 3441,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "cscmax_20_15_8"
-      },
-      {
-       "name": "dmu44",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 3299,
-       "best_known": 3475,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_20_15_7"
-      },
-      {
-       "name": "dmu45",
-       "n_jobs": 20,
-       "n_machines": 15,
-       "lower_bound": 3039,
-       "best_known": 3272,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "cscmax_20_15_1"
-      },
-      {
-       "name": "dmu46",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3575,
-       "best_known": 4035,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "cscmax_20_20_6"
-      },
-      {
-       "name": "dmu47",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3522,
-       "best_known": 3939,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
-       "original_name": "cscmax_20_20_4"
-      },
-      {
-       "name": "dmu48",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3447,
-       "best_known": 3763,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_20_20_3"
-      },
-      {
-       "name": "dmu49",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3403,
-       "best_known": 3710,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_20_20_2"
-      },
-      {
-       "name": "dmu50",
-       "n_jobs": 20,
-       "n_machines": 20,
-       "lower_bound": 3496,
-       "best_known": 3729,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_20_20_9"
-      },
-      {
-       "name": "dmu51",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 3954,
-       "best_known": 4156,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_30_15_2"
-      },
-      {
-       "name": "dmu52",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 4094,
-       "best_known": 4311,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_30_15_9"
-      },
-      {
-       "name": "dmu53",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 4141,
-       "best_known": 4390,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_30_15_10"
-      },
-      {
-       "name": "dmu54",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 4202,
-       "best_known": 4362,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_30_15_5"
-      },
-      {
-       "name": "dmu55",
-       "n_jobs": 30,
-       "n_machines": 15,
-       "lower_bound": 4146,
-       "best_known": 4270,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_30_15_6"
-      },
-      {
-       "name": "dmu56",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 4554,
-       "best_known": 4941,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_30_20_9"
-      },
-      {
-       "name": "dmu57",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 4302,
-       "best_known": 4663,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_30_20_7"
-      },
-      {
-       "name": "dmu58",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 4319,
-       "best_known": 4708,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_30_20_3"
-      },
-      {
-       "name": "dmu59",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 4219,
-       "best_known": 4619,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_30_20_6"
-      },
-      {
-       "name": "dmu60",
-       "n_jobs": 30,
-       "n_machines": 20,
-       "lower_bound": 4319,
-       "best_known": 4739,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_30_20_4"
-      },
-      {
-       "name": "dmu61",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 4917,
-       "best_known": 5172,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_15_3"
-      },
-      {
-       "name": "dmu62",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 5041,
-       "best_known": 5251,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_15_6"
-      },
-      {
-       "name": "dmu63",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 5111,
-       "best_known": 5323,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_15_8"
-      },
-      {
-       "name": "dmu64",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 5130,
-       "best_known": 5240,
-       "optimal": false,
-       "lower_bound_ref": "DMU1996BFSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_15_4"
-      },
-      {
-       "name": "dmu65",
-       "n_jobs": 40,
-       "n_machines": 15,
-       "lower_bound": 5107,
-       "best_known": 5190,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_15_7"
-      },
-      {
-       "name": "dmu66",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 5397,
-       "best_known": 5717,
-       "optimal": false,
-       "lower_bound_ref": "vH2016DPFRASOSOD",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_40_20_10"
-      },
-      {
-       "name": "dmu67",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 5589,
-       "best_known": 5779,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_20_6"
-      },
-      {
-       "name": "dmu68",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 5426,
-       "best_known": 5765,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_20_8"
-      },
-      {
-       "name": "dmu69",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 5423,
-       "best_known": 5709,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_40_20_5"
-      },
-      {
-       "name": "dmu70",
-       "n_jobs": 40,
-       "n_machines": 20,
-       "lower_bound": 5501,
-       "best_known": 5889,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_40_20_9"
-      },
-      {
-       "name": "dmu71",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 6080,
-       "best_known": 6223,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_50_15_8"
-      },
-      {
-       "name": "dmu72",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 6395,
-       "best_known": 6463,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_15_6"
-      },
-      {
-       "name": "dmu73",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 6001,
-       "best_known": 6153,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_15_10"
-      },
-      {
-       "name": "dmu74",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 6123,
-       "best_known": 6196,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_15_4"
-      },
-      {
-       "name": "dmu75",
-       "n_jobs": 50,
-       "n_machines": 15,
-       "lower_bound": 6029,
-       "best_known": 6189,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_15_3"
-      },
-      {
-       "name": "dmu76",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 6342,
-       "best_known": 6807,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_20_1"
-      },
-      {
-       "name": "dmu77",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 6499,
-       "best_known": 6792,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_20_4"
-      },
-      {
-       "name": "dmu78",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 6586,
-       "best_known": 6770,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "PLC2015ATSPRATSTJSSP",
-       "original_name": "cscmax_50_20_3"
-      },
-      {
-       "name": "dmu79",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 6650,
-       "best_known": 6952,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_20_7"
-      },
-      {
-       "name": "dmu80",
-       "n_jobs": 50,
-       "n_machines": 20,
-       "lower_bound": 6459,
-       "best_known": 6673,
-       "optimal": false,
-       "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
-       "best_known_ref": "SS2018BBOVBCACSOJSS",
-       "original_name": "cscmax_50_20_9"
-      }
-     ]
+  "source": "Weise T (2020). jsspInstancesAndResults: results, data, and instances of the job shop scheduling problem. https://github.com/thomasWeise/jsspInstancesAndResults. Bounds as compiled in 2020.",
+  "problem_types": {
+    "jssp": {
+      "name": "Job shop",
+      "description": "n jobs, m machines, each job visits the machines in its own fixed order; minimize the makespan.",
+      "families": [
+        {
+          "id": "ta",
+          "name": "Taillard",
+          "year": 1993,
+          "reference": "Taillard E (1993). Benchmarks for basic scheduling problems. European Journal of Operational Research 64(2), 278-285.",
+          "instances": [
+            {
+              "name": "ta01",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1231,
+              "best_known": 1231,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta02",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1244,
+              "best_known": 1244,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta03",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1218,
+              "best_known": 1218,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta04",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1175,
+              "best_known": 1175,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta05",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1224,
+              "best_known": 1224,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta06",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1238,
+              "best_known": 1238,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta07",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1227,
+              "best_known": 1227,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta08",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1217,
+              "best_known": 1217,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta09",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1274,
+              "best_known": 1274,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta10",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1241,
+              "best_known": 1241,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta11",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1357,
+              "best_known": 1357,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "BFW2011CCPALSFJSS"
+            },
+            {
+              "name": "ta12",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1367,
+              "best_known": 1367,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta13",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1342,
+              "best_known": 1342,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta14",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1345,
+              "best_known": 1345,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta15",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1339,
+              "best_known": 1339,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV"
+            },
+            {
+              "name": "ta16",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1360,
+              "best_known": 1360,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta17",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1462,
+              "best_known": 1462,
+              "optimal": true,
+              "lower_bound_ref": "S200RLOETP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta18",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1377,
+              "best_known": 1396,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta19",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1332,
+              "best_known": 1332,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV"
+            },
+            {
+              "name": "ta20",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1348,
+              "best_known": 1348,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV"
+            },
+            {
+              "name": "ta21",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1642,
+              "best_known": 1642,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "BFW2011CCPALSFJSS"
+            },
+            {
+              "name": "ta22",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1561,
+              "best_known": 1600,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta23",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1518,
+              "best_known": 1557,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta24",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1644,
+              "best_known": 1644,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "ta25",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1558,
+              "best_known": 1595,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "NS2005AATSAFTJSP"
+            },
+            {
+              "name": "ta26",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1591,
+              "best_known": 1643,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "ta27",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1652,
+              "best_known": 1680,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta28",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1603,
+              "best_known": 1603,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV"
+            },
+            {
+              "name": "ta29",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1573,
+              "best_known": 1625,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta30",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 1519,
+              "best_known": 1584,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta31",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1764,
+              "best_known": 1764,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta32",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1774,
+              "best_known": 1784,
+              "optimal": false,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "S2019JSSPH"
+            },
+            {
+              "name": "ta33",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1788,
+              "best_known": 1791,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV"
+            },
+            {
+              "name": "ta34",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1828,
+              "best_known": 1829,
+              "optimal": false,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta35",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 2007,
+              "best_known": 2007,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta36",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1819,
+              "best_known": 1819,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta37",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1771,
+              "best_known": 1771,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "ta38",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1673,
+              "best_known": 1673,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta39",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1795,
+              "best_known": 1795,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta40",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 1651,
+              "best_known": 1669,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "ta41",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1906,
+              "best_known": 2005,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "ta42",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1884,
+              "best_known": 1937,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "ta43",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1809,
+              "best_known": 1846,
+              "optimal": false,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP"
+            },
+            {
+              "name": "ta44",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1948,
+              "best_known": 1979,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "ta45",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1997,
+              "best_known": 2000,
+              "optimal": false,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta46",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1957,
+              "best_known": 2004,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "ta47",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1807,
+              "best_known": 1889,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "ta48",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1912,
+              "best_known": 1937,
+              "optimal": false,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS"
+            },
+            {
+              "name": "ta49",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1931,
+              "best_known": 1961,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "ta50",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 1833,
+              "best_known": 1923,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "ta51",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2760,
+              "best_known": 2760,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta52",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2756,
+              "best_known": 2756,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta53",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2717,
+              "best_known": 2717,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta54",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2839,
+              "best_known": 2839,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta55",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2679,
+              "best_known": 2679,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta56",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2781,
+              "best_known": 2781,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta57",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2943,
+              "best_known": 2943,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta58",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2885,
+              "best_known": 2885,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta59",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2655,
+              "best_known": 2655,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta60",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 2723,
+              "best_known": 2723,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta61",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2868,
+              "best_known": 2868,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta62",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2869,
+              "best_known": 2869,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "C2003PCOR2FTTETLOETP"
+            },
+            {
+              "name": "ta63",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2755,
+              "best_known": 2755,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta64",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2702,
+              "best_known": 2702,
+              "optimal": true,
+              "lower_bound_ref": "BV1994GLSWSBFJSS",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta65",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2725,
+              "best_known": 2725,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta66",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2845,
+              "best_known": 2845,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta67",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2825,
+              "best_known": 2825,
+              "optimal": true,
+              "lower_bound_ref": "V1995RLOETP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "ta68",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2784,
+              "best_known": 2784,
+              "optimal": true,
+              "lower_bound_ref": "BV1994GLSWSBFJSS",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta69",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 3071,
+              "best_known": 3071,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta70",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 2995,
+              "best_known": 2995,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "ta71",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5464,
+              "best_known": 5464,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta72",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5181,
+              "best_known": 5181,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta73",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5568,
+              "best_known": 5568,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta74",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5339,
+              "best_known": 5339,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta75",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5392,
+              "best_known": 5392,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta76",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5342,
+              "best_known": 5342,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta77",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5436,
+              "best_known": 5436,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta78",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5394,
+              "best_known": 5394,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta79",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5358,
+              "best_known": 5358,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "PM2000ATSMGBSBFTJSSP"
+            },
+            {
+              "name": "ta80",
+              "n_jobs": 100,
+              "n_machines": 20,
+              "lower_bound": 5183,
+              "best_known": 5183,
+              "optimal": true,
+              "lower_bound_ref": "T199BFBSP",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            }
+          ]
+        },
+        {
+          "id": "dmu",
+          "name": "Demirkol, Mehta and Uzsoy",
+          "year": 1998,
+          "reference": "Demirkol E, Mehta S, Uzsoy R (1998). Benchmarks for shop scheduling problems. European Journal of Operational Research 109(1), 137-141.",
+          "instances": [
+            {
+              "name": "dmu01",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 2501,
+              "best_known": 2563,
+              "optimal": false,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_20_15_4"
+            },
+            {
+              "name": "dmu02",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 2651,
+              "best_known": 2706,
+              "optimal": false,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_20_15_10"
+            },
+            {
+              "name": "dmu03",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 2731,
+              "best_known": 2731,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_20_15_5"
+            },
+            {
+              "name": "dmu04",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 2601,
+              "best_known": 2669,
+              "optimal": false,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_20_15_8"
+            },
+            {
+              "name": "dmu05",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 2749,
+              "best_known": 2749,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_20_15_1"
+            },
+            {
+              "name": "dmu06",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3042,
+              "best_known": 3244,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV",
+              "original_name": "rcmax_20_20_6"
+            },
+            {
+              "name": "dmu07",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 2828,
+              "best_known": 3046,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV",
+              "original_name": "rcmax_20_20_4"
+            },
+            {
+              "name": "dmu08",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3051,
+              "best_known": 3188,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV",
+              "original_name": "rcmax_20_20_7"
+            },
+            {
+              "name": "dmu09",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 2956,
+              "best_known": 3092,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_20_20_8"
+            },
+            {
+              "name": "dmu10",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 2858,
+              "best_known": 2984,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PSV2010SJSSPUTPOBABV",
+              "original_name": "rcmax_20_20_5"
+            },
+            {
+              "name": "dmu11",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 3395,
+              "best_known": 3430,
+              "optimal": false,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "rcmax_30_15_9"
+            },
+            {
+              "name": "dmu12",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 3481,
+              "best_known": 3492,
+              "optimal": false,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "rcmax_30_15_10"
+            },
+            {
+              "name": "dmu13",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 3681,
+              "best_known": 3681,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "rcmax_30_15_5"
+            },
+            {
+              "name": "dmu14",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 3394,
+              "best_known": 3394,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_30_15_4"
+            },
+            {
+              "name": "dmu15",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 3343,
+              "best_known": 3343,
+              "optimal": true,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_30_15_1"
+            },
+            {
+              "name": "dmu16",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 3734,
+              "best_known": 3751,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "rcmax_30_20_7"
+            },
+            {
+              "name": "dmu17",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 3709,
+              "best_known": 3814,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "rcmax_30_20_10"
+            },
+            {
+              "name": "dmu18",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 3844,
+              "best_known": 3844,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "rcmax_30_20_9"
+            },
+            {
+              "name": "dmu19",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 3672,
+              "best_known": 3765,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "rcmax_30_20_8"
+            },
+            {
+              "name": "dmu20",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 3604,
+              "best_known": 3710,
+              "optimal": false,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "rcmax_30_20_2"
+            },
+            {
+              "name": "dmu21",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 4380,
+              "best_known": 4380,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_15_5"
+            },
+            {
+              "name": "dmu22",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 4725,
+              "best_known": 4725,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_15_9"
+            },
+            {
+              "name": "dmu23",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 4668,
+              "best_known": 4668,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_15_10"
+            },
+            {
+              "name": "dmu24",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 4648,
+              "best_known": 4648,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_15_8"
+            },
+            {
+              "name": "dmu25",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 4164,
+              "best_known": 4164,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_15_2"
+            },
+            {
+              "name": "dmu26",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 4647,
+              "best_known": 4647,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "rcmax_40_20_1"
+            },
+            {
+              "name": "dmu27",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 4848,
+              "best_known": 4848,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_20_3"
+            },
+            {
+              "name": "dmu28",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 4692,
+              "best_known": 4692,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_20_6"
+            },
+            {
+              "name": "dmu29",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 4691,
+              "best_known": 4691,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_20_2"
+            },
+            {
+              "name": "dmu30",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 4732,
+              "best_known": 4732,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_40_20_7"
+            },
+            {
+              "name": "dmu31",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 5640,
+              "best_known": 5640,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_15_3"
+            },
+            {
+              "name": "dmu32",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 5927,
+              "best_known": 5927,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_15_1"
+            },
+            {
+              "name": "dmu33",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 5728,
+              "best_known": 5728,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_15_2"
+            },
+            {
+              "name": "dmu34",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 5385,
+              "best_known": 5385,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_15_4"
+            },
+            {
+              "name": "dmu35",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 5635,
+              "best_known": 5635,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_15_5"
+            },
+            {
+              "name": "dmu36",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 5621,
+              "best_known": 5621,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_20_2"
+            },
+            {
+              "name": "dmu37",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 5851,
+              "best_known": 5851,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_20_7"
+            },
+            {
+              "name": "dmu38",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 5713,
+              "best_known": 5713,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_20_6"
+            },
+            {
+              "name": "dmu39",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 5747,
+              "best_known": 5747,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_20_9"
+            },
+            {
+              "name": "dmu40",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 5577,
+              "best_known": 5577,
+              "optimal": true,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "H2002PJSSP",
+              "original_name": "rcmax_50_20_3"
+            },
+            {
+              "name": "dmu41",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 3007,
+              "best_known": 3248,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_20_15_10"
+            },
+            {
+              "name": "dmu42",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 3224,
+              "best_known": 3390,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_20_15_5"
+            },
+            {
+              "name": "dmu43",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 3292,
+              "best_known": 3441,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "cscmax_20_15_8"
+            },
+            {
+              "name": "dmu44",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 3299,
+              "best_known": 3475,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_20_15_7"
+            },
+            {
+              "name": "dmu45",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 3039,
+              "best_known": 3272,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "cscmax_20_15_1"
+            },
+            {
+              "name": "dmu46",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3575,
+              "best_known": 4035,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "cscmax_20_20_6"
+            },
+            {
+              "name": "dmu47",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3522,
+              "best_known": 3939,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS",
+              "original_name": "cscmax_20_20_4"
+            },
+            {
+              "name": "dmu48",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3447,
+              "best_known": 3763,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_20_20_3"
+            },
+            {
+              "name": "dmu49",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3403,
+              "best_known": 3710,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_20_20_2"
+            },
+            {
+              "name": "dmu50",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 3496,
+              "best_known": 3729,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_20_20_9"
+            },
+            {
+              "name": "dmu51",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 3954,
+              "best_known": 4156,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_30_15_2"
+            },
+            {
+              "name": "dmu52",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 4094,
+              "best_known": 4311,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_30_15_9"
+            },
+            {
+              "name": "dmu53",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 4141,
+              "best_known": 4390,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_30_15_10"
+            },
+            {
+              "name": "dmu54",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 4202,
+              "best_known": 4362,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_30_15_5"
+            },
+            {
+              "name": "dmu55",
+              "n_jobs": 30,
+              "n_machines": 15,
+              "lower_bound": 4146,
+              "best_known": 4270,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_30_15_6"
+            },
+            {
+              "name": "dmu56",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 4554,
+              "best_known": 4941,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_30_20_9"
+            },
+            {
+              "name": "dmu57",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 4302,
+              "best_known": 4663,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_30_20_7"
+            },
+            {
+              "name": "dmu58",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 4319,
+              "best_known": 4708,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_30_20_3"
+            },
+            {
+              "name": "dmu59",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 4219,
+              "best_known": 4619,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_30_20_6"
+            },
+            {
+              "name": "dmu60",
+              "n_jobs": 30,
+              "n_machines": 20,
+              "lower_bound": 4319,
+              "best_known": 4739,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_30_20_4"
+            },
+            {
+              "name": "dmu61",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 4917,
+              "best_known": 5172,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_15_3"
+            },
+            {
+              "name": "dmu62",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 5041,
+              "best_known": 5251,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_15_6"
+            },
+            {
+              "name": "dmu63",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 5111,
+              "best_known": 5323,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_15_8"
+            },
+            {
+              "name": "dmu64",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 5130,
+              "best_known": 5240,
+              "optimal": false,
+              "lower_bound_ref": "DMU1996BFSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_15_4"
+            },
+            {
+              "name": "dmu65",
+              "n_jobs": 40,
+              "n_machines": 15,
+              "lower_bound": 5107,
+              "best_known": 5190,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_15_7"
+            },
+            {
+              "name": "dmu66",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 5397,
+              "best_known": 5717,
+              "optimal": false,
+              "lower_bound_ref": "vH2016DPFRASOSOD",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_40_20_10"
+            },
+            {
+              "name": "dmu67",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 5589,
+              "best_known": 5779,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_20_6"
+            },
+            {
+              "name": "dmu68",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 5426,
+              "best_known": 5765,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_20_8"
+            },
+            {
+              "name": "dmu69",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 5423,
+              "best_known": 5709,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_40_20_5"
+            },
+            {
+              "name": "dmu70",
+              "n_jobs": 40,
+              "n_machines": 20,
+              "lower_bound": 5501,
+              "best_known": 5889,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_40_20_9"
+            },
+            {
+              "name": "dmu71",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 6080,
+              "best_known": 6223,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_50_15_8"
+            },
+            {
+              "name": "dmu72",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 6395,
+              "best_known": 6463,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_15_6"
+            },
+            {
+              "name": "dmu73",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 6001,
+              "best_known": 6153,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_15_10"
+            },
+            {
+              "name": "dmu74",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 6123,
+              "best_known": 6196,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_15_4"
+            },
+            {
+              "name": "dmu75",
+              "n_jobs": 50,
+              "n_machines": 15,
+              "lower_bound": 6029,
+              "best_known": 6189,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_15_3"
+            },
+            {
+              "name": "dmu76",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 6342,
+              "best_known": 6807,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_20_1"
+            },
+            {
+              "name": "dmu77",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 6499,
+              "best_known": 6792,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_20_4"
+            },
+            {
+              "name": "dmu78",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 6586,
+              "best_known": 6770,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP",
+              "original_name": "cscmax_50_20_3"
+            },
+            {
+              "name": "dmu79",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 6650,
+              "best_known": 6952,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_20_7"
+            },
+            {
+              "name": "dmu80",
+              "n_jobs": 50,
+              "n_machines": 20,
+              "lower_bound": 6459,
+              "best_known": 6673,
+              "optimal": false,
+              "lower_bound_ref": "GL2010ETSMBRSFTJSSP",
+              "best_known_ref": "SS2018BBOVBCACSOJSS",
+              "original_name": "cscmax_50_20_9"
+            }
+          ]
+        },
+        {
+          "id": "la",
+          "name": "Lawrence",
+          "year": 1984,
+          "reference": "Lawrence SR (1984). Resource constrained project scheduling: an experimental investigation of heuristic scheduling techniques (Supplement). Carnegie-Mellon University.",
+          "instances": [
+            {
+              "name": "la01",
+              "n_jobs": 10,
+              "n_machines": 5,
+              "lower_bound": 666,
+              "best_known": 666,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la02",
+              "n_jobs": 10,
+              "n_machines": 5,
+              "lower_bound": 655,
+              "best_known": 655,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la03",
+              "n_jobs": 10,
+              "n_machines": 5,
+              "lower_bound": 597,
+              "best_known": 597,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la04",
+              "n_jobs": 10,
+              "n_machines": 5,
+              "lower_bound": 590,
+              "best_known": 590,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la05",
+              "n_jobs": 10,
+              "n_machines": 5,
+              "lower_bound": 593,
+              "best_known": 593,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la06",
+              "n_jobs": 15,
+              "n_machines": 5,
+              "lower_bound": 926,
+              "best_known": 926,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la07",
+              "n_jobs": 15,
+              "n_machines": 5,
+              "lower_bound": 890,
+              "best_known": 890,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la08",
+              "n_jobs": 15,
+              "n_machines": 5,
+              "lower_bound": 863,
+              "best_known": 863,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la09",
+              "n_jobs": 15,
+              "n_machines": 5,
+              "lower_bound": 951,
+              "best_known": 951,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la10",
+              "n_jobs": 15,
+              "n_machines": 5,
+              "lower_bound": 958,
+              "best_known": 958,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la11",
+              "n_jobs": 20,
+              "n_machines": 5,
+              "lower_bound": 1222,
+              "best_known": 1222,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la12",
+              "n_jobs": 20,
+              "n_machines": 5,
+              "lower_bound": 1039,
+              "best_known": 1039,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la13",
+              "n_jobs": 20,
+              "n_machines": 5,
+              "lower_bound": 1150,
+              "best_known": 1150,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la14",
+              "n_jobs": 20,
+              "n_machines": 5,
+              "lower_bound": 1292,
+              "best_known": 1292,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la15",
+              "n_jobs": 20,
+              "n_machines": 5,
+              "lower_bound": 1207,
+              "best_known": 1207,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la16",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 945,
+              "best_known": 945,
+              "optimal": true,
+              "lower_bound_ref": "CP1990APUOJPSFSTJSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la17",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 784,
+              "best_known": 784,
+              "optimal": true,
+              "lower_bound_ref": "CP1990APUOJPSFSTJSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la18",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 848,
+              "best_known": 848,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la19",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 842,
+              "best_known": 842,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la20",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 902,
+              "best_known": 902,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la21",
+              "n_jobs": 15,
+              "n_machines": 10,
+              "lower_bound": 1046,
+              "best_known": 1046,
+              "optimal": true,
+              "lower_bound_ref": "VAL1996JSSBLS",
+              "best_known_ref": "YN1997GAFJSSP"
+            },
+            {
+              "name": "la22",
+              "n_jobs": 15,
+              "n_machines": 10,
+              "lower_bound": 927,
+              "best_known": 927,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la23",
+              "n_jobs": 15,
+              "n_machines": 10,
+              "lower_bound": 1032,
+              "best_known": 1032,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la24",
+              "n_jobs": 15,
+              "n_machines": 10,
+              "lower_bound": 935,
+              "best_known": 935,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la25",
+              "n_jobs": 15,
+              "n_machines": 10,
+              "lower_bound": 977,
+              "best_known": 977,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la26",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1218,
+              "best_known": 1218,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la27",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1235,
+              "best_known": 1235,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "YN1997GAFJSSP"
+            },
+            {
+              "name": "la28",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1216,
+              "best_known": 1216,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la29",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1152,
+              "best_known": 1152,
+              "optimal": true,
+              "lower_bound_ref": "M1996ATOATCOSFTJSSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "la30",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1355,
+              "best_known": 1355,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la31",
+              "n_jobs": 30,
+              "n_machines": 10,
+              "lower_bound": 1784,
+              "best_known": 1784,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la32",
+              "n_jobs": 30,
+              "n_machines": 10,
+              "lower_bound": 1850,
+              "best_known": 1850,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la33",
+              "n_jobs": 30,
+              "n_machines": 10,
+              "lower_bound": 1719,
+              "best_known": 1719,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la34",
+              "n_jobs": 30,
+              "n_machines": 10,
+              "lower_bound": 1721,
+              "best_known": 1721,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la35",
+              "n_jobs": 30,
+              "n_machines": 10,
+              "lower_bound": 1888,
+              "best_known": 1888,
+              "optimal": true,
+              "lower_bound_ref": "ABZ1988TSBPFJSS",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la36",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1268,
+              "best_known": 1268,
+              "optimal": true,
+              "lower_bound_ref": "CP1990APUOJPSFSTJSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la37",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1397,
+              "best_known": 1397,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la38",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1196,
+              "best_known": 1196,
+              "optimal": true,
+              "lower_bound_ref": "VAL1996JSSBLS",
+              "best_known_ref": "NS1996AFTSAFTJSP"
+            },
+            {
+              "name": "la39",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1233,
+              "best_known": 1233,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "la40",
+              "n_jobs": 15,
+              "n_machines": 15,
+              "lower_bound": 1222,
+              "best_known": 1222,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            }
+          ]
+        },
+        {
+          "id": "ft",
+          "name": "Fisher and Thompson",
+          "year": 1963,
+          "reference": "Fisher H, Thompson GL (1963). Probabilistic learning combinations of local job-shop scheduling rules. In Industrial Scheduling, 225-251.",
+          "instances": [
+            {
+              "name": "ft06",
+              "n_jobs": 6,
+              "n_machines": 6,
+              "lower_bound": 55,
+              "best_known": 55,
+              "optimal": true,
+              "lower_bound_ref": "FTM1971AIEAFTMSP",
+              "best_known_ref": "CP1989AAFSTJSP"
+            },
+            {
+              "name": "ft10",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 930,
+              "best_known": 930,
+              "optimal": true,
+              "lower_bound_ref": "CP1989AAFSTJSP",
+              "best_known_ref": "CP1989AAFSTJSP"
+            },
+            {
+              "name": "ft20",
+              "n_jobs": 20,
+              "n_machines": 5,
+              "lower_bound": 1165,
+              "best_known": 1165,
+              "optimal": true,
+              "lower_bound_ref": "MF1975OSWRTADDTMML",
+              "best_known_ref": "CP1989AAFSTJSP"
+            }
+          ]
+        },
+        {
+          "id": "abz",
+          "name": "Adams, Balas and Zawack",
+          "year": 1988,
+          "reference": "Adams J, Balas E, Zawack D (1988). The shifting bottleneck procedure for job shop scheduling. Management Science 34(3), 391-401.",
+          "instances": [
+            {
+              "name": "abz5",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 1234,
+              "best_known": 1234,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "abz6",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 943,
+              "best_known": 943,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "abz7",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 656,
+              "best_known": 656,
+              "optimal": true,
+              "lower_bound_ref": "M1996ATOATCOSFTJSSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "abz8",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 648,
+              "best_known": 665,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "abz9",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 678,
+              "best_known": 678,
+              "optimal": true,
+              "lower_bound_ref": "KNFH2010SOJSSPBSE",
+              "best_known_ref": "ZSRQ2008SNROTSAATTJSSP"
+            }
+          ]
+        },
+        {
+          "id": "orb",
+          "name": "Applegate and Cook",
+          "year": 1991,
+          "reference": "Applegate D, Cook W (1991). A computational study of the job-shop scheduling problem. ORSA Journal on Computing 3(2), 149-156.",
+          "instances": [
+            {
+              "name": "orb01",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 1059,
+              "best_known": 1059,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "orb02",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 888,
+              "best_known": 888,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "orb03",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 1005,
+              "best_known": 1005,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "orb04",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 1005,
+              "best_known": 1005,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "orb05",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 887,
+              "best_known": 887,
+              "optimal": true,
+              "lower_bound_ref": "AC1991ACSOTJSSP",
+              "best_known_ref": "AC1991ACSOTJSSP"
+            },
+            {
+              "name": "orb06",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 1010,
+              "best_known": 1010,
+              "optimal": true,
+              "lower_bound_ref": "JM1999DJSSPPAF",
+              "best_known_ref": "BV1998GLSWSBFJSS"
+            },
+            {
+              "name": "orb07",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 397,
+              "best_known": 397,
+              "optimal": true,
+              "lower_bound_ref": "JM1999DJSSPPAF",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "orb08",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 899,
+              "best_known": 899,
+              "optimal": true,
+              "lower_bound_ref": "JM1999DJSSPPAF",
+              "best_known_ref": "BV1998GLSWSBFJSS"
+            },
+            {
+              "name": "orb09",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 934,
+              "best_known": 934,
+              "optimal": true,
+              "lower_bound_ref": "JM1999DJSSPPAF",
+              "best_known_ref": "BV1998GLSWSBFJSS"
+            },
+            {
+              "name": "orb10",
+              "n_jobs": 10,
+              "n_machines": 10,
+              "lower_bound": 944,
+              "best_known": 944,
+              "optimal": true,
+              "lower_bound_ref": "JM1999DJSSPPAF",
+              "best_known_ref": "BV1998GLSWSBFJSS"
+            }
+          ]
+        },
+        {
+          "id": "swv",
+          "name": "Storer, Wu and Vaccari",
+          "year": 1992,
+          "reference": "Storer RH, Wu SD, Vaccari R (1992). New search spaces for sequencing problems with application to job shop scheduling. Management Science 38(10), 1495-1509.",
+          "instances": [
+            {
+              "name": "swv01",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1407,
+              "best_known": 1407,
+              "optimal": true,
+              "lower_bound_ref": "M1996ATOATCOSFTJSSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv02",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1475,
+              "best_known": 1475,
+              "optimal": true,
+              "lower_bound_ref": "M1996ATOATCOSFTJSSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv03",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1398,
+              "best_known": 1398,
+              "optimal": true,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv04",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1464,
+              "best_known": 1464,
+              "optimal": true,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "swv05",
+              "n_jobs": 20,
+              "n_machines": 10,
+              "lower_bound": 1424,
+              "best_known": 1424,
+              "optimal": true,
+              "lower_bound_ref": "M1996ATOATCOSFTJSSP",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv06",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1630,
+              "best_known": 1671,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "swv07",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1513,
+              "best_known": 1594,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "swv08",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1671,
+              "best_known": 1752,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "swv09",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1633,
+              "best_known": 1655,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER"
+            },
+            {
+              "name": "swv10",
+              "n_jobs": 20,
+              "n_machines": 15,
+              "lower_bound": 1663,
+              "best_known": 1743,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "swv11",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2983,
+              "best_known": 2983,
+              "optimal": true,
+              "lower_bound_ref": "V1996ATJEBOL",
+              "best_known_ref": "NS2005AATSAFTJSP"
+            },
+            {
+              "name": "swv12",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2972,
+              "best_known": 2977,
+              "optimal": false,
+              "lower_bound_ref": "V1996ATJEBOL",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP"
+            },
+            {
+              "name": "swv13",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 3104,
+              "best_known": 3104,
+              "optimal": true,
+              "lower_bound_ref": "V1996ATJEBOL",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv14",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2968,
+              "best_known": 2968,
+              "optimal": true,
+              "lower_bound_ref": "BV1994GLSWSBFJSS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv15",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2885,
+              "best_known": 2885,
+              "optimal": true,
+              "lower_bound_ref": "V1996ATJEBOL",
+              "best_known_ref": "PLC2015ATSPRATSTJSSP"
+            },
+            {
+              "name": "swv16",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2924,
+              "best_known": 2924,
+              "optimal": true,
+              "lower_bound_ref": "SWV1992NSSFSPWATJSS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv17",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2794,
+              "best_known": 2794,
+              "optimal": true,
+              "lower_bound_ref": "SWV1992NSSFSPWATJSS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv18",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2852,
+              "best_known": 2852,
+              "optimal": true,
+              "lower_bound_ref": "SWV1992NSSFSPWATJSS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv19",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2843,
+              "best_known": 2843,
+              "optimal": true,
+              "lower_bound_ref": "SWV1992NSSFSPWATJSS",
+              "best_known_ref": "H2002PJSSP"
+            },
+            {
+              "name": "swv20",
+              "n_jobs": 50,
+              "n_machines": 10,
+              "lower_bound": 2823,
+              "best_known": 2823,
+              "optimal": true,
+              "lower_bound_ref": "SWV1992NSSFSPWATJSS",
+              "best_known_ref": "H2002PJSSP"
+            }
+          ]
+        },
+        {
+          "id": "yn",
+          "name": "Yamada and Nakano",
+          "year": 1992,
+          "reference": "Yamada T, Nakano R (1992). A genetic algorithm applicable to large-scale job-shop instances. PPSN II, 281-290.",
+          "instances": [
+            {
+              "name": "yn1",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 884,
+              "best_known": 884,
+              "optimal": true,
+              "lower_bound_ref": "KNFH2010SOJSSPBSE",
+              "best_known_ref": "ZSRQ2008SNROTSAATTJSSP"
+            },
+            {
+              "name": "yn2",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 870,
+              "best_known": 904,
+              "optimal": false,
+              "lower_bound_ref": "BB2001SOBIFTJSPBPHTA",
+              "best_known_ref": "GR2014AEAGMWABRKGAFJSS"
+            },
+            {
+              "name": "yn3",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 859,
+              "best_known": 892,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "NS2005AATSAFTJSP"
+            },
+            {
+              "name": "yn4",
+              "n_jobs": 20,
+              "n_machines": 20,
+              "lower_bound": 929,
+              "best_known": 968,
+              "optimal": false,
+              "lower_bound_ref": "VLS2015FDSFCBS",
+              "best_known_ref": "H2002PJSSP"
+            }
+          ]
+        }
+      ]
     }
-   ]
+  },
+  "references": {
+    "FTM1971AIEAFTMSP": {
+      "short": "Florian et al. (1971)",
+      "title": "An Implicit Enumeration Algorithm for the Machine Sequencing Problem",
+      "doi": "10.1287/mnsc.17.12.B782"
+    },
+    "CP1989AAFSTJSP": {
+      "short": "Carlier and Pinson (1989)",
+      "title": "An Algorithm for Solving the Job-Shop Problem",
+      "doi": "10.1287/mnsc.35.2.164"
+    },
+    "MF1975OSWRTADDTMML": {
+      "short": "McMahon and Florian (1975)",
+      "title": "On Scheduling with Ready Times and Due Dates to Minimize Maximum Lateness",
+      "doi": "10.1287/opre.23.3.475"
+    },
+    "ABZ1988TSBPFJSS": {
+      "short": "Adams et al. (1988)",
+      "title": "The Shifting Bottleneck Procedure for Job Shop Scheduling",
+      "doi": null
+    },
+    "AC1991ACSOTJSSP": {
+      "short": "Applegate and Cook (1991)",
+      "title": "A Computational Study of the Job-Shop Scheduling Problem",
+      "doi": "10.1287/ijoc.3.2.149"
+    },
+    "CP1990APUOJPSFSTJSP": {
+      "short": "Carlier and Pinson (1990)",
+      "title": "A Practical Use of Jackson's Preemptive Schedule for Solving the Job Shop Problem",
+      "doi": null
+    },
+    "VAL1996JSSBLS": {
+      "short": "Vaessens et al. (1996)",
+      "title": "Job Shop Scheduling by Local Search",
+      "doi": null
+    },
+    "YN1997GAFJSSP": {
+      "short": "Yamada and Nakano (1997)",
+      "title": "Genetic Algorithms for Job-Shop Scheduling Problems",
+      "doi": null
+    },
+    "M1996ATOATCOSFTJSSP": {
+      "short": "Martin (1996)",
+      "title": "A Time-Oriented Approach to Computing Optimal Schedules for the Job-Shop Scheduling Problem",
+      "doi": null
+    },
+    "H2002PJSSP": {
+      "short": "Henning (2002)",
+      "title": "Praktische Job-Shop Scheduling-Probleme",
+      "doi": null
+    },
+    "NS1996AFTSAFTJSP": {
+      "short": "Nowicki and Smutnicki (1996)",
+      "title": "A Fast Taboo Search Algorithm for the Job Shop Problem",
+      "doi": "10.1287/mnsc.42.6.797"
+    },
+    "VLS2015FDSFCBS": {
+      "short": "Vil\\'im et al. (2015)",
+      "title": "Failure-Directed Search for Constraint-Based Scheduling",
+      "doi": "10.1007/978-3-319-18008-3_30"
+    },
+    "KNFH2010SOJSSPBSE": {
+      "short": "Koshimura et al. (2010)",
+      "title": "Solving Open Job-Shop Scheduling Problems by SAT Encoding",
+      "doi": null
+    },
+    "ZSRQ2008SNROTSAATTJSSP": {
+      "short": "Zhang et al. (2008)",
+      "title": "Some New Results on Tabu Search Algorithm Applied to the Job-Shop Scheduling Problem",
+      "doi": "10.5772/5593"
+    },
+    "JM1999DJSSPPAF": {
+      "short": "Jain and Meeran (1999)",
+      "title": "Deterministic Job-Shop Scheduling: P ast, Present and Future",
+      "doi": "10.1016/S0377-2217(98)00113-1"
+    },
+    "BV1998GLSWSBFJSS": {
+      "short": "Balas and Vazacopoulos (1998)",
+      "title": "Guided Local Search with Shifting Bottleneck for Job Shop Scheduling",
+      "doi": "10.1287/mnsc.44.2.262"
+    },
+    "BB2001SOBIFTJSPBPHTA": {
+      "short": "Brinkk\\\"otter and Brucker (2001)",
+      "title": "Solving Open Benchmark Instances for the Job-Shop Problem by Parallel Head-Tail Adjustments",
+      "doi": null
+    },
+    "VLS2015FDSFCBSDER": {
+      "short": "Vil\\'im et al. (2015)",
+      "title": "Failure-Directed Search for Constraint-Based Scheduling -- Detailed Experimental Results",
+      "doi": null
+    },
+    "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER": {
+      "short": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER",
+      "title": "",
+      "doi": null
+    },
+    "GR2014AEAGMWABRKGAFJSS": {
+      "short": "Gon\\ccalves and Resende (2014)",
+      "title": "An Extended Akers Graphical Method with a Biased Random-Key Genetic Algorithm for Job-Shop Scheduling",
+      "doi": null
+    },
+    "V1996ATJEBOL": {
+      "short": "Vaessens (1996)",
+      "title": "Addition to John Edward Beasley's OR Library",
+      "doi": null
+    },
+    "NS2005AATSAFTJSP": {
+      "short": "Nowicki and Smutnicki (2005)",
+      "title": "An Advanced Taboo Search Algorithm for the Job Shop Problem",
+      "doi": null
+    },
+    "PLC2015ATSPRATSTJSSP": {
+      "short": "Peng et al. (2015)",
+      "title": "A Tabu Search/Path Relinking Algorithm to Solve the Job Shop Scheduling Problem",
+      "doi": "10.1016/j.cor.2014.08.006"
+    },
+    "BV1994GLSWSBFJSS": {
+      "short": "Balas and Vazacopoulos (1994)",
+      "title": "Guided Local Search with Shifting Bottleneck for Job Shop Scheduling",
+      "doi": null
+    },
+    "SWV1992NSSFSPWATJSS": {
+      "short": "Storer et al. (1992)",
+      "title": "New Search Spaces for Sequencing Problems with Application to Job Shop Scheduling",
+      "doi": "10.1287/mnsc.38.10.1495"
+    },
+    "T199BFBSP": {
+      "short": "Taillard (1993)",
+      "title": "Benchmarks for Basic Scheduling Problems",
+      "doi": null
+    },
+    "V1995RLOETP": {
+      "short": "Vaessens (1995)",
+      "title": "Results listed on \\'E ric Taillard's Page",
+      "doi": null
+    },
+    "PM2000ATSMGBSBFTJSSP": {
+      "short": "Pezzella and Merelli (2000)",
+      "title": "A Tabu Search Method Guided by Shifting Bottleneck for the Job Shop Scheduling Problem",
+      "doi": "10.1016/S0377-2217(99)00158-7"
+    },
+    "BFW2011CCPALSFJSS": {
+      "short": "Beck et al. (2011)",
+      "title": "Combining Constraint Programming and Local Search for Job-Shop Scheduling",
+      "doi": "10.1287/ijoc.1100.0388"
+    },
+    "PSV2010SJSSPUTPOBABV": {
+      "short": "Pardalos et al. (2010)",
+      "title": "Solving Job Shop Scheduling Problems Utilizing the Properties of Backbone and ``Big Valley''",
+      "doi": null
+    },
+    "S200RLOETP": {
+      "short": "Schilham (2000)",
+      "title": "Results listed on \\'E ric Taillard's Page",
+      "doi": null
+    },
+    "S2019JSSPH": {
+      "short": "Shylo",
+      "title": "Job Shop Scheduling (Personal Homepage)",
+      "doi": null
+    },
+    "SS2018BBOVBCACSOJSS": {
+      "short": "Shylo and Shams (2018)",
+      "title": "Boosting Binary Optimization via Binary Classification: A Case Study of Job Shop Scheduling",
+      "doi": null
+    },
+    "C2003PCOR2FTTETLOETP": {
+      "short": "Caldeira (2003)",
+      "title": "Private Communication of Result 2869 for ta62 to \\'E ric D. Taillard , listed on \\'E ric Taillard's Page",
+      "doi": null
+    },
+    "vH2016DPFRASOSOD": {
+      "short": "Hoorn (2016)",
+      "title": "Dynamic Programming for Routing and Scheduling: Optimizing Sequences of Decisions",
+      "doi": null
+    },
+    "GL2010ETSMBRSFTJSSP": {
+      "short": "Gharbi and Labidi (2010)",
+      "title": "Extending the Single Machine-Based Relaxation Scheme for the Job Shop Scheduling Problem",
+      "doi": "10.1016/j.endm.2010.05.134"
+    },
+    "DMU1996BFSSP": {
+      "short": "Demirkol et al.",
+      "title": "Benchmarking for Shop Scheduling Problems",
+      "doi": null
+    }
   }
- },
- "references": {
-  "FTM1971AIEAFTMSP": {
-   "short": "Florian et al. (1971)",
-   "title": "An Implicit Enumeration Algorithm for the Machine Sequencing Problem",
-   "doi": "10.1287/mnsc.17.12.B782"
-  },
-  "CP1989AAFSTJSP": {
-   "short": "Carlier and Pinson (1989)",
-   "title": "An Algorithm for Solving the Job-Shop Problem",
-   "doi": "10.1287/mnsc.35.2.164"
-  },
-  "MF1975OSWRTADDTMML": {
-   "short": "McMahon and Florian (1975)",
-   "title": "On Scheduling with Ready Times and Due Dates to Minimize Maximum Lateness",
-   "doi": "10.1287/opre.23.3.475"
-  },
-  "ABZ1988TSBPFJSS": {
-   "short": "Adams et al. (1988)",
-   "title": "The Shifting Bottleneck Procedure for Job Shop Scheduling",
-   "doi": null
-  },
-  "AC1991ACSOTJSSP": {
-   "short": "Applegate and Cook (1991)",
-   "title": "A Computational Study of the Job-Shop Scheduling Problem",
-   "doi": "10.1287/ijoc.3.2.149"
-  },
-  "CP1990APUOJPSFSTJSP": {
-   "short": "Carlier and Pinson (1990)",
-   "title": "A Practical Use of Jackson's Preemptive Schedule for Solving the Job Shop Problem",
-   "doi": null
-  },
-  "VAL1996JSSBLS": {
-   "short": "Vaessens et al. (1996)",
-   "title": "Job Shop Scheduling by Local Search",
-   "doi": null
-  },
-  "YN1997GAFJSSP": {
-   "short": "Yamada and Nakano (1997)",
-   "title": "Genetic Algorithms for Job-Shop Scheduling Problems",
-   "doi": null
-  },
-  "M1996ATOATCOSFTJSSP": {
-   "short": "Martin (1996)",
-   "title": "A Time-Oriented Approach to Computing Optimal Schedules for the Job-Shop Scheduling Problem",
-   "doi": null
-  },
-  "H2002PJSSP": {
-   "short": "Henning (2002)",
-   "title": "Praktische Job-Shop Scheduling-Probleme",
-   "doi": null
-  },
-  "NS1996AFTSAFTJSP": {
-   "short": "Nowicki and Smutnicki (1996)",
-   "title": "A Fast Taboo Search Algorithm for the Job Shop Problem",
-   "doi": "10.1287/mnsc.42.6.797"
-  },
-  "VLS2015FDSFCBS": {
-   "short": "Vil\\'im et al. (2015)",
-   "title": "Failure-Directed Search for Constraint-Based Scheduling",
-   "doi": "10.1007/978-3-319-18008-3_30"
-  },
-  "KNFH2010SOJSSPBSE": {
-   "short": "Koshimura et al. (2010)",
-   "title": "Solving Open Job-Shop Scheduling Problems by SAT Encoding",
-   "doi": null
-  },
-  "ZSRQ2008SNROTSAATTJSSP": {
-   "short": "Zhang et al. (2008)",
-   "title": "Some New Results on Tabu Search Algorithm Applied to the Job-Shop Scheduling Problem",
-   "doi": "10.5772/5593"
-  },
-  "JM1999DJSSPPAF": {
-   "short": "Jain and Meeran (1999)",
-   "title": "Deterministic Job-Shop Scheduling: P ast, Present and Future",
-   "doi": "10.1016/S0377-2217(98)00113-1"
-  },
-  "BV1998GLSWSBFJSS": {
-   "short": "Balas and Vazacopoulos (1998)",
-   "title": "Guided Local Search with Shifting Bottleneck for Job Shop Scheduling",
-   "doi": "10.1287/mnsc.44.2.262"
-  },
-  "BB2001SOBIFTJSPBPHTA": {
-   "short": "Brinkk\\\"otter and Brucker (2001)",
-   "title": "Solving Open Benchmark Instances for the Job-Shop Problem by Parallel Head-Tail Adjustments",
-   "doi": null
-  },
-  "VLS2015FDSFCBSDER": {
-   "short": "Vil\\'im et al. (2015)",
-   "title": "Failure-Directed Search for Constraint-Based Scheduling -- Detailed Experimental Results",
-   "doi": null
-  },
-  "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER": {
-   "short": "PLC2015ATSPRATSTJSSP;VLS2015FDSFCBSDER",
-   "title": "",
-   "doi": null
-  },
-  "GR2014AEAGMWABRKGAFJSS": {
-   "short": "Gon\\ccalves and Resende (2014)",
-   "title": "An Extended Akers Graphical Method with a Biased Random-Key Genetic Algorithm for Job-Shop Scheduling",
-   "doi": null
-  },
-  "V1996ATJEBOL": {
-   "short": "Vaessens (1996)",
-   "title": "Addition to John Edward Beasley's OR Library",
-   "doi": null
-  },
-  "NS2005AATSAFTJSP": {
-   "short": "Nowicki and Smutnicki (2005)",
-   "title": "An Advanced Taboo Search Algorithm for the Job Shop Problem",
-   "doi": null
-  },
-  "PLC2015ATSPRATSTJSSP": {
-   "short": "Peng et al. (2015)",
-   "title": "A Tabu Search/Path Relinking Algorithm to Solve the Job Shop Scheduling Problem",
-   "doi": "10.1016/j.cor.2014.08.006"
-  },
-  "BV1994GLSWSBFJSS": {
-   "short": "Balas and Vazacopoulos (1994)",
-   "title": "Guided Local Search with Shifting Bottleneck for Job Shop Scheduling",
-   "doi": null
-  },
-  "SWV1992NSSFSPWATJSS": {
-   "short": "Storer et al. (1992)",
-   "title": "New Search Spaces for Sequencing Problems with Application to Job Shop Scheduling",
-   "doi": "10.1287/mnsc.38.10.1495"
-  },
-  "T199BFBSP": {
-   "short": "Taillard (1993)",
-   "title": "Benchmarks for Basic Scheduling Problems",
-   "doi": null
-  },
-  "V1995RLOETP": {
-   "short": "Vaessens (1995)",
-   "title": "Results listed on \\'E ric Taillard's Page",
-   "doi": null
-  },
-  "PM2000ATSMGBSBFTJSSP": {
-   "short": "Pezzella and Merelli (2000)",
-   "title": "A Tabu Search Method Guided by Shifting Bottleneck for the Job Shop Scheduling Problem",
-   "doi": "10.1016/S0377-2217(99)00158-7"
-  },
-  "BFW2011CCPALSFJSS": {
-   "short": "Beck et al. (2011)",
-   "title": "Combining Constraint Programming and Local Search for Job-Shop Scheduling",
-   "doi": "10.1287/ijoc.1100.0388"
-  },
-  "PSV2010SJSSPUTPOBABV": {
-   "short": "Pardalos et al. (2010)",
-   "title": "Solving Job Shop Scheduling Problems Utilizing the Properties of Backbone and ``Big Valley''",
-   "doi": null
-  },
-  "S200RLOETP": {
-   "short": "Schilham (2000)",
-   "title": "Results listed on \\'E ric Taillard's Page",
-   "doi": null
-  },
-  "S2019JSSPH": {
-   "short": "Shylo",
-   "title": "Job Shop Scheduling (Personal Homepage)",
-   "doi": null
-  },
-  "SS2018BBOVBCACSOJSS": {
-   "short": "Shylo and Shams (2018)",
-   "title": "Boosting Binary Optimization via Binary Classification: A Case Study of Job Shop Scheduling",
-   "doi": null
-  },
-  "C2003PCOR2FTTETLOETP": {
-   "short": "Caldeira (2003)",
-   "title": "Private Communication of Result 2869 for ta62 to \\'E ric D. Taillard , listed on \\'E ric Taillard's Page",
-   "doi": null
-  },
-  "vH2016DPFRASOSOD": {
-   "short": "Hoorn (2016)",
-   "title": "Dynamic Programming for Routing and Scheduling: Optimizing Sequences of Decisions",
-   "doi": null
-  },
-  "GL2010ETSMBRSFTJSSP": {
-   "short": "Gharbi and Labidi (2010)",
-   "title": "Extending the Single Machine-Based Relaxation Scheme for the Job Shop Scheduling Problem",
-   "doi": "10.1016/j.endm.2010.05.134"
-  },
-  "DMU1996BFSSP": {
-   "short": "Demirkol et al.",
-   "title": "Benchmarking for Shop Scheduling Problems",
-   "doi": null
-  }
- }
 }

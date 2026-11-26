@@ -1,93 +1,75 @@
-// Home: the two paths (solve / train) and a live replay of a real episode.
-import { Gantt } from "../components/gantt.js";
-import { PetriPlayer } from "../components/petri-player.js";
-import { api } from "../core/api.js";
+// Home: a live replay of a recorded episode and the two paths (solve / train), then the environment.
+// The replay comes from a static file, so it starts before the library is loaded.
+import { showcase } from "../components/showcase.js";
 import { h } from "../core/dom.js";
-import { followSimTheme, simThemeName, themeSwitch } from "../core/sim-theme.js";
-import { setEnv, state } from "../core/state.js";
+import { contentPage, t } from "../core/i18n.js";
+import { ensureLibrary, envOf, setEnv, state } from "../core/state.js";
 
-export async function homeView(root) {
-  const learned = state.agents.filter((a) => a.kind !== "rule");
-  const stage = h("div", { class: "hero-stage" });
-  const caption = h("div", { class: "hero-caption" });
-  const net = h("div", { class: "stage-net" });
-  const gantt = h("div", { class: "stage-gantt" });
-  stage.append(caption, net, gantt);
+const DEMO_URL = "/static/demo/home-run.json";   // regenerate with tools/export_home_demo.py
 
-  root.replaceChildren(
-    h("section", { class: "hero" },
-      h("div", {},
-        h("h1", {}, "Watch an agent schedule a job shop."),
-        h("p", { class: "lede" }, "Drop a JSSP instance, solve it with a trained PPO agent or a dispatching rule, " +
-          "and replay every decision as tokens moving through the colored timed Petri net."),
-        h("div", { style: { display: "flex", gap: "10px", marginTop: "26px", flexWrap: "wrap" } },
-          h("a", { class: "btn primary big", href: "#/solve" }, "Solve an instance"),
-          h("a", { class: "btn big", href: "#/train" }, "Train an agent"))),
-      stage),
-    envSection(),
-    h("section", { class: "doors" },
-      h("a", { class: "door solve", href: "#/solve" },
-        h("h2", {}, "I have an agent"),
-        h("p", {}, "Use a stock agent, one you trained here, or upload your own MaskablePPO .zip. Compare it with dispatching rules on any instance."),
-        doorIcon("solve")),
-      h("a", { class: "door", href: "#/train" },
-        h("h2", {}, "I want to train one"),
-        h("p", {}, "Pick instances of one size, set the reward and the training budget, and follow the learning curve live. The agent is saved to your library."),
-        doorIcon("train"))),
-    h("div", { class: "home-foot" },
-      h("span", {}, h("b", {}, state.instances.filter((i) => i.source === "benchmark").length), " benchmark instances"),
-      h("span", {}, h("b", {}, learned.length), " trained agents"),
-      h("span", {}, h("b", {}, state.agents.length - learned.length), " dispatching rules")));
+export function homeView(root) {
+  const stage = h("div", { class: "showcase-slot" });
+  const envSlot = h("div", { class: "env-slot" });       // filled once the environments are loaded
+  root.replaceChildren(heroSection(stage, envSlot));
+  let show = null, gone = false;
+  fetch(DEMO_URL).then((r) => r.json()).then((run) => {
+    if (gone) return;
+    show = showcase(run);
+    stage.replaceChildren(show.el);
+  }).catch(() => stage.remove());
+  ensureLibrary().then(() => { if (!gone) { envSlot.replaceChildren(envSection()); root.append(homeFoot()); } });
+  return () => { gone = true; show?.destroy(); };
+}
 
-  let player = null, chart = null, timer = null, makeChart = null;
-  stage.append(h("div", { class: "hero-theme" }, themeSwitch()));
-  const stopTheme = followSimTheme(stage, () => {        // the compact Gantt is rebuilt in the new colors
-    if (!player || !makeChart) return;
-    chart.destroy();
-    chart = makeChart();
-    chart.setClock(player.clock);
-  });
-  try {
-    const run = await api("/api/demo");
-    caption.replaceChildren(
-      h("span", {}, `${run.instance.name} · ${run.agent.name}`),
-      h("span", { class: "clock" }, "t = 0"));
-    const clockEl = caption.lastChild;
-    makeChart = () => new Gantt(gantt, { schedule: run.schedule, nJobs: run.instance.n_jobs, nMachines: run.instance.n_machines,
-      makespan: run.makespan, dark: simThemeName() === "dark", compact: true });
-    chart = makeChart();
-    player = new PetriPlayer(net, run, {
-      compact: true,
-      onClock: (t) => { chart.setClock(t); clockEl.textContent = `t = ${Math.floor(t)}`; },
-      onState: (st) => {
-        if (!st.playing && st.k >= st.n && player) timer = setTimeout(() => player?.play(), 2500);
-      },
-    });
-    player.setSpeed(matchMedia("(prefers-reduced-motion: reduce)").matches ? 64 : 4);
-    player.toStart();
-    player.play();
-  } catch (e) {
-    caption.textContent = "Demo replay unavailable: " + e.message;
-  }
-  return () => { clearTimeout(timer); stopTheme(); player?.destroy(); player = null; chart?.destroy(); };
+function heroSection(stage, envSlot) {
+  // the title and text are in templates/pages/<lang>/home.html (plain HTML, easy to edit)
+  const text = h("div", { class: "hero-text" });
+  contentPage("home").then((box) => text.prepend(...box.childNodes)).catch(() => {});
+  // one grid: wide, the text sits next to the replay; narrow, text, doors and environment come before the replay
+  return h("section", { class: "hero" }, text, stage, doors(), envSlot);
+}
+
+// the two paths, right under the hero
+function doors() {
+  return h("section", { class: "doors" },
+    h("a", { class: "door", href: "#/solve" },
+      h("h2", {}, t("Solve an instance")),
+      h("p", {}, t("With your own agent, dispatching rules, metaheuristics, or replay a solution directly.")),
+      doorIcon("solve")),
+    h("a", { class: "door", href: "#/train" },
+      h("h2", {}, t("Train an agent")),
+      h("p", {}, t("Choose instances, reward and training budget, and follow the learning curve live.")),
+      doorIcon("train")));
+}
+
+function homeFoot() {
+  const count = (kind) => state.agents.filter((a) => a.kind === kind).length;
+  return h("div", { class: "home-foot" },
+    h("span", {}, h("b", {}, state.instances.filter((i) => i.source === "benchmark").length), " ", t("benchmark instances")),
+    h("span", {}, h("b", {}, count("ppo")), " ", t("RL agents")),
+    h("span", {}, h("b", {}, count("rule")), " ", t("dispatching rules")),
+    h("span", {}, h("b", {}, count("meta")), " ", t("metaheuristics")));
 }
 
 // The environment decides what one agent action is; Train and Solve follow this choice.
 function envSection() {
-  const box = h("div", { class: "env-cards", role: "radiogroup", "aria-label": "Environment" });
-  const render = () => box.replaceChildren(...state.envs.map((e) => {
-    const on = e.name === state.env;
-    return h("button", { type: "button", class: `env-card${on ? " on" : ""}`, role: "radio", "aria-checked": on,
-      onclick: () => { setEnv(e.name); render(); } },
-      h("span", { class: "env-top" }, h("h3", {}, e.title), on ? h("span", { class: "chip dark" }, "Selected") : h("span", { class: "chip" }, "Choose")),
-      h("p", {}, e.description),
-      envFlow(e.name));
-  }));
+  // one card: title and dropdown on top (more environments will come), the chosen one explained below
+  const select = h("select", { class: "env-select", "aria-label": t("Environment"),
+    onchange: () => { setEnv(select.value); render(); } },
+    ...state.envs.map((e) => h("option", { value: e.name }, t(e.title))));
+  select.value = state.env;
+  const body = h("div", { class: "env-body" });
+  const render = () => {
+    const e = envOf(state.env);
+    body.replaceChildren(h("p", {}, t(e.description)), envFlow(e.name));
+  };
   render();
-  return h("section", { class: "env-section" },
-    h("div", { class: "env-head" }, h("h2", {}, "Environment"),
-      h("p", {}, "What one decision of the agent is. Training and solving use the environment chosen here.")),
-    box);
+  return h("section", { class: "env-card" },
+    h("div", { class: "env-head" },
+      h("div", {}, h("h2", {}, t("Environment")),
+        h("p", {}, t("Available: {list}", { list: state.envs.map((e) => t(e.title)).join(", ") }))),
+      select),
+    body);
 }
 
 // a small picture of one agent step in the env
@@ -98,7 +80,11 @@ function envFlow(name) {
     return h("div", { class: "flow" }, tok("state"), arrow(), tok("agent", "agent"), arrow(), tok("MTWR", "rule"), arrow(),
       h("span", { class: "flow-group" }, tok("J3", "job"), tok("J1", "job"), tok("J5", "job"), h("small", {}, "k decisions")));
   }
-  return h("div", { class: "flow" }, tok("state"), arrow(), tok("agent", "agent"), arrow(), tok("J3", "job"), h("small", {}, "or wait"));
+  if (name === "or_informed") {
+    return h("div", { class: "flow" }, tok(t("tabu search"), "rule"), arrow(), tok("clone"), arrow(), tok("PPO"), arrow(),
+      tok("agent", "agent"), arrow(), tok("J3", "job"), h("small", {}, t("or wait")));
+  }
+  return h("div", { class: "flow" }, tok("state"), arrow(), tok("agent", "agent"), arrow(), tok("J3", "job"), h("small", {}, t("or wait")));
 }
 
 function doorIcon(kind) {

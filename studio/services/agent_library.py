@@ -1,4 +1,4 @@
-"""Agent library: stock agents, agents trained in the app, uploaded agents, and dispatching rules."""
+"""Agent library: stock agents, agents trained in the app, uploaded agents, dispatching rules and metaheuristics."""
 import os
 import shutil
 import sys
@@ -6,7 +6,7 @@ import threading
 
 from engine.core import standby_mode
 from engine.envs import DEFAULT_ENV, ENVS, get_env_class
-from engine.policies import RULES
+from engine.policies import METAHEURISTICS, RULES
 from studio.services import storage
 
 FOLDER = "agents"
@@ -28,9 +28,20 @@ def zip_file(aid):
     return storage.path(FOLDER, f"{storage.slug(aid)}.zip")
 
 
+BUILT_IN = ("rule", "meta", "solution")   # kinds without a model; they cannot be changed or deleted
+
+
 def rule_agents():
-    return [{"id": f"rule:{name}", "name": name, "kind": "rule", "source": "rule", "env": DEFAULT_ENV,
-             "description": r["description"]} for name, r in RULES.items()]
+    rules = [{"id": f"rule:{name}", "name": name, "kind": "rule", "source": "rule", "env": DEFAULT_ENV,
+              "description": r["description"]} for name, r in RULES.items()]
+    metas = [{"id": f"meta:{key}", "name": m["name"], "key": key, "kind": "meta", "source": "meta", "env": DEFAULT_ENV,
+              "description": m["description"],
+              "params": [{"key": k, "label": p[0], "default": p[1], "min": p[2], "max": p[3], "step": p[4],
+                          "type": "bool" if isinstance(p[1], bool) else "number"} for k, p in m["params"].items()]} for key, m in METAHEURISTICS.items()]
+    known = [{"id": "solution:known", "name": "Best known solution", "kind": "solution", "source": "solution",
+              "env": DEFAULT_ENV, "description": "replays the stored best known solution of the instance "
+                                                  "(Taillard: optimizizer.com, O. Shylo)"}]
+    return rules + metas + known
 
 
 def seed_stock():
@@ -51,10 +62,10 @@ def list_all():
 
 
 def get(aid):
-    if aid.startswith("rule:"):
+    if aid.startswith(("rule:", "meta:", "solution:")):
         found = [a for a in rule_agents() if a["id"] == aid]
         if not found:
-            raise KeyError(f"unknown rule {aid}")
+            raise KeyError(f"unknown rule or metaheuristic {aid}")
         return found[0]
     if not os.path.exists(_meta_file(aid)):
         raise KeyError(f"agent {aid} not found")
@@ -62,11 +73,15 @@ def get(aid):
 
 
 def compatible(agent, inst_rec):
-    """Same problem type as the agent's net; rules solve any size, a learned agent only its own size."""
+    """Same problem type as the agent's net; rules and metaheuristics solve any size, a learned agent only its own,
+    a known solution only the instance it belongs to."""
     env = get_env_class(agent.get("env", DEFAULT_ENV))
     if inst_rec.get("problem_type", "jssp") not in env.problem_types:
         return False
-    if agent["kind"] == "rule":
+    if agent["kind"] == "solution":
+        from studio.services import known_solutions
+        return known_solutions.has(inst_rec["id"])
+    if agent["kind"] in BUILT_IN:
         return True
     return agent["n_jobs"] == inst_rec["n_jobs"] and agent["n_machines"] == inst_rec["n_machines"]
 
@@ -132,8 +147,8 @@ def upload(file_storage, name=None, env=None):
 def update(aid, name=None, standby=None):
     """Rename, or switch the standby mask between "on" and "gt" (same action space, the agent is unchanged)."""
     meta = get(aid)
-    if meta["kind"] == "rule" or meta["source"] == "stock":
-        raise PermissionError("stock agents and rules cannot be changed")
+    if meta["kind"] in BUILT_IN or meta["source"] == "stock":
+        raise PermissionError("stock agents, rules and metaheuristics cannot be changed")
     if name:
         meta["name"] = name[:60]
     if standby is not None:
@@ -146,8 +161,8 @@ def update(aid, name=None, standby=None):
 
 def delete(aid):
     meta = get(aid)
-    if meta["kind"] == "rule" or meta["source"] == "stock":
-        raise PermissionError("stock agents and rules cannot be deleted")
+    if meta["kind"] in BUILT_IN or meta["source"] == "stock":
+        raise PermissionError("stock agents, rules and metaheuristics cannot be deleted")
     os.remove(_meta_file(aid))
     if os.path.exists(zip_file(aid)):
         os.remove(zip_file(aid))

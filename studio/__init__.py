@@ -6,7 +6,9 @@ from flask import Flask
 from config import config_by_name
 from studio.blueprints import register_blueprints
 from studio.errors import register_error_handlers
-from studio.services import agent_library, storage
+from studio.services import agent_library, compute_queue, storage
+
+__version__ = "0.7.0"
 
 
 def create_app(config_name=None, **overrides):
@@ -19,8 +21,10 @@ def create_app(config_name=None, **overrides):
     # ── Storage and stock content ─────────────────────────
     storage.init(app.config["DATA_DIR"], app.config["STOCK_DIR"])
     agent_library.seed_stock()              # benchmarks are read in place from STOCK_DIR/benchmarks
+    compute_queue.configure(app.config["COMPUTE_SLOTS"], app.config["QUEUE_MAX"])
 
     # ── Blueprints and errors ─────────────────────────────
     register_blueprints(app)
     register_error_handlers(app)
+    app.context_processor(lambda: {"version": __version__})
     return app

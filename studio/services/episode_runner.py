@@ -7,9 +7,12 @@ import numpy as np
 
 from engine.core import standby_mode
 from engine.envs import DEFAULT_ENV, get_env_class, make_env
-from engine.policies import choose, make_rng
+from engine.policies import choose, make_rng, priority_choice, search, turn_choice
+from engine.policies.metaheuristics import settings
+from engine.policies.solutions import firing_choice, parse, sequence_from_machine_orders
 from studio.services import agent_library as agents
 from studio.services import instance_library as instances
+from studio.services import known_solutions
 from studio.services import storage
 
 FOLDER = "runs"
@@ -37,16 +40,29 @@ def _policy_probs(model, obs, mask):
         return None
 
 
-def run(instance_id, agent_id, deterministic=True, seed=0, save=True):
+def run(instance_id, agent_id, deterministic=True, seed=0, save=True, params=None, progress=None, solution=None):
+    """progress(phase, done, total): phase "search" (metaheuristic evaluations) then "episode" (operations).
+    solution: {"text", "name"} replays an uploaded solution instead of an agent (agent_id is then ignored)."""
+    progress = progress or (lambda *_: None)
     inst_rec = instances.get(instance_id)
-    agent = agents.get(agent_id)
-    if not agents.compatible(agent, inst_rec):
+    if solution is not None:
+        agent = {"id": "solution:upload", "name": solution.get("name") or "Uploaded solution", "kind": "solution",
+                 "source": "upload", "env": DEFAULT_ENV}
+    else:
+        agent = agents.get(agent_id)
+    if solution is None and not agents.compatible(agent, inst_rec):
+        if agent["kind"] == "solution":
+            raise ValueError(f"no best known solution is stored for '{inst_rec['name']}'")
         raise ValueError(f"agent '{agent['name']}' was trained for {agent['n_jobs']}x{agent['n_machines']}, "
                          f"instance '{inst_rec['name']}' is {inst_rec['n_jobs']}x{inst_rec['n_machines']}")
     inst = instances.load(instance_id)
-    is_rule = agent["kind"] == "rule"
+    is_rule = agent["kind"] in agents.BUILT_IN        # rules, metaheuristics and solutions dispatch directly, no model
     model = None if is_rule else agents.load_model(agent_id)
-    mode = "off" if is_rule else standby_mode(agent.get("standby"))
+    meta = agent["kind"] == "meta"
+    if meta:
+        params = settings(agent["key"], params)
+    mode = ("on" if agent["kind"] == "solution" or (meta and params["wait"]) else "off") if is_rule \
+        else standby_mode(agent.get("standby"))
     env_name = DEFAULT_ENV if is_rule else agent.get("env", DEFAULT_ENV)       # rules dispatch directly
     env_cls = get_env_class(env_name)
     options = {k: agent.get(k, spec["default"]) for k, spec in env_cls.options.items()}
@@ -59,6 +75,7 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True):
     tokens, initial = _tokens(sim), _marking(sim)
     keys = env.action_keys()
     events, decisions, macros = [], [], []      # decisions: every job released; macros: hyper-heuristic choices
+    released = [0]                              # operations released so far (progress)
 
     def observer(transition, clock, popped, token):
         events.append([clock, transition.uid, popped, token.uid, [c.uid for c in transition.children]])
@@ -74,6 +91,7 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True):
         if macros:
             d["macro"], d["step"] = len(macros) - 1, len(decisions) - macros[-1]["first"]
         decisions.append(d)
+        released[0] += not d["wait"]
 
     hyper = hasattr(env, "on_dispatch")
     if hyper:
@@ -81,11 +99,30 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True):
     sim.set_observer(observer)
     rng = make_rng(seed)
     t0, done, terminated = time.perf_counter(), False, False
+    meta_choose = None
+    if agent["kind"] == "solution":       # replay a known or uploaded solution
+        jobs = [[(m, p) for m, _, p in job] for job in inst.job_sequences]
+        if solution is not None:
+            kind, data = parse(solution["text"], jobs, inst.n_machines)
+        else:
+            stored = known_solutions.get(instance_id)
+            kind, data = "machines", stored["orders"]
+            agent = {**agent, "citation": stored.get("citation"), "url": stored.get("url"), "source": stored.get("source")}
+        meta_choose = (turn_choice(sequence_from_machine_orders(data, jobs), jobs) if kind == "machines"
+                       else firing_choice(data))
+        agent["format"] = "machine orders" if kind == "machines" else "firing sequence"
+    elif meta:                             # search an operation sequence first (counted in the runtime), then dispatch with it
+        seq, _ = search(agent["key"], inst.job_sequences, seed=seed, params=params,
+                        progress=lambda done, total: progress("search", done, total))
+        jobs = [[(m, p) for m, _, p in job] for job in inst.job_sequences]
+        meta_choose = turn_choice(seq, jobs) if params["wait"] else priority_choice(seq, inst.n_jobs)
     while not done:
         mask = env.action_masks()
         enabled = [int(i) for i in np.flatnonzero(mask)]
         probs = None
-        if is_rule:
+        if meta_choose:
+            action = meta_choose(sim, mask)
+        elif is_rule:
             action = choose(agent["name"], sim, mask, rng)
         else:
             action = int(model.predict(obs, action_masks=mask, deterministic=deterministic)[0])
@@ -98,6 +135,7 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True):
             job_decision(action, probs)
         obs, _, terminated, truncated, _ = env.step(action)
         done = terminated or truncated
+        progress("episode", released[0], sim.number_of_ops)
     runtime = time.perf_counter() - t0
     sim.set_observer(None)
 
@@ -107,7 +145,9 @@ def run(instance_id, agent_id, deterministic=True, seed=0, save=True):
     record = {
         "id": rid, "created": storage.now(), "status": "done" if terminated else "truncated",
         "instance": {k: pub.get(k) for k in ("id", "name", "problem_type", "family", "n_jobs", "n_machines", "n_ops", "lb")},
-        "agent": {k: agent.get(k) for k in ("id", "name", "kind", "source", "net_arch", "obs_dim", "reward", "env")},
+        "agent": {**{k: agent.get(k) for k in ("id", "name", "kind", "source", "net_arch", "obs_dim", "reward", "env")},
+                  **{k: agent[k] for k in ("citation", "url", "format") if agent.get(k)},
+                  **({"params": params} if meta else {})},
         "deterministic": deterministic, "standby": mode,
         "env": {"name": env_name, "title": env_cls.title, **options}, "action_keys": keys, "macros": macros,
         "makespan": ms, "reference": ref, "gap": round(100 * (ms - ref["value"]) / ref["value"], 2),
@@ -169,10 +209,12 @@ def list_recent(limit=100):
 
 
 def best_by_instance():
-    """instance id -> the finished run with the smallest makespan."""
+    """instance id -> the finished run with the smallest makespan (replays of known solutions do not count)."""
     best = {}
     for s in _read_index():
         iid = s["instance"]["id"]
+        if s.get("agent", {}).get("kind") == "solution":
+            continue
         if s.get("status") == "done" and (iid not in best or s["makespan"] < best[iid]["makespan"]):
             best[iid] = s
     return best

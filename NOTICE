@@ -1,0 +1,33 @@
+PetriRL Studio
+Copyright 2026 Sofiene Lassoued and South Westphalia University of Applied Sciences
+(Fachhochschule Suedwestfalen, FH SWF)
+
+Developed by Sofiene Lassoued during his PhD at FH SWF, as part of the PetriRL framework
+(https://github.com/Sofiene-Uni/PetriRL-Framework).
+
+License: PolyForm Noncommercial 1.0.0 (see LICENSE). Free for noncommercial use; keep this
+notice (credit to the author and FH SWF) in copies and derived work, and cite the PetriRL
+paper when the software or results obtained with it appear in scientific work:
+
+  S. Lassoued, A. Schwung. Introducing PetriRL: An innovative framework for JSSP
+  resolution integrating Petri nets and event-based reinforcement learning.
+  Journal of Manufacturing Systems 74 (2024) 690-702.
+  https://doi.org/10.1016/j.jmsy.2024.04.028
+
+For commercial use, the solution is for sale or open to cooperation: https://sofiene.lassoued.org
+
+------------------------------------------------------------------------------
+Third-party content
+
+stock/benchmarks/  Job shop benchmark instances (Fisher and Thompson 1963, Lawrence 1984,
+  Adams, Balas and Zawack 1988, Applegate and Cook 1991, Storer, Wu and Vaccari 1992,
+  Yamada and Nakano 1992, Taillard 1993, Demirkol, Mehta and Uzsoy 1998) with lower bounds
+  and best known solutions, converted from Thomas Weise, jsspInstancesAndResults (2020),
+  https://github.com/thomasWeise/jsspInstancesAndResults (GPL-3.0, see
+  stock/benchmarks/LICENSE-GPL-3.0.txt).
+
+Fonts (Instrument Sans, JetBrains Mono) are loaded from Google Fonts (SIL Open Font License).
+
+Best known solutions of the Taillard instances are not distributed with this software: the app downloads them on
+request from optimizizer.com (maintained by Oleg Shylo, https://optimizizer.com/TA.php), checks them by replaying
+them on the Petri net, stores them in the data folder and cites the page with every replay.

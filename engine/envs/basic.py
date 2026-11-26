@@ -17,6 +17,7 @@ class BasicEnv(Env):
     problem_types = ("jssp",)
     options = {}                          # extra constructor settings, shown in the Train form
     supports_standby = True
+    forced_standby = None                 # a wait mode the env always uses (None: chosen when training)
     fixed_actions = None                  # None: one action per job (+ wait)
     metadata = {"render_modes": []}
 

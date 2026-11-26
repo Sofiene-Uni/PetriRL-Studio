@@ -1,6 +1,8 @@
 import io
 import os
 
+from tests.conftest import solve
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
@@ -43,7 +45,7 @@ def test_upload_reports_errors_per_file(client):
 
 
 def test_solve_rule_and_read_run(client):
-    r = client.post("/api/solve", json={"instance_ids": ["jssp:ft06"], "agent_ids": ["rule:SPT"]}).get_json()
+    r = solve(client, ["jssp:ft06"], ["rule:SPT"])
     run = r["results"][0]
     assert run["status"] == "done" and run["makespan"] >= run["reference"]["value"] == 55
     assert run["gap"] == round(100 * (run["makespan"] - 55) / 55, 2)
@@ -59,3 +61,16 @@ def test_errors_are_json(client):
     r = client.post("/api/instances/random", json={"n_jobs": 1, "n_machines": 1})
     assert r.status_code == 400 and "size" in r.get_json()["error"]
     assert client.delete("/api/instances/jssp:ft06").status_code == 403
+
+
+def test_solve_with_a_metaheuristic(client):
+    assert {"meta:GA", "meta:SA", "meta:TS"} <= {a["id"] for a in client.get("/api/agents").get_json()}
+    run = solve(client, ["jssp:ft06"], ["meta:GA"])["results"][0]
+    assert run["status"] == "done" and run["agent"]["kind"] == "meta" and 55 <= run["makespan"] <= 61
+
+
+def test_visitor_counter_is_saved_in_the_data_folder(client):
+    assert client.get("/api/visits").get_json() == {"visits": 0, "visitors": 0}
+    client.post("/api/visits", json={"id": "browser-a"})
+    client.post("/api/visits", json={"id": "browser-a"})
+    assert client.post("/api/visits", json={"id": "browser-b"}).get_json() == {"visits": 3, "visitors": 2}

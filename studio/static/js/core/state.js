@@ -10,6 +10,7 @@ export const state = {
   env: saved || "basic",         // the environment chosen on the home page (Train and Solve follow it)
   pickedInstances: new Set(),
   pickedAgents: new Set(),
+  metaParams: {},            // settings per metaheuristic id, kept while the app is open
   trainInstances: new Set(),
   lastResults: null,
 };
@@ -22,6 +23,10 @@ export async function refreshLibrary() {
   const aids = new Set(state.agents.map((a) => a.id));
   for (const id of state.pickedAgents) if (!aids.has(id)) state.pickedAgents.delete(id);
 }
+
+// first load of the library, shared by the router and the home page
+let firstLoad = null;
+export const ensureLibrary = () => (firstLoad ??= refreshLibrary());
 
 export function setEnv(name) {
   state.env = name;

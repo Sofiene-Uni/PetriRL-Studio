@@ -29,3 +29,12 @@ def cancel_training(jid):
     job.cancel = True
     job.log("stop requested, saving the best checkpoint")
     return jsonify(ok=True)
+
+
+@training_bp.post("/<jid>/milestone")
+def save_milestone(jid):
+    job = trainer.get(jid)
+    if job.status != "running":
+        return jsonify(error="Milestones can only be saved while training runs"), 409
+    job.milestone = True
+    return jsonify(ok=True)

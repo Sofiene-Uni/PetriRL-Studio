@@ -4,9 +4,10 @@
 // confidence = 1 - H(p) / log(n) over the n enabled actions: 1 = all weight on one action, 0 = uniform.
 import { h, s } from "../core/dom.js";
 import { simPalette } from "../core/sim-theme.js";
+import { t } from "../core/i18n.js";
 
 const W = 264, ROW = 19, MAX_OUT = 6;
-const LEVELS = [[0.7, "Confident", "#1E9E6A"], [0.4, "Leaning", "#E09A2C"], [0, "Unsure", "#D2453B"]];
+const LEVELS = () => [[0.7, t("Confident"), "#1E9E6A"], [0.4, t("Leaning"), "#E09A2C"], [0, t("Unsure"), "#D2453B"]];
 
 export function confidence(probs) {
   const p = Object.values(probs || {});
@@ -15,7 +16,7 @@ export function confidence(probs) {
   return Math.max(0, Math.min(1, 1 - H / Math.log(p.length)));
 }
 
-export function level(c) { return LEVELS.find(([t]) => c >= t); }
+export function level(c) { return LEVELS().find(([t]) => c >= t); }
 
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -120,7 +121,7 @@ export class PolicyView {
   gauge(c) {
     const box = h("div", { class: "conf" });
     if (c == null) {
-      box.append(h("span", { class: "conf-label" }, "Forced: only one action was enabled"));
+      box.append(h("span", { class: "conf-label" }, t("Forced: only one action was enabled")));
       return box;
     }
     const [, name, color] = level(c);
@@ -149,17 +150,17 @@ export class PolicyView {
 function maskedRow(keys, enabled, labelOf, animate) {
   const on = new Set(enabled);
   const masked = keys.filter((k) => !on.has(k));
-  if (!masked.length) return h("div", { class: "masked-row" }, h("span", { class: "masked-title" }, "Masked"), h("span", { class: "muted" }, "none, every action is enabled"));
+  if (!masked.length) return h("div", { class: "masked-row" }, h("span", { class: "masked-title" }, t("Masked")), h("span", { class: "muted" }, "none, every action is enabled"));
   return h("div", { class: `masked-row${animate && !reduced() ? " animate" : ""}` },
-    h("span", { class: "masked-title", title: "Not enabled by the Petri net guard function: probability forced to 0" },
-      `Masked ${masked.length} of ${keys.length}`),
+    h("span", { class: "masked-title", title: t("Not enabled by the Petri net guard function: probability forced to 0") },
+      t("Masked {n} of {total}", { n: masked.length, total: keys.length })),
     ...masked.map((k, i) => h("span", { class: "masked-chip", style: { animationDelay: `${Math.min(i, 12) * 25}ms` } }, labelOf(k))));
 }
 
 // One bar per decision over the episode: height and color by confidence; click to jump there.
 export function confidenceStrip(decisions, onPick) {
   const W2 = 264, H2 = 34;
-  const canvas = h("canvas", { class: "conf-strip", title: "Agent confidence over the episode. Click to jump." });
+  const canvas = h("canvas", { class: "conf-strip", title: t("Agent confidence over the episode. Click to jump.") });
   let at = -1;
   const draw = (current = at) => {
     at = current;

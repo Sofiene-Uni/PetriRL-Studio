@@ -11,9 +11,13 @@ _paths = {"data": None, "stock": None}
 _lock = threading.Lock()
 
 
+# everything the app writes lives in DATA_DIR (in Docker: a folder of the server, so it survives a rebuild)
+DATA_FOLDERS = ("instances", "agents", "runs", "solutions")      # + visitors.json
+
+
 def init(data_dir, stock_dir):
     _paths["data"], _paths["stock"] = data_dir, stock_dir
-    for sub in ("instances", "agents", "runs"):
+    for sub in DATA_FOLDERS:
         os.makedirs(os.path.join(data_dir, sub), exist_ok=True)
 
 

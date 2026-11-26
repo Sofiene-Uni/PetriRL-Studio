@@ -1,0 +1,127 @@
+{# Technologie-Seite: ein Artikel pro Paper / Repository. Reines HTML: frei bearbeitbar.
+   Englische Fassung: ../en/technology.html. Neues Paper: einen <article>-Block kopieren. #}
+<h1>Technologie</h1>
+<p class="lead">PetriRL Studio beruht auf einer Forschungslinie zu Reinforcement Learning für ereignisdiskrete
+  Systeme an der Fachhochschule Südwestfalen. Jedes Paper hat ein eigenes offenes Repository; diese Seite erklärt,
+  was jedes einzelne beiträgt.</p>
+
+<nav class="tech-toc">
+  <a href="#t-petrirl">PetriRL</a><a href="#t-fms">Intralogistik</a><a href="#t-hh">Hyperheuristiken</a>
+  <a href="#t-djssp">Dynamische Werkstattfertigung</a><a href="#t-mask">Aktionsmaskierung</a><a href="#t-studio">PetriRL Studio</a>
+</nav>
+
+<article class="tech-post" id="t-petrirl">
+  <p class="tech-meta">Journal of Manufacturing Systems 74, 2024 <span class="tag green">veröffentlicht</span></p>
+  <h2>PetriRL: Petri-Netze und ereignisbasiertes Reinforcement Learning</h2>
+  <p>Die Grundlage. Eine Werkstattfertigung wird als farbiges zeitbehaftetes Petri-Netz modelliert: Marken sind
+    Arbeitsgänge, ihre Farbe gibt Auftrag und Maschine an, zeitbehaftete Transitionen bearbeiten sie. Das Netz ist
+    die Umgebung des Agenten, ein schlanker digitaler Zwilling der Fertigung.</p>
+  <h3>So funktioniert es</h3>
+  <ul>
+    <li><b>Guard-Funktionen als Aktionsmasken.</b> Das Netz weiß bereits, welche Transitionen schalten dürfen.
+      Unzulässige Aktionen werden vor der Wahl gesperrt; der Agent lernt nie aus unmöglichen Zügen.</li>
+    <li><b>Ereignisbasierte Entscheidungen.</b> Zwischen den Entscheidungen schaltet das Netz seine automatischen und
+      zeitbehafteten Transitionen, die Uhr springt zum nächsten Ereignis. Der Agent wird nur gefragt, wenn es eine
+      Wahl gibt.</li>
+    <li><b>Erklärbar durch Aufbau.</b> Jede Aktion ist ein Schalten einer Transition und lässt sich als Markenfluss
+      abspielen.</li>
+  </ul>
+  <h3>Ergebnis</h3>
+  <p>Ein maskierter PPO-Agent plant Taillard-Instanzen auf dem Netz und wird mit Prioritätsregeln und lernenden
+    Verfahren verglichen. Dasselbe Modell ist der Ausgangspunkt aller weiteren Arbeiten.</p>
+  <p class="tech-links"><a href="https://doi.org/10.1016/j.jmsy.2024.04.028" target="_blank" rel="noopener">Paper</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL-Framework" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-fms">
+  <p class="tech-meta">Journal of Manufacturing Systems 82, 2025 <span class="tag green">veröffentlicht</span></p>
+  <h2>Intralogistik: FTS und Werkzeugteilung in flexiblen Fertigungssystemen</h2>
+  <p>In echten Fertigungen werden Teile und Werkzeuge bewegt. Diese Arbeit ergänzt fahrerlose Transportsysteme, die
+    Aufträge zwischen Maschinen befördern, und Werkzeugtransporter, die Werkzeuge teilen, im selben Petri-Netz.</p>
+  <h3>So funktioniert es</h3>
+  <ul>
+    <li>Auftrags-, FTS- und Werkzeugentscheidungen teilen sich ein Netz; die Guard-Funktionen halten den größeren
+      Aktionsraum beherrschbar.</li>
+    <li>Ein Actor-Critic-Agent mit modellbasierter Vorausschau auf dem Netz entscheidet, wo FTS auf ihren nächsten
+      Transport warten.</li>
+  </ul>
+  <h3>Ergebnis</h3>
+  <p>Bewertet auf kleinen öffentlichen FMS-Benchmarks und auf einem neuen großen Benchmark, abgeleitet von den
+    Taillard-Instanzen.</p>
+  <p class="tech-links"><a href="https://doi.org/10.1016/j.jmsy.2025.06.017" target="_blank" rel="noopener">Paper</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL_Intralogistics" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-hh">
+  <p class="tech-meta">Preprint, eingereicht bei Knowledge-Based Systems <span class="tag amber">in Begutachtung</span></p>
+  <h2>Hyperheuristiken: der Agent wählt die Regel</h2>
+  <p>Statt eines Auftrags wählt der Agent eine von 14 Prioritätsregeln (kürzeste Bearbeitungszeit, größte
+    Restarbeit, ...). Jede Entscheidung bleibt lesbar: Man sieht jederzeit, welche Regel gilt und warum ihr Auftrag
+    gewählt wurde.</p>
+  <h3>So funktioniert es</h3>
+  <ul>
+    <li><b>Vorfilterung.</b> Die Guard-Funktionen des Netzes entfernen unzulässige Aktionen, bevor die Regeln sie sehen.</li>
+    <li><b>Bindung.</b> Eine gewählte Regel bleibt für k Entscheidungen aktiv. Diese zeitliche Abstraktion verkürzt
+      den Horizont und stabilisiert das Training; bei festem k bleibt das Problem ein Markov-Entscheidungsprozess,
+      was einen Konvergenznachweis über Mirror Learning erlaubt.</li>
+  </ul>
+  <h3>Ergebnis</h3>
+  <p>Auf den Taillard-Gruppen von 15×15 bis 100×20 erreicht oder schlägt die Hyperheuristik auf jeder Instanz die
+    beste einzelne Regel und erzielt die niedrigste mittlere Zykluszeit (2856) unter den verglichenen lernenden
+    Verfahren. Eine Bindung von 5 Entscheidungen ist im Mittel am besten.</p>
+  <p class="tech-links"><a href="https://arxiv.org/abs/2601.11189" target="_blank" rel="noopener">Preprint</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL_Hyperheuristic" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-djssp">
+  <p class="tech-meta">Preprint, arXiv 2026 <span class="tag amber">in Überarbeitung</span></p>
+  <h2>Dynamische Werkstattfertigung: zufällige Ankünfte und Maschinenausfälle</h2>
+  <p>Pläne brechen, wenn Aufträge spät eintreffen oder Maschinen ausfallen. Hier kommen Aufträge gemäß einer
+    Gamma-Verteilung an und Maschinen fallen gemäß einer Weibull-Verteilung aus, während der Agent plant.</p>
+  <h3>So funktioniert es</h3>
+  <ul>
+    <li>Ein Ausfall sperrt die Start-Transition der Maschine; Aufträge, die auf diese Maschine warten, werden indirekt
+      maskiert.</li>
+    <li>Zwei Arten, die Maske zu behandeln, werden verglichen: die Wahrscheinlichkeit unzulässiger Aktionen
+      überschreiben oder sie im Training mit einem zusätzlichen Gradienten senken.</li>
+  </ul>
+  <h3>Ergebnis</h3>
+  <p>Die gelernte Strategie plant ohne erneutes Training durch Störungen hindurch und erzielt auf den dynamischen
+    Benchmarks kürzere Zykluszeiten als klassische Prioritätsregeln.</p>
+  <p class="tech-links"><a href="https://arxiv.org/abs/2601.09293" target="_blank" rel="noopener">Preprint</a>
+    <a href="https://github.com/Sofiene-Uni/PetriRL_DJSSP" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-mask">
+  <p class="tech-meta">In Vorbereitung, 2027 <span class="tag">demnächst</span></p>
+  <h2>Aktionsmaskierung neu betrachtet</h2>
+  <p>In einer Werkstattfertigung sind oft nur wenige aller Aktionen gleichzeitig zulässig. Diese Arbeit untersucht,
+    ob die übliche harte Maske in solch stark eingeschränkten Systemen die beste Wahl ist, und vergleicht sie mit
+    gradientenbasierter Maskierung für schnelleres und robusteres Training.</p>
+  <p class="tech-links"><a href="https://github.com/Sofiene-Uni/PetriRL-Masking" target="_blank" rel="noopener">Code</a></p>
+</article>
+
+<article class="tech-post" id="t-more">
+  <p class="tech-meta">CoDIT 2026 <span class="tag green">vorgestellt</span></p>
+  <h2>Konferenzbeiträge</h2>
+  <ul>
+    <li>Just-in-Time-orientierte Ablaufplanung mit PetriRL.</li>
+    <li>Unscharfe (Fuzzy) Mehrzieloptimierung (mit Diyar Altinses).</li>
+  </ul>
+</article>
+
+<article class="tech-post" id="t-studio">
+  <p class="tech-meta">Frei für nichtkommerzielle Nutzung, 2026 <span class="tag blue">diese Anwendung</span></p>
+  <h2>PetriRL Studio</h2>
+  <p>Alles oben Genannte an einem Ort, ohne eine Zeile Code.</p>
+  <ul>
+    <li><b>Lösen:</b> eigene Instanzen oder 242 klassische Benchmarks mit 15 Prioritätsregeln, drei
+      Metaheuristiken (genetischer Algorithmus, Simulated Annealing, Tabu-Suche, alle mit Warteaktion) oder
+      trainierten Agenten, verglichen über den Abstand zum Optimum.</li>
+    <li><b>Trainieren:</b> Agenten in der Dispatching- oder Hyperheuristik-Umgebung oder OR-informiert:
+      Tabu-Suche löst die Trainingsinstanzen, der Agent übernimmt ihre Entscheidungen, danach verfeinert PPO.</li>
+    <li><b>Abspielen:</b> jeden Plan auf dem Petri-Netz mit den Wahrscheinlichkeiten des Agenten, oder eine bekannte
+      Lösung (Maschinenreihenfolgen oder Schaltfolge).</li>
+  </ul>
+  <p class="tech-links"><a href="https://github.com/Sofiene-Uni/PetriRL-Studio" target="_blank" rel="noopener">Code</a></p>
+</article>
