@@ -15,7 +15,7 @@ reinforcement learning agents that schedule job shops on a colored timed Petri n
 - **Environments**: dispatching (one action releases one job, optional wait) and hyper-heuristic (one action picks one
   of 14 dispatching rules for the next k decisions).
 
-![Replay with the policy network, confidence and decisions](assets/replay-overview.gif)
+![Replay with the policy network, confidence and decisions](assets/replay-policy.gif)
 
 ## Quick start
 
@@ -41,7 +41,8 @@ tests/      engine and API tests
 ## Credit and citation
 
 Developed by **Sofiene Lassoued** during his PhD at **South Westphalia University of Applied Sciences
-(Fachhochschule Südwestfalen, FH SWF)**.
+(Fachhochschule Südwestfalen, FH SWF)**. You are welcome to use, modify and share it; please keep this credit
+and cite the PetriRL paper when the app or its results appear in scientific work:
 
 ```bibtex
 @article{lassoued2024petrirl,
